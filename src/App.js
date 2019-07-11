@@ -42,6 +42,7 @@ class App extends Component {
           console.error(err)
         })
         .then(result => {
+          console.log(result)
           // Get Confidence score
           let confidence = result.confidence
 
@@ -49,7 +50,7 @@ class App extends Component {
           let text = result.text
 
           // Get codes
-          let pattern = /\b\w{4,4}\b/g
+          let pattern = /\b\d{4}\b/g;
           let patterns = result.text.match(pattern);
 
           // Update state
