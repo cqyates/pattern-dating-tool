@@ -22,5 +22,10 @@
   "bugs": {
     "url": "https://github.com/cqyates/pattern-dating-tool/issues"
   },
-  "homepage": "https://github.com/cqyates/pattern-dating-tool#readme"
+  "homepage": "https://github.com/cqyates/pattern-dating-tool#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.2.7",
+    "mongoose": "^5.6.4"
+  }
 }
