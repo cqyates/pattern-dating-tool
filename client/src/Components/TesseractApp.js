@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from "axios";
 
 const Tesseract = window.Tesseract;
 
@@ -8,7 +9,8 @@ class App extends Component {
     this.state = {
       uploads: [],
       patterns: [],
-      documents: []
+      documents: [],
+      imgData: []
     };
   }
 
@@ -28,6 +30,35 @@ class App extends Component {
         uploads: []
       })
     }
+  }
+
+  uploadPhoto = (e) => {
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append('file', file);
+    console.log(formData)
+    this.setState({
+      imgData: formData
+    }, ()=> console.log(this.state))
+  }
+
+  APIuploadPhoto = async () => {
+    try {
+      const response = await axios({
+        method: "POST",
+        url: "/api/imgupload",
+        data: this.state.imgData
+      })
+
+      console.log(response);
+    } catch (error) {
+      console.log(error.message)
+    }
+    // const response = await axios({
+    //   method: "GET",
+    //   url: "/api"
+    // })
+    // console.log(response)
   }
 
   generateText = () => {
@@ -76,7 +107,8 @@ class App extends Component {
         <section className="hero">
           <label className="fileUploaderContainer">
             Click here to upload documents
-    <input type="file" id="fileUploader" onChange={this.handleChange} multiple />
+    <input type="file" id="fileUploader" onChange={this.uploadPhoto} multiple />
+    {/* <input type="file" id="fileUploader" onChange={this.handleChange} multiple /> */}
           </label>
 
 
@@ -87,7 +119,7 @@ class App extends Component {
             })}
           </div>
 
-          <button onClick={this.generateText} className="button">Generate</button>
+          <button onClick={this.APIuploadPhoto} className="button">Generate</button>
         </section>
 
         { /* Results */}

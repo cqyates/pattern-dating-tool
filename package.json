@@ -24,11 +24,13 @@
   },
   "homepage": "https://github.com/cqyates/pattern-dating-tool#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "concurrently": "^4.1.1",
     "express": "^4.17.1",
     "if-env": "^1.0.4",
     "mongodb": "^3.2.7",
     "mongoose": "^5.6.4",
+    "multer": "^1.4.1",
     "nodemon": "^1.19.1"
   }
 }
