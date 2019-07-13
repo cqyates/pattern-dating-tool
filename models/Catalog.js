@@ -3,12 +3,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const CatalogSchema = new Schema({
-
-    patternNumber: {
-        type: Number,
-        required: true,
-        unique: false
-    },
     company: {
         type: String,
         required: true,
@@ -26,14 +20,11 @@ const CatalogSchema = new Schema({
         type: Number,
         required: true
     },
-    image: {
+    imageCover: {
         type: String,
         required: true
     },
-    link: {
-        type: String,
-        required: true
-    }
+  
 
 })
 

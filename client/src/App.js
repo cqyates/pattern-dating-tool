@@ -1,10 +1,10 @@
 import React from "react";
-import TesseractApp from "./Components/TesseractApp"
+import UploadApp from "./Components/UploadApp"
 
 function App() {
   return (
     <div>
-     <TesseractApp />
+     <UploadApp />
     </div>
   );
 }

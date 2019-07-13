@@ -1,8 +1,6 @@
+//High Level Dependencies
 const express = require("express");
-const multer = require("multer");
 const mongoose = require("mongoose");
-
-
 
 const app = express();
 const PORT = process.env.PORT || 3001;
