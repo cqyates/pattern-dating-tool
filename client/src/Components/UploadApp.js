@@ -6,8 +6,8 @@ class UploadApp extends Component {
     super(props)
     this.state = {
       uploads: [],
-      // patterns: [],
-      // documents: [],
+      patterns: [],
+      documents: [],
       imgData: []
     };
   }
