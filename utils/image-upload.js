@@ -19,7 +19,7 @@ const fileFilter = function(req, file, cb){
   }
   cb(null, true)
 }
-const upload = multer({
+const image = multer({
   fileFilter, 
   dest: "./uploads",
   // storage: multerS3 ({
@@ -40,4 +40,4 @@ const upload = multer({
   }
 })
 
-module.exports = upload;
+module.exports = image;
