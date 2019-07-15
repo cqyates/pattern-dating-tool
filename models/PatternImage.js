@@ -22,6 +22,6 @@ const PatternImageSchema = new Schema({
 
 })
 
-const PatternImage = mongoose.model("Pattern-Images", PatternImageSchema);
+const PatternImage = mongoose.model("PatternImages", PatternImageSchema);
 
 module.exports = PatternImage;

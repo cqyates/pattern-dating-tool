@@ -24,13 +24,16 @@
   },
   "homepage": "https://github.com/cqyates/pattern-dating-tool#readme",
   "dependencies": {
+    "aws-sdk": "^2.493.0",
     "body-parser": "^1.19.0",
     "concurrently": "^4.1.1",
+    "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "if-env": "^1.0.4",
     "mongodb": "^3.2.7",
     "mongoose": "^5.6.4",
     "multer": "^1.4.1",
+    "multer-s3": "^2.9.0",
     "nodemon": "^1.19.1",
     "tesseract.js": "^2.0.0-alpha.11"
   }

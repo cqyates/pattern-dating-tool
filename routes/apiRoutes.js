@@ -31,3 +31,6 @@ router.get("/api", (req, res)=> {
 })
 
 module.exports = router;
+
+//first the image is uploaded from the UploadApp and passed here to the back end, now I need to take this image object and "run it through the tesseract". 
+//Once I have the image and the text result, I need to make the file size a lot smaller, add a watermark(I hope) and then send the image through to my AWS account.

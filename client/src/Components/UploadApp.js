@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import axios from "axios";
 
-class App extends Component {
+class UploadApp extends Component {
   constructor(props) {
     super(props)
     this.state = {
       uploads: [],
-      patterns: [],
-      documents: [],
+      // patterns: [],
+      // documents: [],
       imgData: []
     };
   }
@@ -86,4 +86,4 @@ class App extends Component {
 
 }
 
-export default App;
+export default UploadApp;

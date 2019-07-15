@@ -1,4 +1,6 @@
 //High Level Dependencies
+require('dotenv').config();
+
 const express = require("express");
 const mongoose = require("mongoose");
 
@@ -16,11 +18,8 @@ if (process.env.NODE_ENV === "production") {
 const routes = require("./routes");
 app.use(routes);
 
-app.get('/', function(req, res) {
-  res.json({messsage: welcome})
-});
 
-// Connect to the Mongo DB
+// Connect to the Mongo DB 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/catalogDB");
 
 // Start the API server
