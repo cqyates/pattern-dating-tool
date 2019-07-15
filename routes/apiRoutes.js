@@ -1,14 +1,16 @@
-const db = require("../models");
-const multer = require("multer");
+const router = require("express").Router();
+const upload = require('../utils/image-upload');
 
-// SET STORAGE
-const storage = multer.diskStorage({
-  destination: function(req, file, cb) {
-    cb(null, "public/assets/images");
-  },
-  filename: function(req, file, cb) {
-    cb(null, Date.now() + ".jpg");
-  }
-});
+router.post("/api/imgupload", upload.single('file'), async (req, res) => {
+  console.log("here")
+  console.log(req.file);
 
-const upload = multer({ storage: storage })
+  res.json({ msg: "Route worked"})
+})
+
+router.get("/api", (req, res)=> {
+  res.json({ msg: "routes match"})
+})
+
+module.exports = router;
+
