@@ -1,14 +1,20 @@
 import React from 'react';
-import Container from './Components/Container'
-import UploadApp from './Components/UploadApp';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Admin from "./pages/Admin";
+import "./App.css"
 
-class App extends React.Component {
-    render() {
-      return <Container>
-          <UploadApp />
-      </Container>
 
-    }
-  }
-  
-  export default App;
+function App() {
+  return (
+    <Router>
+      <div>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/home" component={Home} />
+        <Route exact path="/admin" component={Admin} />
+      </div>
+    </Router>
+  );
+}
+
+export default App;

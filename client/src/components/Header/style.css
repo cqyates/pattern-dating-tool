@@ -1,0 +1,25 @@
+.header{
+    background-color: #c2e5fc;
+    font-family: 'Open Sans', sans-serif;
+    min-height: auto;
+}
+image{
+    padding-left: 20px;
+}
+h1{
+    color: #758696;
+    display: inline;
+    font-family: 'Open Sans', sans-serif;
+    margin-left: 25%;
+    
+}
+#basic-addon1{
+    background-color: #fcf6c2;
+    border: 1px solid #ced4da;
+    color: #758696;
+   
+}
+
+.nav-link{
+    color: #758696;
+}
