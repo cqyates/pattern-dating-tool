@@ -11,7 +11,7 @@ const PatternSchema = new Schema({
     },
     patternNumber:{
         type: Number,
-        required: false
+        required: true,
     },
  
 })
