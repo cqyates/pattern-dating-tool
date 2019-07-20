@@ -19,6 +19,7 @@ const CatalogSchema = new Schema({
         type: String,
         required: true
     },
+    pages: //don't know what this is suppose to look like
   
 
 })

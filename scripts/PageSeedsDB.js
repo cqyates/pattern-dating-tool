@@ -5,10 +5,10 @@ const db = require("../models");
 
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb://localhost/"
+  "mongodb://localhost/pageDB"
 );
 
-const PatternImageSeed = [
+const PageSeed = [
   {
     page: 1,
     catalog: //What goes here to tie this to correct catalog
@@ -80,7 +80,7 @@ const PatternImageSeed = [
 //FIXME Where does this get called?
 db.Catalog
   .remove({})
-  .then(() => db.Catalog.collection.insertMany(PatternImageSeed))
+  .then(() => db.Catalog.collection.insertMany(pageSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
