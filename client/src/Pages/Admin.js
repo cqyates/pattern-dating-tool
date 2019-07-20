@@ -1,24 +1,22 @@
 import React, {Component} from "react";
 // import {Col, Row} from "../components/Grid";
 import Input from "../components/Input";
-import Hero from "../components/Hero"
-import {Form, Container, Row, Col} from "react-bootstrap";
+// import Hero from "../components/Hero"
+import { Form, Container, Row, Col } from "react-bootstrap";
 import Header from "../components/Header";
-import FormBtn from "../components/Form"
+import FormBtn from "../components/Form";
 
 
 
 class Admin extends Component {
     state={
-       
+      
         
-    }
-    
+    } 
     render() {
         return (
             <div>
-                <Header />
-                <Hero />    
+                <Header />  
                 <Container>
                 <div style={{margin: "auto", width:"50%", padding:"20px"}}>
                     <Row>
