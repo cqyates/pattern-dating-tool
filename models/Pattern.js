@@ -1,3 +1,5 @@
+//Need to Finish this one.
+
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
@@ -11,14 +13,9 @@ const PatternSchema = new Schema({
         type: Number,
         required: false
     },
-    year:{
-        type: Number,
-        required: true
-    },
-    imageCover: {
-        type: String,
-        required: true
-    },
-  
-
+ 
 })
+
+const Pattern = mongoose.model("Pattern", PatternSchema);
+
+module.exports = Pattern;
