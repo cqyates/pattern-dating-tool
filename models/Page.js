@@ -1,26 +1,23 @@
 const mongoose = require("mongoose");
-
 const Schema = mongoose.Schema;
 
-const PageSchema = new Schema({
-    pageNumber: {
-        type: Number,
+const pageSchema = new Schema({
+	number: { 
+        type: Number, 
+        required: true },
+	catalog: [{ 
+        type: Schema.Types.ObjectId,
+        ref: 'Catalog' }],
+	patterns: [{ 
+        type: Schema.Types.ObjectId, 
+        ref: 'Pattern' }],
+    imgURL: {
+        type: String,
         required: true,
-        unique: false,
-    },
-    patternNumbeArray: {
-        type: Array,
-        required: true,
-        unique: false,
-    },
-    catalog: {
-       type: Schema.Types.ObjectId,
-       ref: "Catalog"
-    },
-   
+        unique: true,
+    }
+});
 
-})
-
-const Page = mongoose.model("Page", PageSchema);
+const Page = mongoose.model("Page", pageSchema);
 
 module.exports = Page;

@@ -1,21 +1,11 @@
-//Need to Finish this one.
-
 const mongoose = require("mongoose");
-
 const Schema = mongoose.Schema;
 
-const PatternSchema = new Schema({
-    company: {
-        type: Schema.Types.ObjectId,
-        ref: "Company"
-    },
-    patternNumber:{
-        type: Number,
-        required: true,
-    },
- 
-})
+const patternSchema = new Schema({
+	patternNumber: { type: Number, required: true },
+	catalogs: [{ type: Schema.Types.ObjectId, ref: 'Catalog' }]
+});
 
-const Pattern = mongoose.model("Pattern", PatternSchema);
+const Pattern = mongoose.model("Pattern", patternSchema);
 
 module.exports = Pattern;
