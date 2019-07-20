@@ -12,10 +12,6 @@ const CatalogSchema = new Schema({
         type: String,
         required: false
     },
-    month:{
-        type: String,
-        required: false
-    },
     year:{
         type: Number,
         required: true
