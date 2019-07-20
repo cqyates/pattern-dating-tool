@@ -41,28 +41,26 @@ const upload = multer({
 const uploadAWS = async (file, res, cb) => {
   console.log(file.path)
   try {
-      fs.readFile(file.path, function(err,data){
-        params = { Bucket: myBucket, Key: `${file.originalname}`, Body: data }
-        s3.upload(params, function (err, data) {
+    fs.readFile(file.path, function (err, data) {
+      params = { Bucket: myBucket, Key: `${file.originalname}`, Body: data }
+      s3.upload(params, function (err, data) {
 
-          if (err) {
- 
-              console.log(err)
- 
-          } else {
- 
-              console.log("Successfully uploaded data to myBucket/myKey");
-              
-              // const imgPath = `https://s3${myBucket}/${file.originalname}`;
-              // //FIXME Need help writing this callback function, purpose is to send on the
-              // cb(imgPath)
-          }
- 
-       });
+        if (err) {
+
+          console.log(err)
+
+        } else {
+
+          console.log("Successfully uploaded data to myBucket/myKey")
+          const filePath = `https://${myBucket}.s3.us-east-2.amazonaws.com/${file.originalname}`
+          console.log(filePath)
+
+        }
 
       })
-      
-    }
+
+    })
+  }
     catch {
       console.log("try function failed")
     }
@@ -70,6 +68,6 @@ const uploadAWS = async (file, res, cb) => {
 
 
 module.exports = {
-  upload,
-  uploadAWS
-};
+    upload,
+    uploadAWS
+  };

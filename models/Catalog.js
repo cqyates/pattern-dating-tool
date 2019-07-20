@@ -1,29 +1,24 @@
 const mongoose = require("mongoose");
-
 const Schema = mongoose.Schema;
 
-const CatalogSchema = new Schema({
-    company: {
-        type: Schema.Types.ObjectId,
-        ref: "Company"
-    },
-    season:{
-        type: String,
-        required: false
-    },
-    year:{
-        type: Number,
-        required: true
-    },
-    imageCover: {
-        type: String,
-        required: true
-    },
-    pages: //don't know what this is suppose to look like
-  
+const catalogSchema = new Schema({
+	name: { 
+        type: String, 
+        required: true },
+	year: { 
+        type: Number, 
+        required: true },
+    season: { 
+        type: String, 
+        required: true },
+	pages: [{ 
+        type: Schema.Types.ObjectId, 
+        ref: 'Page' }],
+	company: { 
+        type: Schema.Types.ObjectId, 
+        ref: 'Company' }
+});
 
-})
-
-const Catalog = mongoose.model("Catalog", CatalogSchema);
+const Catalog = mongoose.model("Catalog", catalogSchema);
 
 module.exports = Catalog;
