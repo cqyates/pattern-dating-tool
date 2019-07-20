@@ -2,13 +2,13 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const CatalogSchema = new Schema({
+const PatternSchema = new Schema({
     company: {
         type: Schema.Types.ObjectId,
         ref: "Company"
     },
-    season:{
-        type: String,
+    patternNumber:{
+        type: Number,
         required: false
     },
     year:{
@@ -22,7 +22,3 @@ const CatalogSchema = new Schema({
   
 
 })
-
-const Catalog = mongoose.model("Catalog", CatalogSchema);
-
-module.exports = Catalog;

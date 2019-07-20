@@ -1,6 +1,7 @@
-//High Level Dependencies
+//Configure Dotenv to hide Keys
 require('dotenv').config();
 
+//High Level Dependencies
 const express = require("express");
 const mongoose = require("mongoose");
 
