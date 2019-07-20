@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const PatternImageSchema = new Schema({
+const PageSchema = new Schema({
     pageNumber: {
         type: Number,
         required: true,
@@ -15,12 +15,12 @@ const PatternImageSchema = new Schema({
     },
     catalog: {
        type: Schema.Types.ObjectId,
-       ref: "catalog"
+       ref: "Catalog"
     },
    
 
 })
 
-const PatternImage = mongoose.model("PatternImages", PatternImageSchema);
+const Page = mongoose.model("Page", PageSchema);
 
-module.exports = PatternImage;
+module.exports = Page;
