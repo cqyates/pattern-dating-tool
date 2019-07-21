@@ -12,15 +12,70 @@ mongoose.connect(
 
 const companySeed = [
 	{
-		"_id": ObjectId("5d33324ea9f82a7775e0960e"),
-		"catalogs": [ObjectId("9f3332ada9f82a7775e0962c")],
-		"name": "Company 1"
+		"_id": ObjectId("5d34e6f9c045a6f0625343fe"),
+		"name": "Butterick"
 	},
 	{
-		"_id": ObjectId("6d33324ea9f82a7675e0960e"),
-		"catalogs": [ObjectId("5d3332ada9f82a7775e0962c")],
-		"name": "Company 2"
-	}
+		"_id": ObjectId("5d34e741c045a6f0625343ff"),
+		"name": "McCall"
+	},
+	{
+		"_id" : ObjectId("5d34e74ec045a6f062534400"),
+		"name" : "Simplicity"
+	},
+	{
+		"_id" : ObjectId("5d34e75bc045a6f062534401"),
+		"name" : "Advance"
+	},
+	{
+		"_id" : ObjectId("5d34e768c045a6f062534402"),
+		"name" : "Hollywood"
+	},
+	{
+		"_id" : ObjectId("5d34e773c045a6f062534403"),
+		"name" : "Du Barry"
+	},
+	{
+		"_id" : ObjectId("5d34e77dc045a6f062534404"),
+		"name" : "New York"
+	},
+	{
+		"_id" : ObjectId("5d34e788c045a6f062534405"),
+		"name" : "Anne Adams"
+	},
+	{
+		"_id" : ObjectId("5d34e791c045a6f062534406"),
+		"name" : "Marian Martin"
+	},
+	{
+		"_id" : ObjectId("5d34e79bc045a6f062534407"),
+		"name" : "Excella"
+	},
+	{
+		"_id" : ObjectId("5d34e7a6c045a6f062534408"),
+		"name" : "Superior"
+	},
+	{
+		"_id" : ObjectId("5d34e7eec045a6f062534409"),
+		"name" : "Pictorial Review"
+	},
+	{
+		"_id" : ObjectId("5d34e803c045a6f06253440a"),
+		"name" : "Mail Order"
+	},
+	{
+		"_id" : ObjectId("5d34e810c045a6f06253440b"),
+		"name" : "Fashion Service"
+	},
+	{
+		"_id" : ObjectId("5d34e859c045a6f06253440c"),
+		"name" : "Ladies Home Journal"
+	},
+	{
+		"_id" : ObjectId("5d34e87ac045a6f06253440d"),
+		"name" : "Vogue"
+	},
+
 ];
 
 Company
