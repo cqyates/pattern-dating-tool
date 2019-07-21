@@ -92,24 +92,25 @@ Company
 
 const catalogSeed = [
 	{
-		"_id": ObjectId("5d3332ada9f82a7775e0962c"),
-		"name": "Catalog 1",
-		"year": 2019,
-		"season": "Fall",
-		"pages": [
-			ObjectId("5d3332fba9f82a7775e0964e")
-		],
-		"company": ObjectId("6d33324ea9f82a7675e0960e")
+		"_id" : ObjectId("5d34f06a1cf4dd26404271ef"),
+		"company" : ObjectId("5d34e6f9c045a6f0625343fe"),
+		"season" : "spring",
+		"year" : 1936.0,
+		"coverURL" : "https://vintage4me2catalogdb.s3.us-east-2.amazåonaws.com/BUtterick-early-spring-1936-catalog-cover-6586.jpg"
 	},
 	{
-		"_id": ObjectId("9f3332ada9f82a7775e0962c"),
-		"name": "Catalog 2",
-		"year": 1942,
-		"season": "Spring",
-		"pages": [
-			ObjectId("5d33374ea9f82a7775e09995")
-		],
-		"company": ObjectId("5d33324ea9f82a7775e0960e")
+		"_id" : ObjectId("5d34f0c41cf4dd26404271f0"),
+		"company" : ObjectId("5d34e6f9c045a6f0625343fe"),
+		"season" : "spring",
+		"year" : 1935.0,
+		"coverURL" : "https://vintage4me2catalogdb.s3.us-east-2.amazonaws.com/Butterick-Early-Spring-catalog-1935-covers--front-5982-6005.jpg"
+	},
+	{
+		"_id" : ObjectId("5d34f16f1cf4dd26404271f1"),
+		"company" : ObjectId("5d34e788c045a6f062534405"),
+		"season" : "summer",
+		"year" : 1949.0,
+		"coverURL" : "https://vintage4me2catalogdb.s3.us-east-2.amazonaws.com/aa-1949-catalog-cover-4603.jpg"
 	}
 ];
 

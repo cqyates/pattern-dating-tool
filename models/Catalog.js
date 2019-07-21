@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const catalogSchema = new Schema({
-        name: {
-                type: String,
-                required: true
+        company: {
+                type: Schema.Types.ObjectId,
+                ref: 'Company'
         },
         year: {
                 type: Number,
@@ -18,10 +18,11 @@ const catalogSchema = new Schema({
                 type: Schema.Types.ObjectId,
                 ref: 'Page'
         }],
-        company: {
-                type: Schema.Types.ObjectId,
-                ref: 'Company'
+        coverURL: {
+                type: String,
+                required: true
         }
+     
 });
 
 const Catalog = mongoose.model("Catalog", catalogSchema);
