@@ -99,10 +99,10 @@ class UploadApp extends Component {
         </header>
 
         { /* File uploader */}
-        <section className="hero">
+        <section className="hero" style={{padding:"10px"}}>
           <label className="fileUploaderContainer">
             Click here to upload documents
-    <input type="file" id="fileUploader" onChange={this.uploadPhoto} multiple />
+            <input type="file" id="fileUploader" onChange={this.uploadPhoto} multiple />
           </label>
 
 
