@@ -1,6 +1,5 @@
 //This file needs to be changed to match the catalog schema
 
-
 const db = require("../models");
 
 // Defining methods for the booksController
