@@ -6,9 +6,10 @@ const patternSchema = new Schema({
 		type: Number, 
 		required: true 
 	},
-	catalogs: [{ 
+	pageID: [{ 
 		type: Schema.Types.ObjectId, 
-		ref: 'Catalog' }]
+		ref: 'Page'
+	}]
 });
 
 const Pattern = mongoose.model("Pattern", patternSchema);
