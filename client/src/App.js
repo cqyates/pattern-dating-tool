@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Home from "./Pages/Home";
-import Admin from "./Pages/Admin";
-import OCR from "./Pages/OCR"
+import Home from "./pages/Home";
+import Admin from "./pages/Admin";
+import OCR from "./pages/OCR"
 import "./App.css"
 
 
