@@ -13,7 +13,7 @@ mongoose.connect(
 const companySeed = [
 	{
 		"_id": ObjectId("5d34e6f9c045a6f0625343fe"),
-		"name": "Butterick"
+		"name": "Butterick",
 	},
 	{
 		"_id": ObjectId("5d34e741c045a6f0625343ff"),
@@ -130,13 +130,11 @@ const patternSeed = [
 	{
 		"_id" : ObjectId("5d34fd371cf4dd26404271f4"),
 		"patternNumber" : 6586.0,
-		"company" : ObjectId("5d34e6f9c045a6f0625343fe"),
 		"catalog" : ObjectId("5d34f06a1cf4dd26404271ef")
 	},
 	{
 		"_id" : ObjectId("5d34fd4e1cf4dd26404271f5"),
 		"patternNumber" : 5927.0,
-		"company" : ObjectId("5d34e6f9c045a6f0625343fe"),
 		"catalog" : ObjectId("5d34f06a1cf4dd26404271ef")
 	}
 	
