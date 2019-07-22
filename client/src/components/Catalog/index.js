@@ -28,7 +28,7 @@ function Catalog (props) {
                 
             </Col>
             <Col size="lg-4">
-               <dt><img src="https://picsum.photos/id/865/500/540" alt=""></img></dt>
+               <dt><img src="https://via.placeholder.com/500x540" alt=""></img></dt>
             </Col>
            
             <Card className="patternSearchForm">
