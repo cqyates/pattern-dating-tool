@@ -1,37 +1,31 @@
-.hero {
-  height: 500px;
+.heroNav {
+  height: 228px;
   background-size: cover;
   background-position: center;
   position: relative;
-  width: 100%;
-  background-image: url("https://cdn2.shopify.com/s/files/1/0975/7206/files/butt-delineator-july-1935-pg1_1080x.jpg?v=1551143430")
-}
-/* }
 
-.hero::after {
+}
+
+.heroNav::after {
   content: "";
   display: block;
-  opacity: ;
+  opacity: .4;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+}
 
-} */
-
-.hero * {
+.heroNav * {
   position: relative;
   z-index: 2;
 }
 
-/* .hero h1, .hero h2 {
+.heroNav h1{
   color: white;
-}
-
-.hero h1 {
   font-size: 60px;
-  padding-top: 140px;
-  margin-top: 0;
-} */
-
+  padding-top: 140px; 
+  margin-top: 25px;
+  text-align: center;
+}

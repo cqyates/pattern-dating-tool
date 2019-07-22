@@ -101,8 +101,11 @@ class UploadApp extends Component {
         { /* File uploader */}
         <section className="hero" style={{padding:"10px"}}>
           <label className="fileUploaderContainer">
-            Click here to upload documents
-            <input type="file" id="fileUploader" onChange={this.uploadPhoto} multiple />
+            Click here to upload documents<br></br>
+            <input type="file" 
+            id="fileUploader" 
+            style={{topMargin:"10px"}}
+            onChange={this.uploadPhoto} multiple />
           </label>
 
 
@@ -114,7 +117,9 @@ class UploadApp extends Component {
             })} 
           </div>
 
-          <button onClick={this.APIuploadPhoto} className="button">Start Uploading</button>
+          <button onClick={this.APIuploadPhoto} 
+          className="button"
+          style={{marginTop:"10px"}}>Start Uploading</button>
         </section>
 
      

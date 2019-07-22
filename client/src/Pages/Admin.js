@@ -1,9 +1,9 @@
 import React, {Component} from "react";
 // import {Col, Row} from "../components/Grid";
 import Input from "../components/Input";
-// import Hero from "../components/Hero"
+import Hero from "../components/Hero"
 import { Form, Container, Row, Col, Card } from "react-bootstrap";
-import Header from "../components/Header";
+// import Header from "../components/Header";
 import FormBtn from "../components/Form";
 import OCR from "./OCR"
 
@@ -17,7 +17,7 @@ class Admin extends Component {
     render() {
         return (
             <div>
-                <Header />  
+                <Hero />
                 <Container>
                 <div style={{margin: "auto", width:"50%", padding:"20px"}}>
                     <Card>

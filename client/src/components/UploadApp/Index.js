@@ -65,7 +65,8 @@ class UploadApp extends Component {
         <section className="hero">
           <label className="fileUploaderContainer">
             Click here to upload documents
-    <input type="file" id="fileUploader" onChange={this.uploadPhoto} multiple />
+              <input type="file" id="fileUploader" onChange={this.uploadPhoto} multiple />
+            
           </label>
 
 
