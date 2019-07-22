@@ -1,21 +1,13 @@
-// import React from "react";
-// import "./style.css";
+import React from "react";
+import hero from './hero.png';
+import "./style.css";
 
-// function Hero(props) {
-//   return (
-//     <div className="hero text-center">
-//       {/* <Input as="text" name="upload"style={{
-//       border:"dotted",
-//       borderWidth:"5px", 
-//       padding:"100px",
-//       marginTop: "10px",
-//       width: "75%",
-//       alignContent: "center"}}
-//       >                    
-//       </Input> */}
-    
-//     </div>
-//   );
-// }
+function Hero() {
+  return (
+    <div>
+      <img className="heroNav text-center" src={hero} alt="hero" style={{width:"100%"}}/>
+    </div>
+  );
+}
 
-// export default Hero;
+export default Hero;

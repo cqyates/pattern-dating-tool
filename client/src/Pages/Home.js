@@ -1,9 +1,8 @@
 import React, {Component} from "react";
 import NavBar from "../components/NavBar";
-import Header from "../components/Header";
+import Hero from "../components/Hero";
 import Catalog from "../components/Catalog";
 import Footer from "../components/Footer";
-
 
 
 class Home extends Component {
@@ -19,7 +18,7 @@ class Home extends Component {
         return (
             <div>
                 <NavBar />
-                <Header />
+                <Hero />
                 <Catalog />
                 <Footer />
             </div>
