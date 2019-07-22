@@ -6,6 +6,7 @@ companySchema = new Schema({
         type: String, 
         required: true 
     },
+    //FIXME Not sure if this is the best way to do this.  Not set up this way in seeds
 	catalogs: [{ type: Schema.Types.ObjectId, ref: 'Catalog' }]
 });
 
