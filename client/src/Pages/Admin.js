@@ -11,9 +11,14 @@ import OCR from "./OCR"
 
 class Admin extends Component {
     state={
-      
+    //What should I use this state for?
+      company: "",
+      season: "",
+      year: "",
         
     } 
+    //This component brings in both the OCR and the Form Inputs. 
+    //I need to work on the formData to bring the image together with the inputs
     render() {
         return (
             <div>

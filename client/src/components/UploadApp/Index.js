@@ -1,91 +1,93 @@
-import React, { Component } from 'react';
-import axios from "axios";
+// //this page is not being used but deleting it lead to merge issues.  This function is done on the OCR.js page
 
-class UploadApp extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      //this holds the images to upload
-      uploads: [],
-      patterns: [],
-      imgData: []
-    };
-  }
+// import React, { Component } from 'react';
+// import axios from "axios";
 
-  handleChange = (event) => {
-    if (event.target.files[0]) {
-      var uploads = []
-      for (var key in event.target.files) {
-        if (!event.target.files.hasOwnProperty(key)) continue;
-        let upload = event.target.files[key]
-        uploads.push(URL.createObjectURL(upload))
-      }
-      this.setState({
-        uploads: uploads
-      })
-    } else {
-      this.setState({
-        uploads: []
-      })
-    }
-  }
+// class UploadApp extends Component {
+//   constructor(props) {
+//     super(props)
+//     this.state = {
+//       //this holds the images to upload
+//       uploads: [],
+//       patterns: [],
+//       imgData: []
+//     };
+//   }
 
-  uploadPhoto = (e) => {
-    const file = e.target.files[0];
-    const formData = new FormData();
-    formData.append('file', file);
-    console.log(formData)
-    this.setState({
-      imgData: formData
-    }, ()=> console.log(this.state))
-  }
+//   handleChange = (event) => {
+//     if (event.target.files[0]) {
+//       var uploads = []
+//       for (var key in event.target.files) {
+//         if (!event.target.files.hasOwnProperty(key)) continue;
+//         let upload = event.target.files[key]
+//         uploads.push(URL.createObjectURL(upload))
+//       }
+//       this.setState({
+//         uploads: uploads
+//       })
+//     } else {
+//       this.setState({
+//         uploads: []
+//       })
+//     }
+//   }
 
-  APIuploadPhoto = async () => {
-    try {
-      const response = await axios({
-        method: "POST",
-        url: "/api/imgupload",
-        data: this.state.imgData
-      })
+//   uploadPhoto = (e) => {
+//     const file = e.target.files[0];
+//     const formData = new FormData();
+//     formData.append('file', file);
+//     console.log(formData)
+//     this.setState({
+//       imgData: formData
+//     }, ()=> console.log(this.state))
+//   }
 
-      console.log(response);
-    } catch (error) {
-      console.log(error.message)
-    }
-  }
+//   APIuploadPhoto = async () => {
+//     try {
+//       const response = await axios({
+//         method: "POST",
+//         url: "/api/imgupload",
+//         data: this.state.imgData
+//       })
 
-  render() {
-    return (
-      <div className="app">
-        <header className="header">
-          <h1>My OCR App</h1>
-        </header>
+//       console.log(response);
+//     } catch (error) {
+//       console.log(error.message)
+//     }
+//   }
 
-        { /* File uploader */}
-        <section className="hero">
-          <label className="fileUploaderContainer">
-            Click here to upload documents
-              <input type="file" id="fileUploader" onChange={this.uploadPhoto} multiple />
+//   render() {
+//     return (
+//       <div className="app">
+//         <header className="header">
+//           <h1>My OCR App</h1>
+//         </header>
+
+//         { /* File uploader */}
+//         <section className="hero">
+//           <label className="fileUploaderContainer">
+//             Click here to upload documents
+//               <input type="file" id="fileUploader" onChange={this.uploadPhoto} multiple />
             
-          </label>
+//           </label>
 
 
 
-          <div>
-            {this.state.uploads.map((value, index) => {
-              return <img key={index} src={value} width="100px" />
+//           <div>
+//             {this.state.uploads.map((value, index) => {
+//               return <img key={index} src={value} width="100px" />
               
-            })} 
-          </div>
+//             })} 
+//           </div>
 
-          <button onClick={this.APIuploadPhoto} className="button">Start Uploading</button>
-        </section>
+//           <button onClick={this.APIuploadPhoto} className="button">Start Uploading</button>
+//         </section>
 
      
-      </div>
-    )
-  }
+//       </div>
+//     )
+//   }
 
-}
+// }
 
-export default UploadApp;
+// export default UploadApp;
