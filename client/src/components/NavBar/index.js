@@ -11,9 +11,7 @@ import "./style.css";
           <Nav.Link href="#home"></Nav.Link>
         </Nav>
         <Form inline>
-          <FormControl type="text" placeholder="" className="mr-sm-2" />
           <Button variant="outline-primary">
-       
             Login
           </Button>
         </Form>
