@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const pageSchema = new Schema({
-        number: {
+        pageNumber: {
                 type: Number,
                 required: true
         },
@@ -10,9 +10,9 @@ const pageSchema = new Schema({
                 type: Schema.Types.ObjectId,
                 ref: 'Catalog'
         }],
-        patterns: [{
-                type: Schema.Types.ObjectId,
-                ref: 'Pattern'
+        patternNumberArray: [{
+                type: Number,
+                required: false
         }],
         imgURL: {
                 type: String,

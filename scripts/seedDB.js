@@ -128,25 +128,18 @@ Catalog
 
 const patternSeed = [
 	{
-		"_id": ObjectId("5d333333a9f82a7775e09666"),
-		"name": "Pattern Name",
-		"patternId": "12366"
+		"_id" : ObjectId("5d34fd371cf4dd26404271f4"),
+		"patternNumber" : 6586.0,
+		"company" : ObjectId("5d34e6f9c045a6f0625343fe"),
+		"catalog" : ObjectId("5d34f06a1cf4dd26404271ef")
 	},
 	{
-		"_id": ObjectId("5d33370fa9f82a7775e09979"),
-		"name": "Pattern Name 2",
-		"patternId": "64237"
-	},
-	{
-		"_id": ObjectId("5d333773a9f82a7775e099c5"),
-		"name": "Pattern Name 3",
-		"patternId": "55123"
-	},
-	{
-		"_id": ObjectId("5d333796a9f82a7775e099ea"),
-		"name": "Pattern Name 4",
-		"patternId": "81375"
+		"_id" : ObjectId("5d34fd4e1cf4dd26404271f5"),
+		"patternNumber" : 5927.0,
+		"company" : ObjectId("5d34e6f9c045a6f0625343fe"),
+		"catalog" : ObjectId("5d34f06a1cf4dd26404271ef")
 	}
+	
 ];
 
 Pattern

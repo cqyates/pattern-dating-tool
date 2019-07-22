@@ -1,7 +1,7 @@
 module.exports = {
-    Pattern: require("./Pattern"),
-    Company: require("./Company"),
-    Catalog: require("./Catalog"),
-    Page: require("./Page")
+    Pattern: require("./Patterns"),
+    Company: require("./Companies"),
+    Catalog: require("./Catalogs"),
+    Page: require("./Pages")
 };
   
