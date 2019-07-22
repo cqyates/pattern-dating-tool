@@ -4,6 +4,7 @@ const multer = require("multer");
 const fs = require("fs");
 const AWS = require("aws-sdk");
 const sharp = require("sharp");
+const db = require("../models")
 
 
 AWS.config.update({
@@ -55,19 +56,28 @@ const uploadAWS = async (file, res, cb) => {
           const filePath = `https://${myBucket}.s3.us-east-2.amazonaws.com/${file.originalname}`
           console.log(filePath)
 
+          db.Page.create({
+            imgUrl: filePath
+          }).then(dbData => {
+            db.Catalog.findByIdAndUpdate(id, {
+              $push: {
+                pages: dbData._id
+              }
+            }).then(response => console.log("Added ref to catalog"))
+          })
         }
 
       })
 
     })
   }
-    catch {
-      console.log("try function failed")
-    }
+  catch {
+    console.log("try function failed")
   }
+}
 
 
 module.exports = {
-    upload,
-    uploadAWS
-  };
+  upload,
+  uploadAWS
+};
