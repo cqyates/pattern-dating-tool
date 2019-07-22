@@ -5,10 +5,11 @@ import "./style.css";
 function PatternSearch() {
     return(
         <div>
-        <Form>
+        <Form className="searchForm">
+            <h4>Search for a Pattern</h4>
             <Form.Group controlId="patternFormCompany">
                 <Form.Label>Company Name</Form.Label>
-                <Form.Control as="select">
+                <Form.Control as="select" style={{width:"60%"}}>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -18,10 +19,10 @@ function PatternSearch() {
             </Form.Group> 
             <Form.Group controlId="patternFormNumber">
                 <Form.Label>Pattern Number</Form.Label>
-                <Form.Control placeholder="XXXX" />
+                <Form.Control placeholder="XXXX" style={{width:"60%"}} />
             </Form.Group>
         </Form>
-        <Button variant="primary" type="submit">
+        <Button type="submit" style={{margin:"auto", display:"block", marginBottom:"10px"}}>
           Search
         </Button>
         </div>

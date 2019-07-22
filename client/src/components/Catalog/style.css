@@ -1,3 +1,11 @@
 dt{
     margin: 10px;
 }
+
+.patternSearchForm{
+    margin:auto;
+    width: 30%;
+    margin-top: 80px;
+    border-color: black;
+     
+}
