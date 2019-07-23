@@ -6,13 +6,21 @@ import Footer from "../components/Footer";
 
 
 class Home extends Component {
+  constructor(props){
+    super(props);
+    this.state = { apiResponse:""};
+  }
 
+  callAPI() {
+    fetch("http://localhost:3001/api")
+      .then(res => res.text())
+      .then(res => this.setState({apiResponse: res}));
+  }
 
-  handleFormSubmit = event => {
-    // When the form is submitted, prevent its default behavior, authorize admin password
-    event.preventDefault();
-  
-  };
+  componentWillMount() {
+    this.callAPI();
+  }
+
 
     render() {
         return (
@@ -21,6 +29,7 @@ class Home extends Component {
                 <Hero />
                 <Catalog />
                 <Footer />
+                <p className="App-intro">;{this.state.apiResponse}</p>
             </div>
         )
        

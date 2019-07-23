@@ -5,10 +5,14 @@ require('dotenv').config();
 const express = require("express");
 const mongoose = require("mongoose");
 
+// add CORS to our API to allow cross-origin requests. 
+const cors = require("cors");
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Define middleware here
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Serve up static assets (usually on heroku)
