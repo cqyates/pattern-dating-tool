@@ -14,7 +14,7 @@ router.post("/api/imgupload", upload.single('file'), async (req, res) => {
 })
 
 router.get("/api", (req, res)=> {
-  res.json({ msg: "routes match"})
+  res.send("API is working")
 })
 
 module.exports = router;
