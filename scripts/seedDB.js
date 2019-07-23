@@ -1,4 +1,3 @@
-//FIXME add seed information
 
 const mongoose = require("mongoose");
 const { Types: { ObjectId } } = mongoose;
@@ -128,14 +127,44 @@ Catalog
 
 const patternSeed = [
 	{
-		"_id" : ObjectId("5d34fd371cf4dd26404271f4"),
-		"patternNumber" : 6586.0,
-		"catalog" : ObjectId("5d34f06a1cf4dd26404271ef")
+		"_id" : ObjectId("5d378f3690719079bec9abcf"),
+		"patternNumber" : 6585.0,
+		"page" : ObjectId("5d376cdf90719079bec9abba")
 	},
 	{
-		"_id" : ObjectId("5d34fd4e1cf4dd26404271f5"),
+		"_id" : ObjectId("5d378f8590719079bec9abd0"),
+		"patternNumber" : 6543.0,
+		"page" : ObjectId("5d376d8c90719079bec9abbb")
+	},
+	{
+		"_id" : ObjectId("5d378ff690719079bec9abd1"),
+		"patternNumber" : 6586.0,
+		"page" : ObjectId("5d376df790719079bec9abbc")
+	},
+	{
+		"_id" : ObjectId("5d37902690719079bec9abd2"),
 		"patternNumber" : 5927.0,
-		"catalog" : ObjectId("5d34f06a1cf4dd26404271ef")
+		"page" : ObjectId("5d376df790719079bec9abbc")
+	},
+	{
+		"_id" : ObjectId("5d3790f090719079bec9abd3"),
+		"patternNumber" : 6582.0,
+		"page" : ObjectId("5d376f9290719079bec9abc0")
+	},
+	{
+		"_id" : ObjectId("5d37918790719079bec9abd4"),
+		"patternNumber" : 6872.0,
+		"page" : ObjectId("5d376f9290719079bec9abc0")
+	},
+	{
+		"_id" : ObjectId("5d3791b590719079bec9abd5"),
+		"patternNumber" : 6042.0,
+		"page" : ObjectId("5d376f9290719079bec9abc0")
+	},
+	{
+		"_id" : ObjectId("5d3791e890719079bec9abd6"),
+		"patternNumber" : 6612.0,
+		"page" : ObjectId("5d376f9290719079bec9abc0")
 	}
 	
 ];
