@@ -3,24 +3,17 @@ import NavBar from "../components/NavBar";
 import Hero from "../components/Hero";
 import Catalog from "../components/Catalog";
 import Footer from "../components/Footer";
+import API from "../utils/API/api.js";
 
 
 class Home extends Component {
-  constructor(props){
-    super(props);
-    this.state = { apiResponse:""};
+    state={
+      company: "",
+      patternNumber: "",
+    } 
   }
 
-  callAPI() {
-    fetch("http://localhost:3001/api")
-      .then(res => res.text())
-      .then(res => this.setState({apiResponse: res}));
-  }
-
-  componentWillMount() {
-    this.callAPI();
-  }
-
+  searchPatterns 
 
     render() {
         return (
@@ -29,7 +22,7 @@ class Home extends Component {
                 <Hero />
                 <Catalog />
                 <Footer />
-                <p className="App-intro">;{this.state.apiResponse}</p>
+            
             </div>
         )
        
