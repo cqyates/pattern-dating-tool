@@ -1,12 +1,14 @@
-//FIXME Does this have to drill down to ../models/companies
-//what do I need to do in the routes file to call this? db.company.findAll?  or do I need to drill down in the set up
-const db = require("../models");
+//FIXME issue 1 since I have 4 models and 4 controllers is the require statement set up correctly?
+//FIXME issue 2 is the db.company set up correctly?  Do they need to match? Do they?
+//FIXME issue 3 what argument gets passed inside find to get the entire list of companies?
+
+const db = require("../models/Company");
 
 module.exports = {
     findAll: function(req, res) {
       db.Compnany
-        .find(req.query)
-        .sort({ date: -1 })
+      //What goes inside the find?
+        .find()
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
     }
