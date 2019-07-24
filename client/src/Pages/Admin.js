@@ -70,7 +70,22 @@ class Admin extends Component {
                                 <Form.Control as="select" style={{borderColor:"#758696"}} 
                                 value={this.state.company}>
                                 <option>select company</option>
-                                <option></option>                              
+                                <option>Butterick</option>
+                                <option>McCall</option>
+                                <option>Simplicity</option>
+                                <option>Advance</option>
+                                <option>Hollywood</option>
+                                <option>Du Barry</option>
+                                <option>New York</option>
+                                <option>Anne Adams</option>
+                                <option>Marian Martin</option>
+                                <option>Excella</option>
+                                <option>Superior</option>
+                                <option>Pictoral Review</option>
+                                <option>Mail Order</option>
+                                <option>Fashion Server</option>
+                                <option>Ladies Home Journal</option>
+                                <option>Vogue</option>                             
                                 </Form.Control>
                             </Form.Group>
                             <Form.Group controlId="seasonForm">
