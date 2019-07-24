@@ -7,8 +7,8 @@ export default {
     getCompanies: async function(data){
       try {
           const response = await axios({
-              method: "POST",
-              url: "/api/catalog",
+              method: "GET",
+              url: "/api/company",
               data
           })
           return response;
@@ -16,4 +16,17 @@ export default {
           return error;
       };
   },
+
+  searchPattern: async function(data) {
+      try {
+          const response = await axios({
+              method: "GET",
+              url: "/api/pattern",
+              data
+          })  
+          return response;
+      } catch (error) {
+        return error;
+      }
+  }
 };

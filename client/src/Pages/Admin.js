@@ -26,11 +26,13 @@ class Admin extends Component {
         });
         console.log(this.state)
       };
+      componentDidMount(){
+        this.getCompanies();
+      }
 
       //this is not yet working.  It is calling to the utils/API which is calling to the back end to get a list of companies from the Mongo.
-      //what is up with the b on line 39.  Also I don't think I need a query argument.
+      //what is up with the b on line 39.  Also I don't think I need a query argument. This function gets called with Component did mount.
       getCompanies(query) {
-        console.log(query)
         API.getCompanies(query)
           .then(res => {
             //This console.log is not getting hit.
