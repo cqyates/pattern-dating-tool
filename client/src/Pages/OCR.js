@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 
+//this does not currently work.
 var Tesseract = window.Tesseract;
 
 class UploadApp extends Component {
@@ -9,8 +10,11 @@ class UploadApp extends Component {
     this.state = {
       //this holds the images to upload
       uploads: [],
+      //this holds the patterns found by the regex
       patterns: [],
+      //not sure what this holds
       documents: [],
+      //this holds the image
       imgData: [],
     };
   }
