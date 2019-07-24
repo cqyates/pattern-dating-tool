@@ -28,7 +28,7 @@ class Admin extends Component {
       };
 
       //this is not yet working.  It is calling to the utils/API which is calling to the back end to get a list of companies from the Mongo.
-      //what is up with the b on line 39
+      //what is up with the b on line 39.  Also I don't think I need a query argument.
       getCompanies(query) {
         console.log(query)
         API.getCompanies(query)

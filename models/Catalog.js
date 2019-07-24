@@ -18,10 +18,7 @@ const catalogSchema = new Schema({
                 type: Schema.Types.ObjectId,
                 ref: 'Page'
         }],
-        coverURL: {
-                type: String,
-                required: true
-        }
+     
      
 });
 

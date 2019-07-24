@@ -1,3 +1,5 @@
+//FIXME we need to combine the function of this button and the submit button to send both the image and the catalog facts to the back end
+
 import React, { Component } from 'react';
 import axios from "axios";
 
@@ -39,6 +41,7 @@ class UploadApp extends Component {
 
   generateText = () => {
     let uploads = this.state.uploads
+    console.log(uploads)
   
     for(var i = 0; i < uploads.length; i++) {
       Tesseract.recognize(uploads[i], {
@@ -50,15 +53,18 @@ class UploadApp extends Component {
       .then(result => {
         // Get Confidence score
         let confidence = result.confidence
+        console.log(confidence)
   
         // Get full output
         let text = result.text
+        console.log(text)
   
         // Get codes
-        let pattern = /\b\w{10,10}\b/g
+        let pattern = /\b\w{4,4}\b/g
         let patterns = result.text.match(pattern);
+        console.log(patterns)
   
-        // Update state
+        // Update state FIXME this is not correct
         this.setState({ 
           patterns: this.state.patterns.concat(patterns),
           documents: this.state.documents.concat({

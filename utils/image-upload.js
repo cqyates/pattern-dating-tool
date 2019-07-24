@@ -18,7 +18,7 @@ const myBucket = "vintage4me2catalogdb";
 //saving Max Size as a const
 const MAX_SIZE = 20000000;
 
-//this function checks the file type to make sure it accepted
+//this function checks the file type to make sure it accepted.  It is called below in the upload function.
 const fileFilter = function (req, file, cb) {
   const allowed = ["image/jpeg", "image/jpg", "image/png", "image/gif", "image/pdf"];
   if (!allowed.includes(file.mimetype)) {
@@ -29,7 +29,7 @@ const fileFilter = function (req, file, cb) {
   cb(null, true)
 }
 
-//this is multer's upload function
+//this is multer's upload function.  Where is this called?
 const upload = multer({
   fileFilter,
   dest: "./uploads",
@@ -55,6 +55,7 @@ const uploadAWS = async (file, res, cb) => {
           const filePath = `https://${myBucket}.s3.us-east-2.amazonaws.com/${file.originalname}`
           console.log(filePath)
 
+          //right here I am going to use db.create to push information into the database
         }
 
       })
