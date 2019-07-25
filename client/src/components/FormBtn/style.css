@@ -1,14 +1,10 @@
-.formBtn{
-    background-color:#fcf6c2;
+.btn{
+    background-color: #c2e5fc;
     font-family: 'Open Sans', sans-serif;
     color: #758696; 
     border-style: solid;
     border-color:#758696;
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;    
+    
 }
 
 
