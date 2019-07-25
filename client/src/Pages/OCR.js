@@ -3,20 +3,12 @@
 import React, { Component } from 'react';
 import axios from "axios";
 
-//this does not currently work.
-var Tesseract = window.Tesseract;
-
 class UploadApp extends Component {
   constructor(props) {
     super(props)
     this.state = {
       //this holds the images to upload
       uploads: [],
-      //this holds the patterns found by the regex
-      patterns: [],
-      //not sure what this holds
-      documents: [],
-      //this holds the image
       imgData: [],
     };
   }
@@ -38,45 +30,6 @@ class UploadApp extends Component {
       })
     }
   }
-
-  generateText = () => {
-    let uploads = this.state.uploads
-    console.log(uploads)
-  
-    for(var i = 0; i < uploads.length; i++) {
-      Tesseract.recognize(uploads[i], {
-        lang: 'eng'
-      })
-      .catch(err => {
-        console.error(err)
-      })
-      .then(result => {
-        // Get Confidence score
-        let confidence = result.confidence
-        console.log(confidence)
-  
-        // Get full output
-        let text = result.text
-        console.log(text)
-  
-        // Get codes
-        let pattern = /\b\w{4,4}\b/g
-        let patterns = result.text.match(pattern);
-        console.log(patterns)
-  
-        // Update state FIXME this is not correct
-        this.setState({ 
-          patterns: this.state.patterns.concat(patterns),
-          documents: this.state.documents.concat({
-            pattern: patterns,
-            text: text,
-            confidence: confidence
-          })
-        })
-      })
-    }
-  }
-
   uploadPhoto = (e) => {
     const file = e.target.files[0];
     const formData = new FormData();
@@ -94,7 +47,6 @@ class UploadApp extends Component {
         url: "/api/imgupload",
         data: this.state.imgData
       })
-
       console.log(response);
     } catch (error) {
       console.log(error.message)
