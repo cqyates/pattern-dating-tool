@@ -1,4 +1,4 @@
-we are dumping the company model and moving the information to catalog.
+// we are dumping the company model and moving the information to catalog.
 
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;

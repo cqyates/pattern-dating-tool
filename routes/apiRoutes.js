@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { upload, uploadAWS } = require('../utils/image-upload');
 const companyController = require("../controllers/CompanyController")
+const axios = require("axios");
 
 //working but console.log is not firing.
 router.post("/api/imgupload", upload.single('file'), async (req, res) => {
@@ -12,8 +13,6 @@ router.post("/api/imgupload", upload.single('file'), async (req, res) => {
 router.get("/api", (req, res)=> {
   res.send("API is working")
 })
-
-
 
 module.exports = router;
 
