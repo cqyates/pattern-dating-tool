@@ -125,7 +125,8 @@ Catalog
 		console.error(err);
 		process.exit(1);
 	});
-
+// _id references the Mongo db generated id
+// patternNumber is the name assigned for the input
 const patternSeed = [
 	{
 		"_id" : ObjectId("5d378f3690719079bec9abcf"),
