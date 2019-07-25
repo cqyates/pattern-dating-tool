@@ -6,7 +6,7 @@ import { Form, Container, Row, Col, Card } from "react-bootstrap";
 // import Header from "../components/Header";
 import OCR from "./OCR";
 // import API from "../utils/API/api";
-
+import DropMenu from "../components/DropMenu";
 //this page still has problems.  The inputs are not working they should set the state of company, season and year.
 
 
@@ -39,28 +39,7 @@ class Admin extends Component {
               <Row style={{ padding: "10px" }}>
                 <Col style={{ marginTop: "20px" }}>
                   <Form>
-                    <Form.Group controlId="companyForm">
-                      <Form.Control as="select" style={{ borderColor: "#758696" }}
-                        value={this.state.company} onChange={this.handleInputChange}>
-                        <option>select company</option>
-                        <option>Butterick</option>
-                        <option>McCall</option>
-                        <option>Simplicity</option>
-                        <option>Advance</option>
-                        <option>Hollywood</option>
-                        <option>Du Barry</option>
-                        <option>New York</option>
-                        <option>Anne Adams</option>
-                        <option>Marian Martin</option>
-                        <option>Excella</option>
-                        <option>Superior</option>
-                        <option>Pictoral Review</option>
-                        <option>Mail Order</option>
-                        <option>Fashion Server</option>
-                        <option>Ladies Home Journal</option>
-                        <option>Vogue</option>
-                      </Form.Control>
-                    </Form.Group>
+                   <DropMenu />
                     <Form.Group controlId="seasonForm">
                       <Form.Control as="select" style={{ borderColor: "#758696" }}
                         value={this.state.season} onChange={this.handleInputChange}>

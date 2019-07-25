@@ -7,9 +7,8 @@ const db = require("../models/Company");
 
 module.exports = {
     findAll: function(req, res) {
-      db.Company
-      //What goes inside the find?
-        .find()
+      db.companies
+        .find({})
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
     }

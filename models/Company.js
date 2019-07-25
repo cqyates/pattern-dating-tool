@@ -1,4 +1,4 @@
-we are dumping the company model and moving the information to catalog.
+//Is my issue coming from Company vs companies vs Companies?
 
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;

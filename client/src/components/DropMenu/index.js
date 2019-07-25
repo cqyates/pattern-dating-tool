@@ -1,30 +1,25 @@
+//FIXME this is not working.  It is suppose to bring in the company list from the MongoDB database.  It should load with companies when it component mounts
+
 import React, { Component } from "react";
-import "./style.css";
 import API from "../../utils/API/api";
-import dropdown from "react-bootstrap-dropdown-menu";
+// import dropdown from "react-bootstrap";
 
-//this component will call the getCompanies api and populate a dropdown menu with the company names.
+//this component will call the getCompanies api and populate a dropdown menu with the company names. Not currently working
 
 
-class Dropdown extends Component {
+class DropMenu extends Component {
     state = {
-        //this array will hold the list of companies from the API call
-        companies = [],
-        isSelected = false
+       //this part is not right
+        // companies,
+        // isSelected
     }
 
     componentDidMount() {
         this.getCompanies();
     }
 
-    handleInputChange = event => {
-        let value = event.target.value;
-        const name = event.target.name;
-        this.setState({
-          [name]: value
-        });
-    }
 
+    // FIXME not sure about the query param.
     getCompanies(query) {
         API.getCompanies(query)
           .then(res => {
@@ -40,12 +35,14 @@ class Dropdown extends Component {
           .catch(error => console.log(error));
       }
 
+// between these two divs is where the dropdown menu should go with the company list prop that is called from the mongoDB and mapped in the get companies function.
       render() {
         return (
           <div>
-           <dropdown.toggle companyList={this.state.companies}>
-            </dropdown.toggle>
+           
           </div>
         )
       }
 }
+
+export default DropMenu;
