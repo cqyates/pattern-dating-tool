@@ -6,7 +6,7 @@ import Wrapper from "../components/Wrapper";
 import {Col} from "../components/Grid";
 import {Form, Card, Row} from "react-bootstrap";
 import FormBtn from "../components/FormBtn";
-import API from "../utils/API";
+// import API from "../utils/API";
 
 
 class Home extends Component {
@@ -15,9 +15,9 @@ class Home extends Component {
       pages: [],
       patternNumber: "",
     } 
-    componentDidMount() {
-      this.loadPattern();
-    }
+    // componentDidMount() {
+    //   this.loadPattern();
+    // }
    
     handlePatternChange = event => {
       this.setState({
@@ -31,12 +31,12 @@ class Home extends Component {
       // needs an API call for the pages
     }
 
-    loadPattern = () => {
-      API.getPattern()
-        .then(res => 
-          this.setState({pages: res.data, patternNumber:""}))
-          .catch(err => console.log(err));
-    };
+    // loadPattern = () => {
+    //   API.getPattern()
+    //     .then(res => 
+    //       this.setState({pages: res.data, patternNumber:""}))
+    //       .catch(err => console.log(err));
+    // };
 
     render() {
         return (

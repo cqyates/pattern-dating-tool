@@ -6,7 +6,7 @@ import "./style.css";
 
     return (
         <Navbar bg="white" variant="light">
-        <Navbar.Brand className="navBrand" href="#home" style={{color:"#758696"}}>Vintage 4 Me 2</Navbar.Brand>
+        <Navbar.Brand className="navBrand" href="#home" style={{color:"#758696"}}>Vintage4Me2</Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Link href="#home"></Nav.Link>
         </Nav>

@@ -9,7 +9,6 @@ import DropMenu from "../components/DropMenu";
 
 class Admin extends Component {
   state = {
-    company: "",
     season: "",
     year: "",
   }

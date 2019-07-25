@@ -21,6 +21,7 @@ class DropMenu extends Component {
     API.getCompanies()
       .then(res => {
         const companyList = res.data;
+        console.log(companyList)
         this.setState({ companies: companyList });
       })
       .catch(error => console.log(error));
@@ -31,12 +32,14 @@ class DropMenu extends Component {
     return (
       <Dropdown>
       <Dropdown.Toggle variant="basic" id="dropdown-basic">
-      <h6>Select Company</h6>
+      <h7>Select Company</h7>
       </Dropdown.Toggle>
-    
       <Dropdown.Menu>
-        <Dropdown.Item {...this.state.companies}></Dropdown.Item>
+      <Dropdown.Item >
+      </Dropdown.Item> 
       </Dropdown.Menu>
+     
+    
     </Dropdown>
     )
   }

@@ -10,7 +10,7 @@ router.post("/api/imgupload", upload.single('file'), async (req, res) => {
 router.get("/api", (req, res) => {
   res.send("API is working")
 })
-//not currently working.  Though I can get the information straight from Robo 3T
+
 router.get("/api/company", (req, res) => {
   const result = CompanyController.findAll()
     .then(dbModel => {
