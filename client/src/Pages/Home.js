@@ -6,17 +6,37 @@ import Wrapper from "../components/Wrapper";
 import {Col} from "../components/Grid";
 import {Form, Card, Row} from "react-bootstrap";
 import FormBtn from "../components/FormBtn";
-// import axios from "axios";
-//import API from "../utils/API/api.js" uncomment this once you make the API function, it is crashing react because it is not called
+import API from "../utils/API";
 
 
 class Home extends Component {
     state={
-      company: "",
+      // this array will hold the list of pages from the pattern model
+      pages: [],
       patternNumber: "",
     } 
+    componentDidMount() {
+      this.loadPattern();
+    }
+   
+    handlePatternChange = event => {
+      this.setState({
+        patternNumber: event.target.value
+      })
+    };
 
+    handleSubmit = event => {
+      event.preventDefault();
+      // incomplete
+      // needs an API call for the pages
+    }
 
+    loadPattern = () => {
+      API.getPattern()
+        .then(res => 
+          this.setState({pages: res.data, patternNumber:""}))
+          .catch(err => console.log(err));
+    };
 
     render() {
         return (
@@ -61,9 +81,13 @@ class Home extends Component {
 
                       <Form.Group controlId="patternFormNumber">
                           <Form.Label>Pattern Number</Form.Label>
-                          <Form.Control placeholder="XXXX" />
+                          <Form.Control
+                          name="patternNumber" 
+                          placeholder="XXXX"
+                          value={this.state.patternNumber}
+                          onChange={this.handlePatternChange} />
                       </Form.Group>
-                      <FormBtn>
+                      <FormBtn onClick={this.handleSubmit}>
                         Search
                       </FormBtn>
                     </Form>
