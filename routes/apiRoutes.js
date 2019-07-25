@@ -13,12 +13,6 @@ router.get("/api", (req, res)=> {
   res.send("API is working")
 })
 
-//All aspects of this route should now be done.  It's job is to list the companies on the admin.js page.
-router.get('/api/company', async (req, res) => {
-  const result = await companyController.findAll()
-  res.send({ result })
-})
-
 
 
 module.exports = router;
