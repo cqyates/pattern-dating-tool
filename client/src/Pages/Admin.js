@@ -5,10 +5,7 @@ import Hero from "../components/Hero"
 import { Form, Container, Row, Col, Card } from "react-bootstrap";
 // import Header from "../components/Header";
 import OCR from "./OCR";
-// import API from "../utils/API/api";
 import DropMenu from "../components/DropMenu";
-//this page still has problems.  The inputs are not working they should set the state of company, season and year.
-
 
 class Admin extends Component {
   state = {

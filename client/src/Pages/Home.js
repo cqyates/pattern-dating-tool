@@ -6,7 +6,7 @@ import Wrapper from "../components/Wrapper";
 import {Col} from "../components/Grid";
 import {Form, Card, Row} from "react-bootstrap";
 import FormBtn from "../components/FormBtn";
-import axios from "axios";
+// import axios from "axios";
 //import API from "../utils/API/api.js" uncomment this once you make the API function, it is crashing react because it is not called
 
 
