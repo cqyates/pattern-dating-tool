@@ -30,8 +30,8 @@ class DropMenu extends Component {
   render() {
     return (
       <Dropdown>
-      <Dropdown.Toggle variant="success" id="dropdown-basic">
-  
+      <Dropdown.Toggle variant="basic" id="dropdown-basic">
+      <h6>Select Company</h6>
       </Dropdown.Toggle>
     
       <Dropdown.Menu>
