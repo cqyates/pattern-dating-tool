@@ -3,6 +3,7 @@ import NavBar from "../components/NavBar";
 import Hero from "../components/Hero";
 import Footer from "../components/Footer";
 import Wrapper from "../components/Wrapper";
+import TitlebarGridList from "../components/GridList/TitlebarGridList"
 import {Col} from "../components/Grid";
 import {Form, Card, Row} from "react-bootstrap";
 import FormBtn from "../components/FormBtn";
@@ -41,9 +42,12 @@ class Home extends Component {
                 <Hero />
                 <Wrapper>
                 <Row style={{margin:"10px"}}>
-                  <Col size="lg-4">
+                  <Col size="lg-6">
+                   <TitlebarGridList />
+                  </Col>
+                  {/* <Col size="lg-4">
                     {!this.state.patterns.length ? (
-                      <h3>No Patterns to Display</h3>
+                      <h4>no pattern to display</h4>
                     ) : (
                       <List>
                         {this.state.patterns.map(pattern => {
@@ -54,14 +58,9 @@ class Home extends Component {
                         })}
                       </List>
                     )}
-                  </Col>
-                  <Col size="lg-4">
-                    
-                  </Col>
-                  <Col size="lg-4">
-                    <dt><img src="https://via.placeholder.com/500x540" alt=""></img></dt>
-                  </Col>
-                  <Col size="lg-4">
+                  </Col> */}
+                 
+                  <Col size="lg-8">
 
                     <Card className="imageSearch">
                     <Form className="searchForm">
@@ -81,7 +80,7 @@ class Home extends Component {
                           value={this.state.patternNumber}
                           onChange={this.handlePatternChange} />
                       </Form.Group>
-                      <FormBtn onClick={this.handleSubmit}>
+                      <FormBtn onClick={this.handleSubmit} >
                         Search
                       </FormBtn>
                     </Form>
