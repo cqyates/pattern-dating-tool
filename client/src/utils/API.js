@@ -2,43 +2,36 @@
 import axios from 'axios';
 
 export default {
-    getCompanies: async function (data) {
-        try {
-            const response = await axios({
-                method: "GET",
-                url: "/api/company",
-                data: []
-            })
-            return response;
-        } catch (error) {
-            return error;
+  getCompanies: async function(data){
+    try {
+        const response = await axios({
+            method: "GET",
+            url: "/api/company",
+            data
+        })
+        return response;
+    } catch (error) {
+        return error;
         };
     },
-
-    //route incomplete
-    searchPattern: async function (data) {
+  
+    // gets all the patterns in the db
+    searchPatterns: async function(data) {
         try {
             const response = await axios({
                 method: "GET",
                 url: "/api/pattern",
                 data
-            })
+            })  
             return response;
         } catch (error) {
             return error;
         }
     },
-  //What information do I need to pass to this function? Not currently working
-//   postPage: async function (data) {
-//         try {
-//             const response = await axios({
-//                 method: "POST",
-//                 url: "/api/page/new",
-//                 data
-//             })
-//             return response;
-//         } catch (error) {
-//             return error;
-//         };
-//     },
+
+    // Gets the pattern with the given id
+    searchPattern: async function(id) {
+        return axios.get("/api/pattern/" + id);
+    },
+
 };
