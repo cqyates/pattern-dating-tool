@@ -1,16 +1,13 @@
+//FIXME we need to combine the function of this button and the submit button to send both the image and the catalog facts to the back end
+
 import React, { Component } from 'react';
 import axios from "axios";
-
-var Tesseract = window.Tesseract;
 
 class UploadApp extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      //this holds the images to upload
       uploads: [],
-      patterns: [],
-      documents: [],
       imgData: [],
     };
   }
@@ -32,41 +29,6 @@ class UploadApp extends Component {
       })
     }
   }
-
-  generateText = () => {
-    let uploads = this.state.uploads
-  
-    for(var i = 0; i < uploads.length; i++) {
-      Tesseract.recognize(uploads[i], {
-        lang: 'eng'
-      })
-      .catch(err => {
-        console.error(err)
-      })
-      .then(result => {
-        // Get Confidence score
-        let confidence = result.confidence
-  
-        // Get full output
-        let text = result.text
-  
-        // Get codes
-        let pattern = /\b\w{10,10}\b/g
-        let patterns = result.text.match(pattern);
-  
-        // Update state
-        this.setState({ 
-          patterns: this.state.patterns.concat(patterns),
-          documents: this.state.documents.concat({
-            pattern: patterns,
-            text: text,
-            confidence: confidence
-          })
-        })
-      })
-    }
-  }
-
   uploadPhoto = (e) => {
     const file = e.target.files[0];
     const formData = new FormData();
@@ -84,7 +46,6 @@ class UploadApp extends Component {
         url: "/api/imgupload",
         data: this.state.imgData
       })
-
       console.log(response);
     } catch (error) {
       console.log(error.message)

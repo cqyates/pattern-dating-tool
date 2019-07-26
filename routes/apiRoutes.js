@@ -1,20 +1,25 @@
 const router = require("express").Router();
 const { upload, uploadAWS } = require('../utils/image-upload');
+const CompanyController = require("../controllers/CompanyController");
 
+//working
 router.post("/api/imgupload", upload.single('file'), async (req, res) => {
-  //const modelObject = {} 
- uploadAWS(req.file, res) 
-//  , (awsPath => {
-//   //  modelObject.awsPath = awsPath;
-//   //  modelObject.company = req.body.company;
-
-//                                        }) 
- //add cb function give us result get data from request and then push to database
-
+  uploadAWS(req.file, res)
+})
+//not in use
+router.get("/api", (req, res) => {
+  res.send("API is working")
 })
 
-router.get("/api", (req, res)=> {
-  res.json({ msg: "routes match"})
+router.get("/api/company", (req, res) => {
+  const result = CompanyController.findAll()
+    .then(dbModel => {
+      console.log(dbModel)
+      res.json(dbModel) 
+  
+    })
+    .catch(err => res.status(422).json(err));
+  console.log(result)
 })
 
 module.exports = router;

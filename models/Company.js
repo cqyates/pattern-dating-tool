@@ -1,3 +1,5 @@
+//Is my issue coming from Company vs companies vs Companies?
+
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 

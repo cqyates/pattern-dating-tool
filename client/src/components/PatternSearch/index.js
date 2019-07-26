@@ -2,7 +2,8 @@ import React from "react";
 import {Form, Button} from "react-bootstrap";
 import "./style.css";
 
-function PatternSearch() {
+//right here we need to set the company option and the pattern number as the state from the Home page component.
+function PatternSearch(props) {
     return(
         <div>
         <Form className="searchForm">
