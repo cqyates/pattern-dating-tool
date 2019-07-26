@@ -25,7 +25,7 @@ class DropMenu extends Component {
       })
       .catch(error => console.log(error));
   }
-  //step one console.log selected. step two pass up to parent as props.handleCompanyChange("_id")
+ 
   render() {
     return (
       <Dropdown onSelect={(companyID) => {
