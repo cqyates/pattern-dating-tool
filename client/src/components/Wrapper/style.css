@@ -12,11 +12,14 @@ dt{
   width: 600px;
 }
 .searchForm{
-  margin:10px;  
+  padding:10px;  
+  border-color: #758696;
+  border-style: solid; 
 }
 
 h4{
   text-align: center;
+  color: #ff4d4d;
 }
 
 

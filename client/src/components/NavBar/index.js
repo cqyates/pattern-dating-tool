@@ -6,15 +6,20 @@ import "./style.css";
 
     return (
         <Navbar bg="white" variant="light">
-        <Navbar.Brand className="navBrand" href="#home" style={{color:"#758696"}}>Vintage4Me2</Navbar.Brand>
+        {/* <Navbar.Brand className="navBrand" href="#home" style={{color:"#758696"}}>Vintage4Me2</Navbar.Brand> */}
         <Nav className="mr-auto">
-          <Nav.Link href="#home"></Nav.Link>
+          <Nav.Link>
+            <i className="fas fa-home" href="#home"></i>
+            <i className="fas fa-shopping-cart" href="https://www.vintage4me2.com/"></i>
+            <i className="fas fa-lock"></i>
+          </Nav.Link>
         </Nav>
-        <Form inline>
+        <h1>Vintage 4 Me 2</h1>
+        {/* <Form inline>
           <Button variant="outline-primary">
             Login
           </Button>
-        </Form>
+        </Form> */}
       </Navbar>
     )
 }

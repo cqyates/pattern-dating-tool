@@ -1,5 +1,18 @@
-.navBrand{
+h1{
     font-family: 'Open Sans', sans-serif;
     letter-spacing: 3px;
-    font-size: 35px;   
+    font-size: 70px;  
+    color: #ff4d4d; 
+}
+
+.mr-auto{
+    font-size: 48px;
+      
+}
+
+.fas{
+    margin-left: 40px;
+    margin-right: 40px;
+    color: #758696;
+    
 }
