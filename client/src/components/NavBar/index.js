@@ -1,5 +1,6 @@
 import React from "react";
-import {Navbar, Nav, Button, Form} from "react-bootstrap";
+import {Navbar, Nav} from "react-bootstrap";
+
 import "./style.css";
 
  function NavBar () {
@@ -10,7 +11,9 @@ import "./style.css";
         <Nav className="mr-auto">
           <Nav.Link>
             <i className="fas fa-home" href="#home"></i>
-            <i className="fas fa-shopping-cart" href="https://www.vintage4me2.com/"></i>
+            <a href="https://www.vintage4me2.com/">
+              <i className="fas fa-shopping-cart"></i>
+            </a>
             <i className="fas fa-lock"></i>
           </Nav.Link>
         </Nav>
