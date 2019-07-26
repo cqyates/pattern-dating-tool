@@ -3,6 +3,7 @@ h1{
     letter-spacing: 3px;
     font-size: 70px;  
     color: #ff4d4d; 
+    text-shadow: 3px 2px #758696;
 }
 
 .mr-auto{

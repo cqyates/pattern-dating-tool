@@ -8,7 +8,7 @@ import "./style.css";
 
     return (
         <Navbar bg="white" variant="light">
-        {/* <Navbar.Brand className="navBrand" href="#home" style={{color:"#758696"}}>Vintage4Me2</Navbar.Brand> */}
+
         <Nav className="mr-auto">
           <div>
             <i className="fas fa-home" href="#home"></i>
