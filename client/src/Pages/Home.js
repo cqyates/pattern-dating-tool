@@ -6,6 +6,7 @@ import Wrapper from "../components/Wrapper";
 import {Col} from "../components/Grid";
 import {Form, Card, Row} from "react-bootstrap";
 import FormBtn from "../components/FormBtn";
+import {List, ListItem} from "../components/List"
 import API from "../utils/API";
 
 
@@ -25,9 +26,13 @@ class Home extends Component {
     handleSubmit = event => {
       event.preventDefault();
       API.searchPattern(this.state.patternNumber)
-        .then(res => this.setState({patterns: res.data}))
-          .catch(err => console.log(err));
-    };
+        .then(res => {
+          const patternResults = res.data;
+          console.log(patternResults)
+          this.setState({patterns: patternResults });
+      })
+      .catch(error => console.log(error))
+    }
 
     render() {
         return (
@@ -40,32 +45,18 @@ class Home extends Component {
                     {!this.state.patterns.length ? (
                       <h3>No Patterns to Display</h3>
                     ) : (
-                      <dl>
+                      <List>
                         {this.state.patterns.map(pattern => {
-                          return (
-                            <dt 
-                            key={pattern._id}
-                            />
+                          return(
+                            <ListItem key={pattern._id} />
+                           
                           );
                         })}
-
-                        {/* <dt><img src="https://via.placeholder.com/100" alt=""></img></dt>
-                        <dt><img src="https://via.placeholder.com/100" alt=""></img></dt>
-                        <dt><img src="https://via.placeholder.com/100" alt=""></img></dt>
-                        <dt><img src="https://via.placeholder.com/100" alt=""></img></dt>
-                        <dt><img src="https://via.placeholder.com/100" alt=""></img></dt>    */}
-                      </dl>
+                      </List>
                     )}
                   </Col>
                   <Col size="lg-4">
-                    <dl>
-                        <dt><img src="https://via.placeholder.com/100" alt=""></img></dt>
-                        <dt><img src="https://via.placeholder.com/100" alt=""></img></dt>
-                        <dt><img src="https://via.placeholder.com/100" alt=""></img></dt>
-                        <dt><img src="https://via.placeholder.com/100" alt=""></img></dt>
-                        <dt><img src="https://via.placeholder.com/100" alt=""></img></dt>  
-                        
-                    </dl>      
+                    
                   </Col>
                   <Col size="lg-4">
                     <dt><img src="https://via.placeholder.com/500x540" alt=""></img></dt>
