@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { upload, uploadAWS } = require('../utils/image-upload');
-const CompanyController = require("../controllers/CompanyController")
+const CompanyController = require("../controllers/CompanyController");
 
 //working
 router.post("/api/imgupload", upload.single('file'), async (req, res) => {

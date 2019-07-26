@@ -1,18 +1,18 @@
-//FIXME this is not working.  It is suppose to bring in the company list from the MongoDB database.  It should load with companies when it component mounts
-
 import React, { Component } from "react";
 import API from "../../utils/API";
-import { Dropdown } from "react-bootstrap"
-//this component will call the getCompanies api and populate a dropdown menu with the company names. Not currently working
+import { Dropdown } from "react-bootstrap";
+import "./style.css";
 
 
 class DropMenu extends Component {
-  state = {
-    //this part is not right
-    companies: [],
-    isSelected: false
-  }
+  constructor(props) {
+    super(props)
 
+    this.state = {
+      companies: [],
+      isSelected: false
+    }
+  }
   componentDidMount() {
     this.getCompanies();
   }
@@ -21,26 +21,30 @@ class DropMenu extends Component {
     API.getCompanies()
       .then(res => {
         const companyList = res.data;
-        console.log(companyList)
         this.setState({ companies: companyList });
       })
       .catch(error => console.log(error));
   }
-
-  // between these two divs is where the dropdown menu should go with the company list prop that is called from the mongoDB and mapped in the get companies function.
+  //step one console.log selected. step two pass up to parent as props.handleCompanyChange("_id")
   render() {
     return (
-      <Dropdown>
-      <Dropdown.Toggle variant="basic" id="dropdown-basic">
-      <h7>Select Company</h7>
-      </Dropdown.Toggle>
-      <Dropdown.Menu>
-      <Dropdown.Item >
-      </Dropdown.Item> 
-      </Dropdown.Menu>
-     
-    
-    </Dropdown>
+      <Dropdown onSelect={(companyID) => {
+        this.props.handleChange(companyID)
+       
+      }}>
+        <Dropdown.Toggle variant="basic" id="dropdown-basic">
+          <h7>Select Company</h7>
+        </Dropdown.Toggle>
+        <Dropdown.Menu >
+          {this.state.companies.map(company => (
+            <Dropdown.Item key={company._id} eventKey={company._id}>
+              <p>{company.name}</p>
+            </Dropdown.Item>
+          ))}
+        </Dropdown.Menu>
+
+
+      </Dropdown>
     )
   }
 }

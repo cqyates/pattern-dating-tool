@@ -9,9 +9,15 @@ import DropMenu from "../components/DropMenu";
 
 class Admin extends Component {
   state = {
+    companyID: null,
     season: "",
     year: "",
   }
+  handleCompanySelection = (companyID) => {
+    console.log(companyID)
+    this.setState({companyID})
+  }
+
   //This function should match all the names and values in the state
   handleInputChange = event => {
     let value = event.target.value;
@@ -35,7 +41,7 @@ class Admin extends Component {
               <Row style={{ padding: "10px" }}>
                 <Col style={{ marginTop: "20px" }}>
                   <Form>
-                   <DropMenu />
+                   <DropMenu handleChange={this.handleCompanySelection} />
                     <Form.Group controlId="seasonForm">
                       <Form.Control as="select" style={{ borderColor: "#758696" }}
                         value={this.state.season} onChange={this.handleInputChange}>

@@ -7,7 +7,6 @@ class UploadApp extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      //this holds the images to upload
       uploads: [],
       imgData: [],
     };

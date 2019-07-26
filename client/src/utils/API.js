@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 export default {
-    getCompanies: async function () {
+    getCompanies: async function (data) {
         try {
             const response = await axios({
                 method: "GET",
