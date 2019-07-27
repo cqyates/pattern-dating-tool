@@ -6,6 +6,7 @@ import "./style.css";
  function NavBar () {
 
     return (
+        <div className="navBar">
         <Navbar bg="white" variant="light">
 
         <Nav className="mr-auto">
@@ -30,6 +31,7 @@ import "./style.css";
           </Button>
         </Form> */}
       </Navbar>
+      </div>
     )
 }
 export default NavBar;
