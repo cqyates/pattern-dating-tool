@@ -30,7 +30,7 @@ export default {
     // },
 
     // Gets the pattern with the given patternNumber
-    searchPattern: async function(query) {
+    searchPattern: function(query) {
         return axios.get("/api/pattern/" + query);
     },
 
