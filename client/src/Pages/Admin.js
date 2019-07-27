@@ -7,6 +7,7 @@ import { Form, Container, Row, Col, Card } from "react-bootstrap";
 import OCR from "./OCR";
 import DropMenu from "../components/DropMenu";
 
+
 class Admin extends Component {
   state = {
     companyID: null,
@@ -60,7 +61,9 @@ class Admin extends Component {
             </Card>
           </div>
         </Container>
+        <Hero />
       </div>
+
 
 
 
