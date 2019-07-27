@@ -33,15 +33,7 @@ router.get("/api/pattern", (req, res) => {
   console.log(result)
 })
 
-router.get("/api/pattern/:id", (req, res) => {
-  const result = PatternController.findById()
-  .then(dbModel => {
-    console.log(dbModel)
-    res.json(dbModel)
-  })
-  .catch(err => res.status(422).json(err));
-  console.log(result)
-})
+router.route("/api/pattern/:id").get(PatternController.findById);
 
 
 module.exports = router;

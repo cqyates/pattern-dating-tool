@@ -3,6 +3,7 @@ const db = require("../models");
 // Defining methods for the booksController
 module.exports = {
     findById: function(req, res) {
+        console.log(req.params.id);
         db.Pattern
         .findById(req.params.id)
         .then(dbModel => res.json(dbModel))
