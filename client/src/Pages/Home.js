@@ -13,7 +13,7 @@ import DropMenu from "../components/DropMenu";
 
 class Home extends Component {
     state={
-      CompanyID: null,
+      companyID: null,
       patterns: [],
       query: "",
       validated: false

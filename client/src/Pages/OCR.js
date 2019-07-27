@@ -62,8 +62,6 @@ class UploadApp extends Component {
           pattern: patterns
         })
       }) 
-      console.log(patterns)
-
     } catch (error) {
       console.log(error.message)
       return error.message
@@ -86,7 +84,7 @@ class UploadApp extends Component {
     return (
       <div className="app">
         <header className="header">
-          <h1>My OCR App</h1>
+          <h4>My OCR App</h4>
         </header>
 
         { /* File uploader */}
