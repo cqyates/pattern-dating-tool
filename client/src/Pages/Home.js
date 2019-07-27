@@ -8,23 +8,17 @@ import {Col} from "../components/Grid";
 import {Form, Card, Row} from "react-bootstrap";
 import FormBtn from "../components/FormBtn";
 import API from "../utils/API";
+import DropMenu from "../components/DropMenu";
 
 
 class Home extends Component {
-  constructor(props) {
-  super(props);
-
-  this.searchPattern = this.searchPattern.bind(this);
-  this.handleSubmit = this.handleSubmit.bind(this);
-  this.handlePatternChange = this.handlePatternChange.bind(this);
-
-    this.state={
-      // this array will hold the list of pages from the pattern model
+    state={
+      CompanyID: null,
       patterns: [],
       patternNumber: "",
       validated: false
     }; 
-  }
+  
 
     searchPattern(id) {
       console.log(id);
@@ -44,17 +38,20 @@ class Home extends Component {
       // })
     };
 
-    handleSubmit(event) {
-      const search = event.currentTarget;
+    handleCompanySelection = (companyID) => {
+      console.log(companyID)
+      this.setState({companyID})
+    }
 
-      if(search.checkValidity() === false) {
-        event.preventDefault();
-        event.stopPropagation();
-      } else {
-        event.preventDefault();
-        this.setState({validated: true});
-        this.searchPattern(this.state.patternNumber)
-      }
+    handleSubmit = event => {
+      event.preventDefault();
+      API.searchPattern(this.state.patternNumber)
+        .then(res => {
+          const patternResults = res.data;
+          console.log(patternResults)
+          this.setState({patterns: patternResults });
+      })
+      .catch(error => console.log(error))
     }
 
     // handleSubmit = event => {
@@ -91,9 +88,7 @@ class Home extends Component {
                       <h4>Search for a Pattern</h4>
                       <Form.Group>
                         <Form.Label>Company</Form.Label>
-                        {/* TODO============================= */}
-                        {/* insert Corey's dropdown component */}
-                        {/* ================================= */}   
+                      <DropMenu handleChange={this.handleCompanySelection}/>
                       </Form.Group>
                       <Form.Group controlId="patternNumber">
                           <Form.Label>Pattern Number</Form.Label>
@@ -124,6 +119,6 @@ class Home extends Component {
         )
        
     }
-}
 
+  }
 export default Home;
