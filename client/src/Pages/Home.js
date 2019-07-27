@@ -9,11 +9,12 @@ import {Form, Card, Row} from "react-bootstrap";
 import FormBtn from "../components/FormBtn";
 import {List, ListItem} from "../components/List"
 import API from "../utils/API";
+import DropMenu from "../components/DropMenu";
 
 
 class Home extends Component {
     state={
-      // this array will hold the list of pages from the pattern model
+      CompanyID: null,
       patterns: [],
       patternNumber: "",
     } 
@@ -23,6 +24,11 @@ class Home extends Component {
         patternNumber: event.target.value
       })
     };
+
+    handleCompanySelection = (companyID) => {
+      console.log(companyID)
+      this.setState({companyID})
+    }
 
     handleSubmit = event => {
       event.preventDefault();
@@ -67,9 +73,7 @@ class Home extends Component {
                       <h4>Search for a Pattern</h4>
                       <Form.Group>
                         <Form.Label>Company</Form.Label>
-                        {/* TODO============================= */}
-                        {/* insert Corey's dropdown component */}
-                        {/* ================================= */}   
+                      <DropMenu handleChange={this.handleCompanySelection}/>
                       </Form.Group>
 
                       <Form.Group controlId="patternFormNumber">
