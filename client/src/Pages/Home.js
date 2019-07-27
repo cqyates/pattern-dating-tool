@@ -31,11 +31,11 @@ class Home extends Component {
     }
     
     handlePatternChange = event => {
-      const {name, value} = event.target;
-      this.setState({ [name]: value });
-      // this.setState({ 
-      //   patternNumber: event.target.value
-      // })
+       this.setState({ 
+         query: event.target.value
+       })
+      // const {name, value} = event.target;
+      // this.setState({ [name]: value });
     };
 
     handleCompanySelection = (companyID) => {
