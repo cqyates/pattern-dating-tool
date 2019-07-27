@@ -23,17 +23,17 @@ router.get("/api/company", (req, res) => {
   console.log(result)
 })
 
-// router.get("/api/pattern", (req, res) => {
-//   const result = PatternController.findAll()
-//   .then(dbModel => {
-//     console.log(dbModel)
-//     res.json(dbModel)
-//   })
-//   .catch(err => res.status(422).json(err));
-//   console.log(result)
-// })
+router.get("/api/pattern/:query", (req, res) => {
+  const patternResult = PatternController.findByPatternNumber(req.params.query)
+  .then(dbModel => {
+    console.log(dbModel)
+    res.json(dbModel)
+  })
+  .catch(err => res.status(422).json(err));
+  console.log(patternResult)
+})
 
-router.route("/api/pattern/:id").get(PatternController.findByPatternNumber);
+// router.route("/api/pattern/:query").get(PatternController.findByPatternNumber);
 
 
 module.exports = router;
