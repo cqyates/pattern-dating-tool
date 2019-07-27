@@ -15,9 +15,7 @@ router.get("/api", (req, res) => {
 router.get("/api/company", (req, res) => {
   const result = CompanyController.findAll()
     .then(dbModel => {
-      console.log(dbModel)
       res.json(dbModel) 
-  
     })
     .catch(err => res.status(422).json(err));
   console.log(result)
