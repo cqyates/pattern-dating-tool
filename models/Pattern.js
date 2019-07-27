@@ -6,7 +6,7 @@ const patternSchema = new Schema({
 		type: Number, 
 		required: true 
 	},
-	pageID: [{ 
+	page: [{ 
 		type: Schema.Types.ObjectId, 
 		ref: 'Page'
 	}]

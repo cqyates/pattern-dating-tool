@@ -14,24 +14,21 @@ export default {
         return error;
         };
     },
-  
-    // gets all the patterns in the db
-    searchPatterns: async function(data) {
+
+    // Gets the pattern with the given patternNumber
+    // searchPattern: function(query) {
+    //     return axios.get("/api/pattern/" + query);
+    // },
+    searchPattern: async function(query) {
         try {
             const response = await axios({
                 method: "GET",
-                url: "/api/pattern",
-                data
-            })  
+                url: "/api/pattern/" +query,
+                query
+            })
             return response;
         } catch (error) {
             return error;
-        }
-    },
-
-    // Gets the pattern with the given id
-    searchPattern: async function(id) {
-        return axios.get("/api/pattern/" + id);
-    },
-
+            };
+        },  
 };

@@ -35,7 +35,7 @@ const useStyles = makeStyles(theme => ({
               <img src={tile.img} alt={tile.title} style={{height:"100%"}}/>
               <GridListTileBar
                 title={tile.title}
-                subtitle={<span>by: {tile.author}</span>}
+                subtitle={<span>{tile.author}</span>}
               />
             </GridListTile>
           ))}

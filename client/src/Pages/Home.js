@@ -15,14 +15,14 @@ class Home extends Component {
     state={
       CompanyID: null,
       patterns: [],
-      patternNumber: "",
+      query: "",
       validated: false
     }; 
   
 
-    searchPattern(id) {
-      console.log(id);
-      API.searchPattern(id)
+    searchPattern(query) {
+      console.log(query);
+      API.searchPattern(query)
       .then(res => {
         const patternResults = res.data;
         this.setState({ patterns: patternResults})
@@ -31,11 +31,11 @@ class Home extends Component {
     }
     
     handlePatternChange = event => {
-      const {name, value} = event.target;
-      this.setState({ [name]: value });
-      // this.setState({ 
-      //   patternNumber: event.target.value
-      // })
+       this.setState({ 
+         query: event.target.value
+       })
+      // const {name, value} = event.target;
+      // this.setState({ [name]: value });
     };
 
     handleCompanySelection = (companyID) => {
@@ -45,7 +45,7 @@ class Home extends Component {
 
     handleSubmit = event => {
       event.preventDefault();
-      API.searchPattern(this.state.patternNumber)
+      API.searchPattern(this.state.query)
         .then(res => {
           const patternResults = res.data;
           console.log(patternResults)
@@ -90,13 +90,14 @@ class Home extends Component {
                         <Form.Label>Company</Form.Label>
                       <DropMenu handleChange={this.handleCompanySelection}/>
                       </Form.Group>
-                      <Form.Group controlId="patternNumber">
+                      <Form.Group controlId="query">
                           <Form.Label>Pattern Number</Form.Label>
                           <Form.Control
-                          name="patternNumber" 
+                          // type="text"
+                          name="query" 
                           placeholder="XXXX"
                           required
-                          value={this.state.patternNumber}
+                          value={this.state.query}
                           onChange={this.handlePatternChange} 
                       />
                       <Form.Control.Feedback type="invalid">
