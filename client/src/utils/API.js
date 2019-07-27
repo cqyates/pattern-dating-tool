@@ -29,9 +29,9 @@ export default {
         }
     },
 
-    // Gets the pattern with the given id
-    searchPattern: async function(id) {
-        return axios.get("/api/pattern/" + id);
+    // Gets the pattern with the given patternNumber
+    searchPattern: async function(query) {
+        return axios.get("/api/pattern/" + query);
     },
 
 };
