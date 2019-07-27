@@ -1,14 +1,15 @@
-//FIXME we need to combine the function of this button and the submit button to send both the image and the catalog facts to the back end
-
 import React, { Component } from 'react';
 import axios from "axios";
+import Tesseract from "tesseract.js";
 
 class UploadApp extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      uploads: [],
+      uploads: null,
       imgData: [],
+      documents: [],
+      patterns: [],
     };
   }
 
@@ -23,6 +24,7 @@ class UploadApp extends Component {
       this.setState({
         uploads: uploads
       })
+     this.uploadPhoto(event);
     } else {
       this.setState({
         uploads: []
@@ -36,20 +38,48 @@ class UploadApp extends Component {
     console.log(formData)
     this.setState({
       imgData: formData
-    }, ()=> console.log(this.state))
+    }, () => console.log(this.state))
+  }
+
+  generateText = () => {
+    let upload = this.state.uploads;
+    return Tesseract.recognize(upload[0], {
+      lang: 'eng'
+    })
+    
   }
 
   APIuploadPhoto = async () => {
     try {
+      const textGeneration = await this.generateText()
+
+      let pattern = /\b\d{4}\b/g
+      let patterns = textGeneration.text.match(pattern);
+
+      this.setState({
+        patterns: this.state.patterns.concat(patterns),
+        documents: this.state.documents.concat({
+          pattern: patterns
+        })
+      }) 
+      console.log(patterns)
+
+    } catch (error) {
+      console.log(error.message)
+      return error.message
+    }
+    try {
       const response = await axios({
         method: "POST",
         url: "/api/imgupload",
-        data: this.state.imgData
+        data: this.state.imgData,
+        patterns: this.state.patterns
       })
       console.log(response);
     } catch (error) {
       console.log(error.message)
     }
+    
   }
 
   render() {
@@ -60,30 +90,23 @@ class UploadApp extends Component {
         </header>
 
         { /* File uploader */}
-        <section className="hero" style={{padding:"10px"}}>
+        <section className="hero" style={{ padding: "10px" }}>
           <label className="fileUploaderContainer">
             Click here to upload documents<br></br>
-            <input type="file" 
-            id="fileUploader" 
-            style={{topMargin:"10px"}}
-            onChange={this.uploadPhoto} multiple />
+            <input type="file"
+              id="fileUploader"
+              style={{ topMargin: "10px" }}
+              onChange={this.handleChange} multiple />
           </label>
-
-
-
           <div>
-            {this.state.uploads.map((value, index) => {
-              return <img key={index} src={value} width="100px" alt=""/>
-              
-            })} 
+          <small><strong>Pattern Output:</strong> {this.state.patterns.map((patterns) => { return patterns + ', ' })}</small>
           </div>
-
-          <button onClick={this.APIuploadPhoto} 
-          className="button"
-          style={{marginTop:"10px"}}>Start Uploading</button>
+          <button onClick={this.APIuploadPhoto}
+            className="button"
+            style={{ marginTop: "10px" }}>Start Uploading</button>
         </section>
 
-     
+
       </div>
     )
   }

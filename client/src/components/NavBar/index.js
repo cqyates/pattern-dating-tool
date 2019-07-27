@@ -23,7 +23,7 @@ import "./style.css";
             </a>
           </div>
         </Nav>
-        <h1>Vintage 4 Me 2</h1>
+        <h1>Vintage4Me2</h1>
         {/* <Form inline>
           <Button variant="outline-primary">
             Login
