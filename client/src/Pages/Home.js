@@ -9,6 +9,7 @@ import {Form, Card, Row} from "react-bootstrap";
 import FormBtn from "../components/FormBtn";
 import API from "../utils/API";
 import DropMenu from "../components/DropMenu";
+import PatternImage from "../components/PatternImage";
 
 
 class Home extends Component {
@@ -53,7 +54,7 @@ class Home extends Component {
       })
       .catch(error => console.log(error))
     }
-    
+
     render() {
         const { validated } = this.state;
         return (
@@ -63,8 +64,12 @@ class Home extends Component {
                 <Wrapper>
                 <Row style={{margin:"10px"}}>
 
-                  <Col size="lg-6">
+                  <Col size="lg-4">
                    <TitlebarGridList />
+                  </Col>
+
+                  <Col size="lg-4">
+                    <PatternImage />
                   </Col>
 
                   <Col size="lg-8">
