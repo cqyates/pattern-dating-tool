@@ -29,7 +29,7 @@ const fileFilter = function (req, file, cb) {
   cb(null, true)
 }
 
-//this is multer's upload function.  Where is this called?
+//this is multer's upload function.  This is called on the API route as uploads.single
 const upload = multer({
   fileFilter,
   dest: "./uploads",
@@ -37,9 +37,8 @@ const upload = multer({
     files: MAX_SIZE
   }
 })
-//This is the upload to AWS.  
+//This is the upload to AWS.  This is called on the routes page
 const uploadAWS = async (file, res, cb) => {
-  console.log(file.path)
   try {
     fs.readFile(file.path, function (err, data) {
       params = { Bucket: myBucket, Key: `${file.originalname}`, Body: data }
