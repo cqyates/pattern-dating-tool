@@ -53,18 +53,7 @@ class Home extends Component {
       })
       .catch(error => console.log(error))
     }
-
-    // handleSubmit = event => {
-    //   event.preventDefault();
-    //   API.searchPattern(this.state.patternNumber)
-    //     .then(res => {
-    //       const patternResults = res.data;
-    //       console.log(patternResults)
-    //       this.setState({patterns: patternResults });
-    //   })
-    //   .catch(error => console.log(error))
-    // }
-
+    
     render() {
         const { validated } = this.state;
         return (
