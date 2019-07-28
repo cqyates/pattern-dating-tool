@@ -9,6 +9,7 @@ import {Form, Card, Row} from "react-bootstrap";
 import FormBtn from "../components/FormBtn";
 import API from "../utils/API";
 import DropMenu from "../components/DropMenu";
+import cover from "../images/cover.jpg"
 
 
 class Home extends Component {
@@ -54,17 +55,6 @@ class Home extends Component {
       .catch(error => console.log(error))
     }
 
-    // handleSubmit = event => {
-    //   event.preventDefault();
-    //   API.searchPattern(this.state.patternNumber)
-    //     .then(res => {
-    //       const patternResults = res.data;
-    //       console.log(patternResults)
-    //       this.setState({patterns: patternResults });
-    //   })
-    //   .catch(error => console.log(error))
-    // }
-
     render() {
         const { validated } = this.state;
         return (
@@ -74,8 +64,19 @@ class Home extends Component {
                 <Wrapper>
                 <Row style={{margin:"10px"}}>
 
-                  <Col size="lg-6">
+                  <Col size="lg-4">
                    <TitlebarGridList />
+                  </Col>
+
+                  <Col size="lg-4">
+                    <Card className="patternImage">
+                      <Card.Body style={{background: "#e4e8eb"}}>
+                      <Card.Text className="cardTitle">
+                          FIND YOUR PATTERN
+                      </Card.Text>
+                      </Card.Body>
+                      <Card.Img className="defaultImg"variant="bottom" src={cover} />
+                    </Card>
                   </Col>
 
                   <Col size="lg-8">

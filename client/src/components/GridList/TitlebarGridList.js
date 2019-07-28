@@ -12,10 +12,11 @@ const useStyles = makeStyles(theme => ({
       justifyContent: 'space-around',
       overflow: 'hidden',
       backgroundColor: theme.palette.background.paper,
+      boxShadow: '0 8px 16px 0 rgba(0, 0, 0, 0.4), 0 12px 40px 0 rgba(0, 0, 0, 0.38)',
     },
     gridList: {
-      width: 500,
-      height: 450,
+      width: 350,
+      height: 540,
       margin: "auto",
     },
     icon: {

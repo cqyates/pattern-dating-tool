@@ -1,6 +1,6 @@
 const tileData = [
     {
-      img: require('../../images/Butt-Summer-1934-Cover1.jpg'),
+      img: require('../../images/cover.jpg'),
       title: 'cover',
       author: 'Butterick Summer 1934',
       cols: 2,

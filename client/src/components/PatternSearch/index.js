@@ -7,7 +7,7 @@ function PatternSearch(props) {
     return(
         <div>
         <Form className="searchForm">
-            <h4>Search for a Pattern</h4>
+            <h4 style={{fontFamily: 'Taviraj, serif'}}>Search for a Pattern</h4>
             <Form.Group controlId="patternFormCompany">
                 <Form.Label>Company Name</Form.Label>
                 <Form.Control as="select" style={{width:"60%"}}>

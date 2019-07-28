@@ -7,7 +7,7 @@ import "./style.css";
 
     return (
         <div className="navBar">
-        <Navbar bg="white" variant="light">
+        <Navbar className="NavBar" bg="white" variant="light">
 
         <Nav className="mr-auto">
           <div>
