@@ -24,7 +24,7 @@ class UploadApp extends Component {
       this.setState({
         uploads: uploads
       })
-     this.uploadPhoto(event);
+      this.uploadPhoto(event);
     } else {
       this.setState({
         uploads: []
@@ -46,7 +46,7 @@ class UploadApp extends Component {
     return Tesseract.recognize(upload[0], {
       lang: 'eng'
     })
-    
+
   }
 
   APIuploadPhoto = async () => {
@@ -61,8 +61,9 @@ class UploadApp extends Component {
         documents: this.state.documents.concat({
           pattern: patterns
         })
-      }) 
-    } catch (error) {
+      })
+    }
+    catch (error) {
       console.log(error.message)
       return error.message
     }
@@ -71,13 +72,16 @@ class UploadApp extends Component {
         method: "POST",
         url: "/api/imgupload",
         data: this.state.imgData,
-        patterns: this.state.patterns
+        patterns: this.state.patterns,
+        companyID: this.state.companyID,
+        season: this.state.season,
+        year: this.state.year
       })
       console.log(response);
     } catch (error) {
       console.log(error.message)
     }
-    
+
   }
 
   render() {
@@ -97,7 +101,7 @@ class UploadApp extends Component {
               onChange={this.handleChange} multiple />
           </label>
           <div>
-          <small><strong>Pattern Output:</strong> {this.state.patterns.map((patterns) => { return patterns + ', ' })}</small>
+            <small><strong>Pattern Output:</strong> {this.state.patterns.map((patterns) => { return patterns + ', ' })}</small>
           </div>
           <button onClick={this.APIuploadPhoto}
             className="button"
