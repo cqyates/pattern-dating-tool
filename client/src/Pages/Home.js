@@ -9,7 +9,7 @@ import {Form, Card, Row} from "react-bootstrap";
 import FormBtn from "../components/FormBtn";
 import API from "../utils/API";
 import DropMenu from "../components/DropMenu";
-import PatternImage from "../components/PatternImage";
+// import PatternImage from "../components/PatternImage";
 
 
 class Home extends Component {
@@ -69,7 +69,14 @@ class Home extends Component {
                   </Col>
 
                   <Col size="lg-4">
-                    <PatternImage />
+                    <Card className="patternImage">
+                      <Card.Body>
+                      <Card.Text className="cardTitle">
+                          FIND YOUR PATTERN
+                      </Card.Text>
+                      </Card.Body>
+                      <Card.Img variant="bottom" src="" />
+                    </Card>
                   </Col>
 
                   <Col size="lg-8">
