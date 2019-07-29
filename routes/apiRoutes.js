@@ -7,6 +7,11 @@ const PatternController = require("../controllers/PatternController")
 router.post("/api/imgupload", upload.single('file'), async (req, res) => {
   uploadAWS(req.file, res);
 })
+//not working
+router.post("/api/pgupload", async (req, res) => {
+  console.log(req.body)
+  res.json(req.body)
+})
 //not in use
 router.get("/api", (req, res) => {
   res.send("API is working")
