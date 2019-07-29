@@ -124,29 +124,29 @@ class Admin extends Component {
                 className="button"
                 style={{ marginTop: "10px" }}>Start Uploading</button>
             </section>
-            <Row style={{ padding: "10px", marginTop: "20px" }}>
-              <Col style={{display:"inline"}}>
-                <DropMenu handleChange={this.handleCompanySelection} />
-              </Col>
-              <Col style={{display:"inline"}}>
-                <Form>
-                  <Form.Group controlId="seasonForm">
-                    <Form.Control as="select" style={{ borderColor: "#758696" }}
-                      value={this.state.season} onChange={this.handleInputChange}>
-                      <option>select season</option>
-                      <option>fall</option>
-                      <option>winter</option>
-                      <option>spring</option>
-                      <option>summer</option>
-                    </Form.Control>
-                  </Form.Group>
-                </Form>
-              </Col>
-              <Col styling={{display:"inline"}}>
-                <Input as="text" name="year" placeholder="YYYY (required)"
-                value={this.state.year} onChange={this.handleInputChange}></Input>
-              </Col>
-            </Row>
+            <Form >
+              <Row style={{ padding: "10px", marginTop: "20px", marginRight:"20px", marginLeft:"20px"}}>
+                <Col size="lg-4" style={{display:"flex", justifyContent:"center"}}>
+                  <DropMenu handleChange={this.handleCompanySelection} />
+                </Col>
+                <Col size="lg-4" style={{display:"flex", justifyContent:"center"}}>
+                    <Form.Group controlId="seasonForm">
+                      <Form.Control as="select" style={{ borderColor: "#758696" }}
+                        value={this.state.season} onChange={this.handleInputChange}>
+                        <option>select season</option>
+                        <option>fall</option>
+                        <option>winter</option>
+                        <option>spring</option>
+                        <option>summer</option>
+                      </Form.Control>
+                    </Form.Group>
+                </Col>
+                <Col size="lg-4" styling={{display:"flex", justifyContent:"center"}}>
+                  <Input as="text" name="year" placeholder="YYYY (required)" 
+                  value={this.state.year} onChange={this.handleInputChange}></Input>
+                </Col>
+              </Row>
+            </Form>
           </Card>
         </Container>
         <div>
