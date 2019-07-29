@@ -5,7 +5,7 @@ const PatternController = require("../controllers/PatternController")
 
 //working
 router.post("/api/imgupload", upload.single('file'), async (req, res) => {
-  uploadAWS(req.file, res)
+  uploadAWS(req.file, res);
 })
 //not in use
 router.get("/api", (req, res) => {
