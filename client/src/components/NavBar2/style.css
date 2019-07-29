@@ -1,0 +1,35 @@
+  
+h1{
+    /* font-family: 'Open Sans', sans-serif; */
+    /* font-family: 'Beth Ellen', cursive; */
+    /* font-family: 'Niconne', cursive; */
+    font-family: 'Taviraj', serif;
+    letter-spacing: 3px;
+    font-size: 70px;  
+    color: #ff4d4d; 
+    text-shadow: 3px 2px #758696;
+    animation-name: title;
+    animation-iteration-count: infinite;
+    animation-duration: 30s;
+    padding: 5px;
+}
+/* The animation code */
+@keyframes title {
+    0%   {color: #c2e5fc;}
+    50%  {color: #0a8a84;}
+    100% {color: #ff4d4d;}
+  }
+
+.mr-auto{
+    font-size: 48px;
+    /* box-shadow: 10px 10px 5px grey; */
+    background-color: white;
+}
+
+.fas{
+    margin-left: 40px;
+    margin-right: 40px;
+    color:  #758696;
+    /* text-shadow: 3px 2px #e4e8eb; */
+    
+}
