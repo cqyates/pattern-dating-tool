@@ -125,7 +125,7 @@ class Admin extends Component {
                 style={{ marginTop: "10px" }}>Start Uploading</button>
             </section>
             <Form >
-              <Row style={{ padding: "10px", marginTop: "20px", marginRight:"20px", marginLeft:"20px"}}>
+              <Row style={{marginTop: "20px", marginRight:"20px", marginLeft:"20px"}}>
                 <Col size="lg-4" style={{display:"flex", justifyContent:"center"}}>
                   <DropMenu handleChange={this.handleCompanySelection} />
                 </Col>
