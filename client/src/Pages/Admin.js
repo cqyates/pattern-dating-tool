@@ -124,10 +124,12 @@ class Admin extends Component {
                 className="button"
                 style={{ marginTop: "10px" }}>Start Uploading</button>
             </section>
-            <Row style={{ padding: "10px" }}>
-              <Col style={{ marginTop: "20px" }}>
+            <Row style={{ padding: "10px", marginTop: "20px" }}>
+              <Col style={{display:"inline"}}>
+                <DropMenu handleChange={this.handleCompanySelection} />
+              </Col>
+              <Col style={{display:"inline"}}>
                 <Form>
-                  <DropMenu handleChange={this.handleCompanySelection} /><span></span>
                   <Form.Group controlId="seasonForm">
                     <Form.Control as="select" style={{ borderColor: "#758696" }}
                       value={this.state.season} onChange={this.handleInputChange}>
@@ -139,8 +141,10 @@ class Admin extends Component {
                     </Form.Control>
                   </Form.Group>
                 </Form>
+              </Col>
+              <Col styling={{display:"inline"}}>
                 <Input as="text" name="year" placeholder="YYYY (required)"
-                  value={this.state.year} onChange={this.handleInputChange}></Input>
+                value={this.state.year} onChange={this.handleInputChange}></Input>
               </Col>
             </Row>
           </Card>
