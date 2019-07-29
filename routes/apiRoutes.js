@@ -9,7 +9,8 @@ router.post("/api/imgupload", upload.single('file'), async (req, res) => {
 })
 //not working
 router.post("/api/pgupload", async (req, res) => {
-  console.log("this is the req on the backend apiroute" + req.body)
+  console.log(req.body)
+  res.json(req.body)
 })
 //not in use
 router.get("/api", (req, res) => {

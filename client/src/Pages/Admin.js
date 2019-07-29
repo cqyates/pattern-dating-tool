@@ -30,7 +30,15 @@ class Admin extends Component {
   //this assigns a companyID number (from Mongo) when the user selects a company
   //this is passed as a prop with DropMenu.  It is called on line 141. Works
   handleCompanySelection = (companyID) => {
-    this.setState({ companyID })
+    this.setState(state => {
+      return {
+        ...state,
+        catalog: {
+          ...state.catalog,
+          companyID: companyID
+        }
+      }
+    })
   }
 
   //This function should match all the names and values in the state. Lets change this to just be season and year.
@@ -39,9 +47,18 @@ class Admin extends Component {
   handleInputChange = event => {
     let value = event.target.value
     const name = event.target.name;
-    this.setState({
-      [name]: value
-    });
+    // this.setState({
+    //   [name]: value
+    // });
+    this.setState(state => {
+      return {
+        ...state,
+        catalog: {
+          ...state.catalog,
+          [name]: value
+        }
+      }
+    })
 
   }
   //This functions adds the files you choose to the uploads array
@@ -87,35 +104,43 @@ class Admin extends Component {
 
       let pattern = /\b\d{4}\b/g
       let patterns = textGeneration.text.match(pattern);
+      console.log(patterns)
 
-      this.setState({
-        patterns: this.state.patterns.concat(patterns),
-        documents: this.state.documents.concat({
-          pattern: patterns
-        })
-      })
+      // this.setState({
+      //   patterns: this.state.patterns.concat(patterns),
+      //   documents: this.state.documents.concat({
+      //     pattern: patterns
+      //   })
+      // }, async () => {
+      // const imgResp = await axios({
+      //   method: "POST",
+      //   url: "/api/imgupload",
+      //   data: this.state.imgData
+      // })
+
+      var catalogData = {
+        companyId: this.state.catalog.companyID,
+        year: this.state.catalog.year,
+        season: this.state.catalog.season,
+        patterns: patterns,
+        filepath: "update path"
+      }
+
+      const pageResp = await API.postPage(catalogData);
+      //  console.log(imgResp);
+      console.log(pageResp);
+      //})
     }
     catch (error) {
       console.log(error.message)
       return error.message
     }
     try {
-      const response = await axios({
-        method: "POST",
-        url: "/api/imgupload",
-        data: this.state.imgData
-      })
-      console.log(response);
-    } catch (error) {
-      console.log(error.message)
-    }
-    try {
-      API.postPage(this.state.catalog)
-      //what else do I need here?
 
     } catch (error) {
       console.log(error.message)
     }
+
   }
   //Here I need to have the state displayed in the table. Add a spinner to pattern number line while tesseract is running
   render() {
@@ -139,6 +164,7 @@ class Admin extends Component {
                   <DropMenu handleChange={this.handleCompanySelection} /><span></span>
                   <Form.Group controlId="seasonForm">
                     <Form.Control as="select" style={{ borderColor: "#758696" }}
+                      name="season"
                       value={this.state.season} onChange={this.handleInputChange}>
                       <option>select season</option>
                       <option>fall</option>
@@ -174,9 +200,9 @@ class Admin extends Component {
                 <tbody>
                   <tr>
                     <td>Display</td>
-                    <td>{this.state.company}</td>
-                    <td>{this.state.season}</td>
-                    <td>{this.state.year}</td>
+                    <td>{this.state.catalog.company}</td>
+                    <td>{this.state.catalog.season}</td>
+                    <td>{this.state.catalog.year}</td>
                     <td>add spinner</td>
                     <td>add upload button</td>
                   </tr>

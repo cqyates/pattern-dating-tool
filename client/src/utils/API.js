@@ -42,7 +42,8 @@ export default {
                 url: "/api/pgupload",
                 data
             })
-            console.log("this response is hitting in the postPage API call" + response);
+            console.log(response);
+            return response;
         } catch (error) {
             console.log(error.message)
         }
