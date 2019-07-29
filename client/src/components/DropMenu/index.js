@@ -33,7 +33,7 @@ class DropMenu extends Component {
        
       }}>
         <Dropdown.Toggle variant="basic" id="dropdown-split-basic">
-          <h6>Company</h6>
+          Company
         </Dropdown.Toggle>
         <Dropdown.Menu >
           {this.state.companies.map(company => (
