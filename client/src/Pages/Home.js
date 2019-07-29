@@ -5,11 +5,11 @@ import Footer from "../components/Footer";
 import Wrapper from "../components/Wrapper";
 import TitlebarGridList from "../components/GridList/TitlebarGridList"
 import {Col} from "../components/Grid";
-import {Form, Card, Row, Image} from "react-bootstrap";
+import {Form, Card, Row} from "react-bootstrap";
 import FormBtn from "../components/FormBtn";
 import API from "../utils/API";
 import DropMenu from "../components/DropMenu";
-import cover from "../images/cover.jpg"
+import cover from "../images/cover.jpg";
 
 class Home extends Component {
     state={
