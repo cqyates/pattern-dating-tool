@@ -147,9 +147,10 @@ class Admin extends Component {
     return (
       <div>
         <Hero />
+        <Row style={{marginTop: "20px", marginRight:"20px", marginLeft:"20px"}}>
         <Container style={{ margin: "auto", width: "90%", padding: "20px" }}>
           <Card>
-            <section className="hero" style={{ padding: "10px" }}>
+            <section className="hero" style={{ padding: "10px", display:"flex"}}>
               <label className="fileUploaderContainer">
                 Click here to upload documents<br></br>
                 <input type="file"
@@ -157,33 +158,30 @@ class Admin extends Component {
                   style={{ topMargin: "10px" }}
                   onChange={this.handleChange} multiple />
               </label>
-            </section>
-            <Row style={{ padding: "10px" }}>
-              <Col style={{ marginTop: "20px" }}>
-                <Form>
-                  <DropMenu handleChange={this.handleCompanySelection} /><span></span>
-                  <Form.Group controlId="seasonForm">
-                    <Form.Control as="select" style={{ borderColor: "#758696" }}
-                      name="season"
-                      value={this.state.season} onChange={this.handleInputChange}>
-                      <option>select season</option>
-                      <option>fall</option>
-                      <option>winter</option>
-                      <option>spring</option>
-                      <option>summer</option>
-                    </Form.Control>
-                  </Form.Group>
-                </Form>
-                <Input as="text" name="year" placeholder="YYYY (required)"
-                  value={this.state.year} onChange={this.handleInputChange}></Input>
-                <button onClick={this.APIuploadPhoto}
+              <button onClick={this.APIuploadPhoto}
                   className="button"
                   style={{ marginTop: "10px" }}>Start Uploading</button>
+            </section>
 
-              </Col>
-            </Row>
+            <Form style={{display:"flex", justifyContent:"center", padding:"30px"}}>
+              <DropMenu handleChange={this.handleCompanySelection} />                       
+              <Form.Group controlId="seasonForm.ControlSelect1" style={{marginLeft:"10px", marginRight:"20px"}}>
+                <Form.Control as="select" style={{ borderColor: "#758696", marginLeft:"10px", marginRight:"10px" }}
+                  value={this.state.season} onChange={this.handleInputChange}>
+                  <option>select season</option>
+                  <option>fall</option>
+                  <option>winter</option>
+                  <option>spring</option>
+                  <option>summer</option>
+                </Form.Control>
+              </Form.Group>              
+              <Input as="text" name="year" placeholder="YYYY (required)" 
+              value={this.state.year} onChange={this.handleInputChange} style={{marginLeft:"10px", marginRight:"10px", borderColor: "#758696"}}>
+              </Input>         
+            </Form>
           </Card>
         </Container>
+        </Row>
         <div>
           <Container style={{ margin: "auto", width: "90%", padding: "20px" }}>
             <Card>
