@@ -3,8 +3,8 @@ require('dotenv').config();
 const multer = require("multer");
 const fs = require("fs");
 const AWS = require("aws-sdk");
-const sharp = require("sharp");
-const db = require("../models")
+// const sharp = require("sharp");
+// const db = require("../models")
 
 
 AWS.config.update({
@@ -51,7 +51,7 @@ const uploadAWS = async (file, res, cb) => {
 
         } else {
           const filePath = `https://${myBucket}.s3.us-east-2.amazonaws.com/${file.originalname}`
-          console.log(filePath)
+          console.log(data)
 
           
         }
