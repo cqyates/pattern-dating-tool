@@ -5,40 +5,46 @@ import { Form, Container, Row, Col, Card, Table } from "react-bootstrap";
 import DropMenu from "../components/DropMenu";
 import axios from "axios";
 import Tesseract from "tesseract.js";
-
+import API from "../utils/API"
 
 class Admin extends Component {
   state = {
     //the image to be uploaded, used to be an array
-    uploads: null,
+    uploads: [],
     //this is the image as data
     imgData: [],
     //This is for tesseract
     documents: [],
     //this is the result of the regex
     patterns: [],
-    //this is the mongoID of the selected company
-    companyID: null,
-    //this is the result of the season selection
-    season: "",
-    //this is the result 
-    year: "",
+    catalog: {
+      //this is the mongoID of the selected company
+      companyID: null,
+      //this is the result of the season selection
+      season: "",
+      //this is the result of the year selection
+      year: "",
+    }
   }
+
   //this assigns a companyID number (from Mongo) when the user selects a company
-  //this is passed as a prop with DropMenu.  It is called on line 141
+  //this is passed as a prop with DropMenu.  It is called on line 141. Works
   handleCompanySelection = (companyID) => {
     this.setState({ companyID })
   }
 
-  //This function should match all the names and values in the state. Lets change this to just be season and year
+  //This function should match all the names and values in the state. Lets change this to just be season and year.
+  //FIXME how to do that. I changed the way state works so it is an object for catalog with name, season and year attached to it
+  //this is so that this does not interfere with the upload functions.
   handleInputChange = event => {
-    let value = event.target.value;
+    let value = event.target.value
     const name = event.target.name;
     this.setState({
       [name]: value
     });
 
   }
+  //This functions adds the files you choose to the uploads array
   handleChange = (event) => {
     if (event.target.files[0]) {
       var uploads = []
@@ -57,24 +63,24 @@ class Admin extends Component {
       })
     }
   }
+  //I think that this pushes the images to the backend as form data
   uploadPhoto = (e) => {
     const file = e.target.files[0];
     const formData = new FormData();
     formData.append('file', file);
-    console.log(formData)
     this.setState({
       imgData: formData
     }, () => console.log(this.state))
   }
-
+  //this starts the tesseract function called inside the APIuploadPhoto
   generateText = () => {
     let upload = this.state.uploads;
     return Tesseract.recognize(upload[0], {
       lang: 'eng'
     })
-
   }
 
+  //This is the main function for this page, it calls the tesseract and the uploadPhoto function
   APIuploadPhoto = async () => {
     try {
       const textGeneration = await this.generateText()
@@ -97,15 +103,21 @@ class Admin extends Component {
       const response = await axios({
         method: "POST",
         url: "/api/imgupload",
-        data: this.state.imgData,
+        data: this.state.imgData
       })
       console.log(response);
     } catch (error) {
       console.log(error.message)
     }
+    try {
+      API.postPage(this.state.catalog)
+      //what else do I need here?
 
+    } catch (error) {
+      console.log(error.message)
+    }
   }
-
+  //Here I need to have the state displayed in the table. Add a spinner to pattern number line while tesseract is running
   render() {
     return (
       <div>
@@ -120,9 +132,6 @@ class Admin extends Component {
                   style={{ topMargin: "10px" }}
                   onChange={this.handleChange} multiple />
               </label>
-              <button onClick={this.APIuploadPhoto}
-                className="button"
-                style={{ marginTop: "10px" }}>Start Uploading</button>
             </section>
             <Row style={{ padding: "10px" }}>
               <Col style={{ marginTop: "20px" }}>
@@ -141,6 +150,10 @@ class Admin extends Component {
                 </Form>
                 <Input as="text" name="year" placeholder="YYYY (required)"
                   value={this.state.year} onChange={this.handleInputChange}></Input>
+                <button onClick={this.APIuploadPhoto}
+                  className="button"
+                  style={{ marginTop: "10px" }}>Start Uploading</button>
+
               </Col>
             </Row>
           </Card>
@@ -156,16 +169,16 @@ class Admin extends Component {
                     <th>Season</th>
                     <th>Year</th>
                     <th>Pattern Numbers</th>
-                    <th>Add</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>1</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>Display</td>
+                    <td>{this.state.company}</td>
+                    <td>{this.state.season}</td>
+                    <td>{this.state.year}</td>
+                    <td>add spinner</td>
+                    <td>add upload button</td>
                   </tr>
                 </tbody>
               </Table>
