@@ -2,10 +2,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const pageSchema = new Schema({
-        pageNumber: {
-                type: Number,
-                required: true
-        },
         catalog: [{
                 type: Schema.Types.ObjectId,
                 ref: 'Catalog'

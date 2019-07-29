@@ -4,6 +4,7 @@ const multer = require("multer");
 const fs = require("fs");
 const AWS = require("aws-sdk");
 const sharp = require("sharp");
+const db = require("../models")
 
 
 AWS.config.update({
@@ -49,12 +50,10 @@ const uploadAWS = async (file, res, cb) => {
           console.log(err)
 
         } else {
-
-          console.log("Successfully uploaded data to myBucket/myKey")
           const filePath = `https://${myBucket}.s3.us-east-2.amazonaws.com/${file.originalname}`
           console.log(filePath)
 
-          //right here I am going to use db.create to push information into the database
+          
         }
 
       })
