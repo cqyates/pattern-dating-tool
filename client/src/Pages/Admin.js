@@ -125,9 +125,9 @@ class Admin extends Component {
                 className="button"
                 style={{ marginTop: "10px" }}>Start Uploading</button>
             </section>
-            <Form style={{display:"flex", justifyContent:"center", padding:"10px"}}>
+            <Form style={{display:"flex", justifyContent:"center", padding:"30px"}}>
               <DropMenu handleChange={this.handleCompanySelection} />                       
-              <Form.Group controlId="seasonForm" style={{marginLeft:"10px", marginRight:"20px"}}>
+              <Form.Group controlId="seasonForm.ControlSelect1" style={{marginLeft:"10px", marginRight:"20px"}}>
                 <Form.Control as="select" style={{ borderColor: "#758696", marginLeft:"10px", marginRight:"10px" }}
                   value={this.state.season} onChange={this.handleInputChange}>
                   <option>select season</option>
