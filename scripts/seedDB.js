@@ -36,24 +36,8 @@ const companySeed = [
 		"name" : "Du Barry"
 	},
 	{
-		"_id" : ObjectId("5d34e77dc045a6f062534404"),
-		"name" : "New York"
-	},
-	{
-		"_id" : ObjectId("5d34e788c045a6f062534405"),
-		"name" : "Anne Adams"
-	},
-	{
-		"_id" : ObjectId("5d34e791c045a6f062534406"),
-		"name" : "Marian Martin"
-	},
-	{
 		"_id" : ObjectId("5d34e79bc045a6f062534407"),
 		"name" : "Excella"
-	},
-	{
-		"_id" : ObjectId("5d34e7a6c045a6f062534408"),
-		"name" : "Superior"
 	},
 	{
 		"_id" : ObjectId("5d34e7eec045a6f062534409"),
@@ -64,16 +48,8 @@ const companySeed = [
 		"name" : "Mail Order"
 	},
 	{
-		"_id" : ObjectId("5d34e810c045a6f06253440b"),
-		"name" : "Fashion Service"
-	},
-	{
 		"_id" : ObjectId("5d34e859c045a6f06253440c"),
 		"name" : "Ladies Home Journal"
-	},
-	{
-		"_id" : ObjectId("5d34e87ac045a6f06253440d"),
-		"name" : "Vogue"
 	},
 
 ];
