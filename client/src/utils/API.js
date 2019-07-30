@@ -34,12 +34,21 @@ export default {
     },
     //this API call works I am getting the req.body object coming through on the routes page.
     postCat: async function (data) {
-            const response = await axios({
-                method: "POST",
-                url: "/api/catupload",
-                data
-            })
-            console.log(response);
-            return response;
+        const response = await axios({
+            method: "POST",
+            url: "/api/catupload",
+            data
+        })
+        console.log(response);
+        return response;
+    },
+    sendImage: async function (data) {
+        const imgResp = await axios({
+            method: "POST",
+            url: "/api/imgupload",
+            data
+        })
+        console.log(imgResp);
+        return imgResp;
     }
 }

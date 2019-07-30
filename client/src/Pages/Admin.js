@@ -30,20 +30,21 @@ class Admin extends Component {
     },
     // this will be for login
     user: {},
+    isLoading: false,
   }
   // This is for the admin login
-  componentDidMount(){
-    this.authListener();
-}
-    authListener() {
-    fire.auth().onAuthStateChanged((user) => {
-        if (user) {
-            this.setState({ user });
-          } else {
-            this.setState({ user: null });
-        }
-      });
-    }
+//   componentDidMount(){
+//     this.authListener();
+// }
+//     authListener() {
+//     fire.auth().onAuthStateChanged((user) => {
+//         if (user) {
+//             this.setState({ user });
+//           } else {
+//             this.setState({ user: null });
+//         }
+//       });
+//     }
 
   //this assigns a companyID number (from Mongo) when the user selects a company
   //this is passed as a prop with DropMenu.  It is called on line 141. Works
@@ -126,11 +127,7 @@ class Admin extends Component {
       //     pattern: patterns
       //   })
       // }, async () => {
-      // const imgResp = await axios({
-      //   method: "POST",
-      //   url: "/api/imgupload",
-      //   data: this.state.imgData
-      // })
+      //
 
       var catalogData = {
         companyId: this.state.catalog.companyID,
@@ -154,7 +151,7 @@ class Admin extends Component {
     return (
       <div>
         {/* This line will only send user to login page if they are signed in */}
-         {this.state.user ? (<Admin />) : (<Login />)} 
+         {/* {this.state.user ? (<Admin />) : (<Login />)}  */}
         <NavBar2 />
         <Hero />
         <Row style={{ marginTop: "20px", marginRight: "20px", marginLeft: "20px" }}>
@@ -208,7 +205,6 @@ class Admin extends Component {
                     <td>{this.state.catalog.season}</td>
                     <td>{this.state.catalog.year}</td>
                     <td>add spinner</td>
-                    <td>add upload button</td>
                   </tr>
                 </tbody>
               </Table>
