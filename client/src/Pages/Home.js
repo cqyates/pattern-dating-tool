@@ -74,7 +74,7 @@ class Home extends Component {
                         {this.state.patterns.map(pattern => (
                           <Image alt={pattern.patternNumber} 
                               src={pattern.page.imgURL} 
-                              style={{width:"405px", height:"540px"}}/>
+                              style={{width:"405px", height:"540px", marginLeft:"10%"}}/>
                             ))}
                       </div>
                       ) : (
