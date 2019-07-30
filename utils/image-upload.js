@@ -3,13 +3,8 @@ require('dotenv').config();
 const multer = require("multer");
 const fs = require("fs");
 const AWS = require("aws-sdk");
-<<<<<<< HEAD
-const sharp = require("sharp");
-const db = require("../models")
-=======
 // const sharp = require("sharp");
 // const db = require("../models")
->>>>>>> 6456a5bcd8629e4c475ffa3a9e129df35f3b239e
 
 
 AWS.config.update({
