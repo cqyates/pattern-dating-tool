@@ -41,6 +41,7 @@ class Login extends Component {
     }
 
         render() {
+        
             if (this.state.redirect === true) {
                 return <Redirect to={"/admin"} />
             }
@@ -83,9 +84,12 @@ class Login extends Component {
                             </Form.Control.Feedback>
                             </Col>
                         </Form.Group>
-                        <Button style={{margin:"auto"}}variant="primary" type="submit" value="Log In">
-                            Login
-                        </Button>
+                        <Form.Control 
+                        style={{margin:"auto", backgroundColor:"#c2e5fc"}}
+                        // variant="primary" 
+                        type="submit" value="Log In">
+                        </Form.Control> 
+                         
                     </Form>             
                 </Card>
                 </Wrapper>
