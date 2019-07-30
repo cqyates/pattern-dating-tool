@@ -6,9 +6,6 @@ import Wrapper from "../components/Wrapper"
 import Footer from"../components/Footer";
 import fire from "../config/fire";
 
-
-
-
 class Login extends Component {
     constructor(props){
         super(props);

@@ -36,7 +36,6 @@ export default {
     // this function should be passing the state from the Admin.js page to the backend so it can be added to the database
     //It is not currently working probably because I am passing the data wrong, saving for tutorial tomorrow
     postPage: async function (data) {
-        try {
             const response = await axios({
                 method: "POST",
                 url: "/api/pgupload",
@@ -44,8 +43,5 @@ export default {
             })
             console.log(response);
             return response;
-        } catch (error) {
-            console.log(error.message)
-        }
     }
 }
