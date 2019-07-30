@@ -7,6 +7,7 @@ import axios from "axios";
 import Tesseract from "tesseract.js";
 import API from "../utils/API"
 import NavBar2 from "../components/NavBar2"
+import fire from "../config/fire"
 
 class Admin extends Component {
   state = {
@@ -25,7 +26,9 @@ class Admin extends Component {
       season: "",
       //this is the result of the year selection
       year: "",
-    }
+    },
+    // this is for login authentication
+    authenticated: false
   }
 
   //this assigns a companyID number (from Mongo) when the user selects a company
@@ -143,12 +146,22 @@ class Admin extends Component {
     }
 
   }
+  // check the login authenctication
+  componentWillMount() {
+    this.removeAuthListener = fire.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({
+          authenticated: true
+        })
+      }
+    })
+  }
 
   //Here I need to have the state displayed in the table. Add a spinner to pattern number line while tesseract is running
   render() {
     return (
       <div>
-        <NavBar2 />
+        <NavBar2 authenticated={this.state.authenticated}/>
         <Hero />
         <Row style={{marginTop: "20px", marginRight:"20px", marginLeft:"20px"}}>
         <Container style={{ margin: "auto", width: "90%", padding: "20px" }}>

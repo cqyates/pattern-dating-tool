@@ -19,7 +19,6 @@ class Login extends Component {
             email:"",
             password:"",
             user: {},
-            authenticated: false,
             redirect: false
         }
     }
@@ -55,7 +54,7 @@ class Login extends Component {
                 <Hero />
                 <Wrapper>
                 <Card style={{width:"60%", margin:"auto", padding:"20px"}}>
-                    <Form authenticated={this.state.authenticated}>
+                    <Form>
                         <Form.Group as={Row} controlId="formBasicEmail">
                             <Form.Label column sm="2">Email address</Form.Label>
                             <Col sm="10">
