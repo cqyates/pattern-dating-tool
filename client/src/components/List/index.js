@@ -1,15 +1,15 @@
 import React from "react";
 
-// This file exports both the List and ListItem components
-
-export function List({ children }) {
+function ResultList(props) {
   return (
-    <div className="list-overflow-container">
-      <ul className="list-group">{children}</ul>
-    </div>
+    <ul className="list-group">
+      {props.patterns.map(pattern => (
+        <li className="list-group-item" key={pattern._id}>
+          <img alt={pattern.patternNumber} className="img-fluid" src={pattern.page.imgURL} />
+        </li>
+      ))}
+    </ul>
   );
 }
 
-export function ListItem({ children }) {
-  return <li className="list-group-item">{children}</li>;
-}
+export default ResultList;
