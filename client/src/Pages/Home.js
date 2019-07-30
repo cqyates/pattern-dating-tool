@@ -9,15 +9,14 @@ import {Form, Card, Row} from "react-bootstrap";
 import FormBtn from "../components/FormBtn";
 import API from "../utils/API";
 import DropMenu from "../components/DropMenu";
-import cover from "../images/cover.jpg"
-
+import cover from "../images/cover.jpg";
 
 class Home extends Component {
     state={
       companyID: null,
       patterns: [],
       query: "",
-      validated: false
+      validated: false,
     }; 
   
 
@@ -70,12 +69,19 @@ class Home extends Component {
 
                   <Col size="lg-4">
                     <Card className="patternImage">
-                      <Card.Body style={{background: "#e4e8eb"}}>
+                      <Card.Body style={{background: "white"}}>
                       <Card.Text className="cardTitle">
                           FIND YOUR PATTERN
                       </Card.Text>
                       </Card.Body>
-                      <Card.Img className="defaultImg"variant="bottom" src={cover} />
+                      <Card.Img variant="bottom" src={cover}>
+
+                      {/* {this.state.patterns.map(pattern => {
+                        return (
+                          <Image src={pattern.page.imgURL} />
+                          );
+                      })} */}
+                      </Card.Img>
                     </Card>
                   </Col>
 
