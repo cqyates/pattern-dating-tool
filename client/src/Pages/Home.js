@@ -68,15 +68,18 @@ class Home extends Component {
                    <TitlebarGridList />
                   </Col>
 
-                  <Col size="lg-4">           
-                      <Image src={cover} style={{width:"405px", height:"540px", marginLeft:"10%" }}/>
-                        {this.state.patterns.map(pattern => {
-                          return(
-                            <img alt={pattern.patternNumber} 
-                            src={pattern.page.imgURL} 
-                            style={{width:"405px", height:"540px"}}/>
-                          )}
-                        )}
+                  <Col size="lg-4">  
+                    {this.state.patterns.length ? (
+                      <div>
+                        {this.state.patterns.map(pattern => (
+                          <Image alt={pattern.patternNumber} 
+                              src={pattern.page.imgURL} 
+                              style={{width:"405px", height:"540px"}}/>
+                            ))}
+                      </div>
+                      ) : (
+                      <Image alt="default" src={cover} style={{width:"405px", height:"540px", marginLeft:"10%" }}/>
+                    )}   
                   </Col>
 
                   <Col size="lg-8">
