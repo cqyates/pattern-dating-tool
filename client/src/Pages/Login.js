@@ -18,32 +18,20 @@ class Login extends Component {
         this.state = {
             email:"",
             password:"",
-            user: {},
             redirect: false
         }
     }
-    componentDidMount(){
-        this.authListener();
-    }
-    authListener() {
-      fire.auth().onAuthStateChanged((user) => {
-        if (user) {
-            this.setState({ user });
-          } else {
-            this.setState({ user: null });
-          }
-        });
-      }
-    login(e) {
-        e.preventDefault();
-        fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
-        }).catch((error) => {
-            console.log(error)
-        });
-    }
-    handleChange(e){
-    this.setState({ [e.target.name] : e.target.value });
-    }
+
+     login(e) {
+         e.preventDefault();
+         fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
+         }).catch((error) => {
+             console.log(error)
+         });
+     }
+     handleChange(e){
+        this.setState({ [e.target.name] : e.target.value });
+     }
         render()  {
             if (this.state.redirect === true) {
                 return <Redirect to="/Admin" />
@@ -53,12 +41,13 @@ class Login extends Component {
                 <NavBar />
                 <Hero />
                 <Wrapper>
-                <Card style={{width:"60%", margin:"auto", padding:"20px"}}>
+                <Card style={{width:"60%", margin:"auto", padding:"20px", borderColor:"#758696"}}>
                     <Form>
-                        <Form.Group as={Row} controlId="formBasicEmail">
-                            <Form.Label column sm="2">Email address</Form.Label>
+                        <Form.Group as={Row}>
+                            <Form.Label for="exampleInputEmail" column sm="2">Email address</Form.Label>
                             <Col sm="10">
-                            <Form.Control 
+                            <Form.Control
+                            id="exampleInputEmail" 
                             type="email" 
                             placeholder="Enter email"
                             value={this.state.email}
@@ -68,19 +57,23 @@ class Login extends Component {
                             </Col>
                         </Form.Group>
 
-                        <Form.Group as={Row} controlId="formPlaintextPassword">
-                            <Form.Label column sm="2">Password</Form.Label>
+                        <Form.Group as={Row}>
+                            <Form.Label for ="exampleInputPassword1" column sm="2">Password</Form.Label>
                             <Col sm="10">
                             <Form.Control 
                             required
                             type="text" 
+                            name="password"
+                            id="exammpleInputPassword1"
                             placeholder="Password" 
                             value={this.state.password}
                             onChange={this.handleChange}
                             />
+                            <Form.Control.Feedback type="invalid">
+                                Password incorrect
+                            </Form.Control.Feedback>
                             </Col>
                         </Form.Group>
-
                     </Form>             
                     <Button style={{margin:"auto"}}variant="primary" type="submit" onClick={this.login}>
                         Login
