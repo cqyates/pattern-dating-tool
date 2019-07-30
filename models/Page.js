@@ -6,13 +6,13 @@ const pageSchema = new Schema({
                 type: Schema.Types.ObjectId,
                 ref: 'Catalog'
         }],
-        patternNumberArray: [{
+        patterns: [{
                 type: Number,
                 required: false
         }],
         imgURL: {
                 type: String,
-                required: true,
+                required: false,
                 unique: true,
         }
 });

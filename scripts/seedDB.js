@@ -72,21 +72,18 @@ const catalogSeed = [
 		"company" : ObjectId("5d34e6f9c045a6f0625343fe"),
 		"season" : "spring",
 		"year" : 1936.0,
-		"coverURL" : "https://vintage4me2catalogdb.s3.us-east-2.amazåonaws.com/BUtterick-early-spring-1936-catalog-cover-6586.jpg"
 	},
 	{
 		"_id" : ObjectId("5d34f0c41cf4dd26404271f0"),
 		"company" : ObjectId("5d34e6f9c045a6f0625343fe"),
 		"season" : "spring",
 		"year" : 1935.0,
-		"coverURL" : "https://vintage4me2catalogdb.s3.us-east-2.amazonaws.com/Butterick-Early-Spring-catalog-1935-covers--front-5982-6005.jpg"
 	},
 	{
 		"_id" : ObjectId("5d34f16f1cf4dd26404271f1"),
 		"company" : ObjectId("5d34e788c045a6f062534405"),
 		"season" : "summer",
 		"year" : 1949.0,
-		"coverURL" : "https://vintage4me2catalogdb.s3.us-east-2.amazonaws.com/aa-1949-catalog-cover-4603.jpg"
 	}
 ];
 
@@ -164,7 +161,7 @@ const pageSeed = [
 	{
 		"_id" : ObjectId("5d376cdf90719079bec9abba"),
 		"catalog" : ObjectId("5d34f06a1cf4dd26404271ef"),
-		"patternNumberArray" : [ 
+		"patterns" : [ 
 			6586.0
 		],
 		"imgURL" : "https://vintage4me2catalogdb.s3.us-east-2.amazonaws.com/BUtterick-early-spring-1936-catalog-cover-6586.jpg"
@@ -172,7 +169,7 @@ const pageSeed = [
 	{
 		"_id" : ObjectId("5d376d8c90719079bec9abbb"),
 		"catalog" : ObjectId("5d34f06a1cf4dd26404271ef"),
-		"patternNumberArray" : [ 
+		"patterns" : [ 
 			6543.0
 		],
 		"imgURL" : "https://vintage4me2catalogdb.s3.us-east-2.amazonaws.com/Butterick-early-spring-1936-catalog-pg-1-6543.jpg"
@@ -180,7 +177,7 @@ const pageSeed = [
 	{
 		"_id" : ObjectId("5d376df790719079bec9abbc"),
 		"catalog" : ObjectId("5d34f06a1cf4dd26404271ef"),
-		"patternNumberArray" : [ 
+		"patterns" : [ 
 			6586.0, 
 			5927.0
 		],
@@ -189,25 +186,25 @@ const pageSeed = [
 	{
 		"_id" : ObjectId("5d376e3c90719079bec9abbd"),
 		"catalog" : ObjectId("5d34f06a1cf4dd26404271ef"),
-		"patternNumberArray" : [],
+		"patterns" : [],
 		"imgURL" : "https://vintage4me2catalogdb.s3.us-east-2.amazonaws.com/Butterick+Early-Spring-1936-catalog+pg-3-contents.jpg"
 	},
 	{
 		"_id" : ObjectId("5d376eb390719079bec9abbe"),
 		"catalog" : ObjectId("5d34f06a1cf4dd26404271ef"),
-		"patternNumberArray" : [],
+		"patterns" : [],
 		"imgURL" : "https://vintage4me2catalogdb.s3.us-east-2.amazonaws.com/Butterick-Early-Spring-1936+catalog-pg-4-none.jpg"
 	},
 	{
 		"_id" : ObjectId("5d376f0690719079bec9abbf"),
 		"catalog" : ObjectId("5d34f06a1cf4dd26404271ef"),
-		"patternNumberArray" : [],
+		"patterns" : [],
 		"imgURL" : "https://vintage4me2catalogdb.s3.us-east-2.amazonaws.com/Butterick-early-spring-1936-catalog-pg-5-none.jpg"
 	},
 	{
 		"_id" : ObjectId("5d376f9290719079bec9abc0"),
 		"catalog" : ObjectId("5d34f06a1cf4dd26404271ef"),
-		"patternNumberArray" : [ 
+		"patterns" : [ 
 			6582.0, 
 			6872.0, 
 			6042.0, 
@@ -218,7 +215,7 @@ const pageSeed = [
 	{
 		"_id" : ObjectId("5d37700d90719079bec9abc1"),
 		"catalog" : ObjectId("5d34f06a1cf4dd26404271ef"),
-		"patternNumberArray" : [ 
+		"patterns" : [ 
 			6570.0, 
 			6552.0, 
 			6534.0
@@ -228,7 +225,7 @@ const pageSeed = [
 	{
 		"_id" : ObjectId("5d37709a90719079bec9abc2"),
 		"catalog" : ObjectId("5d34f06a1cf4dd26404271ef"),
-		"patternNumberArray" : [ 
+		"patterns" : [ 
 			6401.0
 		],
 		"imgURL" : "https://vintage4me2catalogdb.s3.us-east-2.amazonaws.com/Butterick-early-spring-1936-catalog-pg+9+6401.jpg"
@@ -236,7 +233,7 @@ const pageSeed = [
 	{
 		"_id" : ObjectId("5d3770ee90719079bec9abc3"),
 		"catalog" : ObjectId("5d34f06a1cf4dd26404271ef"),
-		"patternNumberArray" : [ 
+		"patterns" : [ 
 			6579.0, 
 			6546.0, 
 			6497.0
@@ -246,7 +243,7 @@ const pageSeed = [
 	{
 		"_id" : ObjectId("5d3771ad90719079bec9abc4"),
 		"catalog" : ObjectId("5d34f06a1cf4dd26404271ef"),
-		"patternNumberArray" : [ 
+		"patterns" : [ 
 			6610.0, 
 			6614.0, 
 			6612.0
@@ -256,7 +253,7 @@ const pageSeed = [
 	{
 		"_id" : ObjectId("5d3771e890719079bec9abc5"),
 		"catalog" : ObjectId("5d34f06a1cf4dd26404271ef"),
-		"patternNumberArray" : [ 
+		"patterns" : [ 
 			6587.0, 
 			6604.0, 
 			6599.0
@@ -266,13 +263,13 @@ const pageSeed = [
 	{
 		"_id" : ObjectId("5d37722d90719079bec9abc6"),
 		"catalog" : ObjectId("5d34f06a1cf4dd26404271ef"),
-		"patternNumberArray" : [],
+		"patterns" : [],
 		"imgURL" : "https://vintage4me2catalogdb.s3.us-east-2.amazonaws.com/Butterick-early-spring-1936-catalog-pg-13-none.jpg"
 	},
 	{
 		"_id" : ObjectId("5d37728890719079bec9abc8"),
 		"catalog" : ObjectId("5d34f06a1cf4dd26404271ef"),
-		"patternNumberArray" : [ 
+		"patterns" : [ 
 			6568.0, 
 			6564.0, 
 			6593.0
@@ -282,7 +279,7 @@ const pageSeed = [
 	{
 		"_id" : ObjectId("5d3772cd90719079bec9abc9"),
 		"catalog" : ObjectId("5d34f06a1cf4dd26404271ef"),
-		"patternNumberArray" : [ 
+		"patterns" : [ 
 			6572.0, 
 			6601.0, 
 			6523.0
@@ -292,19 +289,19 @@ const pageSeed = [
 	{
 		"_id" : ObjectId("5d37737490719079bec9abca"),
 		"catalog" : ObjectId("5d34f06a1cf4dd26404271ef"),
-		"patternNumberArray" : [],
+		"patterns" : [],
 		"imgURL" : "https://vintage4me2catalogdb.s3.us-east-2.amazonaws.com/Butterick-Early-Spring-1936-catalog+page-16-none.jpg"
 	},
 	{
 		"_id" : ObjectId("5d3773d490719079bec9abcb"),
 		"catalog" : ObjectId("5d34f06a1cf4dd26404271ef"),
-		"patternNumberArray" : [],
+		"patterns" : [],
 		"imgURL" : "https://vintage4me2catalogdb.s3.us-east-2.amazonaws.com/Butterick-early-spring-1936-catalog-pg-17-none.jpg"
 	},
 	{
 		"_id" : ObjectId("5d37742690719079bec9abcc"),
 		"catalog" : ObjectId("5d34f06a1cf4dd26404271ef"),
-		"patternNumberArray" : [ 
+		"patterns" : [ 
 			6537.0, 
 			6596.0, 
 			6574.0, 
@@ -317,7 +314,7 @@ const pageSeed = [
 	{
 		"_id" : ObjectId("5d37748a90719079bec9abcd"),
 		"catalog" : ObjectId("5d34f06a1cf4dd26404271ef"),
-		"patternNumberArray" : [ 
+		"patterns" : [ 
 			6554.0, 
 			6589.0
 		],
@@ -326,7 +323,7 @@ const pageSeed = [
 	{
 		"_id" : ObjectId("5d37755a90719079bec9abce"),
 		"catalog" : ObjectId("5d34f06a1cf4dd26404271ef"),
-		"patternNumberArray" : [ 
+		"patterns" : [ 
 			6575.0, 
 			6507.0, 
 			6542.0, 

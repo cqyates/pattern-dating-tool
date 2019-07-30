@@ -7,16 +7,12 @@ const PatternController = require("../controllers/PatternController")
 router.post("/api/imgupload", upload.single('file'), async (req, res) => {
   uploadAWS(req.file, res);
 })
-//not working
-router.post("/api/pgupload", async (req, res) => {
+//route works like this but when I try to bring in the db.create function it fails because it can't find the value of req.
+router.post("/api/catupload", async (req, res) => {
   console.log(req.body)
   res.json(req.body)
 })
-//not in use
-router.get("/api", (req, res) => {
-  res.send("API is working")
-})
-
+//populate companyList works
 router.get("/api/company", (req, res) => {
   const result = CompanyController.findAll()
     .then(dbModel => {

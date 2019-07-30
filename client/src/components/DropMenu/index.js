@@ -33,7 +33,7 @@ class DropMenu extends Component {
        
       }}>
         <Dropdown.Toggle variant="basic" id="dropdown-split-basic">
-          Company
+         {/* add a tiernary statement that will replace company with the selected company name */} Company  
         </Dropdown.Toggle>
         <Dropdown.Menu >
           {this.state.companies.map(company => (
