@@ -1,14 +1,17 @@
 import React, { Component } from "react";
 import Input from "../components/Input";
 import Hero from "../components/Hero"
-import { Form, Container, Row, Col, Card, Table, Button } from "react-bootstrap";
+import { Form, Container, Row, Card, Table} from "react-bootstrap";
 import DropMenu from "../components/DropMenu";
-//import axios from "axios";
+// import axios from "axios";
 import Tesseract from "tesseract.js";
 import API from "../utils/API"
 import NavBar2 from "../components/NavBar2"
+import Login from "../Pages/Login"
+import fire from "../config/fire"
 
 class Admin extends Component {
+  
   state = {
     //the image to be uploaded, used to be an array
     uploads: [],
@@ -25,8 +28,23 @@ class Admin extends Component {
       season: "",
       //this is the result of the year selection
       year: "",
-    }
+    },
+    // this will be for login
+    user: {},
   }
+  // This is for the admin login
+  componentDidMount(){
+    this.authListener();
+}
+    authListener() {
+    fire.auth().onAuthStateChanged((user) => {
+        if (user) {
+            this.setState({ user });
+          } else {
+            this.setState({ user: null });
+        }
+      });
+    }
 
   //this assigns a companyID number (from Mongo) when the user selects a company
   //this is passed as a prop with DropMenu.  It is called on line 141. Works
@@ -142,6 +160,8 @@ class Admin extends Component {
   render() {
     return (
       <div>
+        {/* This line will only send user to login page if they are signed in */}
+         {this.state.user ? (<Admin />) : (<Login />)} 
         <NavBar2 />
         <Hero />
         <Row style={{marginTop: "20px", marginRight:"20px", marginLeft:"20px"}}>
@@ -164,11 +184,7 @@ class Admin extends Component {
               <DropMenu handleChange={this.handleCompanySelection} />                       
               <Form.Group controlId="seasonForm.ControlSelect1" style={{marginLeft:"10px", marginRight:"20px"}}>
                 <Form.Control as="select" style={{ borderColor: "#758696", marginLeft:"10px", marginRight:"10px" }}
-<<<<<<< HEAD
-                  value={this.state.season} onChange={this.handleInputChange}>
-=======
                   value={this.state.season} name="season" onChange={this.handleInputChange}>
->>>>>>> 6456a5bcd8629e4c475ffa3a9e129df35f3b239e
                   <option>select season</option>
                   <option>fall</option>
                   <option>winter</option>

@@ -2,24 +2,6 @@
   min-height: 100%; 
   margin: 70px;
 }
-.cardTitle{
-  font-family: 'Open Sans', sans-serif;
-  color:#ff4d4d;
-  font-size: 24px;
-  text-align: center;
-}
-
-.patternImage{
-  overflow: 'hidden';
-  margin-left: 10%;
-  width: 405px;
-  height: 540px;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4), 0 12px 40px 0 rgba(0, 0, 0, 0.38);
-}
-.defaultImg{
-  width:405px;
-  height:464px;
-}
 
 dt{
   margin: 10px;
