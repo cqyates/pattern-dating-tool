@@ -5,8 +5,7 @@ import {Form, Card, Button, Row, Col} from "react-bootstrap";
 import Wrapper from "../components/Wrapper"
 import Footer from"../components/Footer";
 import fire from "../config/fire";
-import Admin from "../Pages/Admin";
-import Home from "../Pages/Home";
+
 
 
 
