@@ -3,7 +3,10 @@ import Input from "../components/Input";
 import Hero from "../components/Hero"
 import { Form, Container, Row, Card, Table} from "react-bootstrap";
 import DropMenu from "../components/DropMenu";
+<<<<<<< HEAD
 // import axios from "axios";
+=======
+>>>>>>> 447b34ee16c73beeeb58ad9807e263007b0956ae
 import Tesseract from "tesseract.js";
 import API from "../utils/API"
 import NavBar2 from "../components/NavBar2"
@@ -66,9 +69,6 @@ class Admin extends Component {
   handleInputChange = event => {
     let value = event.target.value
     const name = event.target.name;
-    // this.setState({
-    //   [name]: value
-    // });
     this.setState(state => {
       return {
         ...state,
@@ -78,7 +78,6 @@ class Admin extends Component {
         }
       }
     })
-
   }
   //This functions adds the files you choose to the uploads array
   handleChange = (event) => {
@@ -141,13 +140,11 @@ class Admin extends Component {
         companyId: this.state.catalog.companyID,
         year: this.state.catalog.year,
         season: this.state.catalog.season,
-        patterns: patterns,
-        filepath: "update path"
       }
 
-      const pageResp = await API.postPage(catalogData);
+      const catResp = await API.postCat(catalogData);
       //  console.log(imgResp);
-      console.log(pageResp);
+      console.log(catResp);
       //})
     }
     catch (error) {
@@ -164,12 +161,27 @@ class Admin extends Component {
          {this.state.user ? (<Admin />) : (<Login />)} 
         <NavBar2 />
         <Hero />
-        <Row style={{marginTop: "20px", marginRight:"20px", marginLeft:"20px"}}>
-        <Container style={{ margin: "auto", width: "90%", padding: "20px" }}>
-          <Card>
-            <section className="hero" style={{ padding: "10px", display:"flex"}}>
+        <Row style={{ marginTop: "20px", marginRight: "20px", marginLeft: "20px" }}>
+          <Container style={{ margin: "auto", width: "90%", padding: "20px" }}>
+            <Card>
+              <Form style={{ display: "flex", justifyContent: "center", padding: "30px" }}>
+                <DropMenu handleChange={this.handleCompanySelection} />
+                <Form.Group controlId="seasonForm.ControlSelect1" style={{ marginLeft: "10px", marginRight: "20px" }}>
+                  <Form.Control as="select" style={{ borderColor: "#758696", marginLeft: "10px", marginRight: "10px" }}
+                    value={this.state.season} name="season" onChange={this.handleInputChange}>
+                    <option>select season</option>
+                    <option>fall</option>
+                    <option>winter</option>
+                    <option>spring</option>
+                    <option>summer</option>
+                  </Form.Control>
+                </Form.Group>
+                <Input as="text" name="year" placeholder="YYYY (required)"
+                  value={this.state.year} onChange={this.handleInputChange} style={{ marginLeft: "10px", marginRight: "10px", borderColor: "#758696" }}>
+                </Input>
+              </Form>
+              <section className="hero" style={{ padding: "10px", display:"flex"}}>
               <label className="fileUploaderContainer">
-                Click here to upload documents<br></br>
                 <input type="file"
                   id="fileUploader"
                   style={{ topMargin: "10px" }}
@@ -177,8 +189,9 @@ class Admin extends Component {
               </label>
               <button onClick={this.APIuploadPhoto}
                   className="button"
-                  style={{ marginTop: "10px" }}>Start Uploading</button>
+                  style={{ topMargin: "10px" }}>Start Uploading</button>
             </section>
+<<<<<<< HEAD
 
             <Form style={{display:"flex", justifyContent:"center", padding:"30px"}}>
               <DropMenu handleChange={this.handleCompanySelection} />                       
@@ -198,6 +211,10 @@ class Admin extends Component {
             </Form>
           </Card>
         </Container>
+=======
+            </Card>
+          </Container>
+>>>>>>> 447b34ee16c73beeeb58ad9807e263007b0956ae
         </Row>
         <div>
           <Container style={{ margin: "auto", width: "90%", padding: "20px" }}>
@@ -205,7 +222,6 @@ class Admin extends Component {
               <Table responsive>
                 <thead>
                   <tr>
-                    <th></th>
                     <th>Company</th>
                     <th>Season</th>
                     <th>Year</th>
@@ -214,8 +230,7 @@ class Admin extends Component {
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Display</td>
-                    <td>{this.state.catalog.company}</td>
+                    <td>{this.state.catalog.companyID}</td>
                     <td>{this.state.catalog.season}</td>
                     <td>{this.state.catalog.year}</td>
                     <td>add spinner</td>

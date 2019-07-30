@@ -32,13 +32,11 @@ export default {
             return error;
         };
     },
-
-    // this function should be passing the state from the Admin.js page to the backend so it can be added to the database
-    //It is not currently working probably because I am passing the data wrong, saving for tutorial tomorrow
-    postPage: async function (data) {
+    //this API call works I am getting the req.body object coming through on the routes page.
+    postCat: async function (data) {
             const response = await axios({
                 method: "POST",
-                url: "/api/pgupload",
+                url: "/api/catupload",
                 data
             })
             console.log(response);
