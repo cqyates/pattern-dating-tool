@@ -1,28 +1,93 @@
 import React, {Component} from "react";
 import NavBar from "../components/NavBar";
 import Hero from "../components/Hero";
-import Wrapper from "../components/Wrapper";
-import LoginForm from "../components/Formik/LoginForm"
-import {Row, Col} from "react-bootstrap";
+import {Form, Card, Button, Row, Col} from "react-bootstrap";
+import Wrapper from "../components/Wrapper"
+import Footer from"../components/Footer";
+import fire from "../config/fire";
+import Admin from "../Pages/Admin";
+import Home from "../Pages/Home";
+
+
 
 class Login extends Component {
-    render() {
-
+    constructor(props){
+        super(props);
+        this.login = this.login.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.state = {
+            email:"",
+            password:"",
+            user: {},
+        }
+    }
+    componentDidMount(){
+        this.authListener();
+    }
+    authListener() {
+      fire.auth().onAuthStateChanged((user) => {
+        if (user) {
+            this.setState({ user });
+          } else {
+            this.setState({ user: null });
+          }
+        });
+      }
+    login(e) {
+        e.preventDefault();
+        fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
+        }).catch((error) => {
+            console.log(error)
+        });
+    }
+    handleChange(e){
+    this.setState({ [e.target.name] : e.target.value });
+    }
+        render()  {
         return(
             <div>
+                {/* {this.state.user ? <Admin /> : <Home/>} */}
                 <NavBar />
                 <Hero />
-                <Wrapper />
-                <Row>
-                <Col size="sm-6" style={{margin:"0px 60px"}}>
-                    <LoginForm />
-                </Col>
-                </Row>
-                 
+                <Wrapper>
+                <Card style={{width:"60%", margin:"auto", padding:"20px"}}>
+                    <Form >
+                        <Form.Group as={Row} controlId="formBasicEmail">
+                            <Form.Label column sm="2">Email address</Form.Label>
+                            <Col sm="10">
+                            <Form.Control 
+                            type="email" 
+                            placeholder="Enter email"
+                            value={this.state.email}
+                            onChange={this.handleChange}
+                            name="email"
+                            />
+                            </Col>
+                        </Form.Group>
+
+                        <Form.Group as={Row} controlId="formPlaintextPassword">
+                            <Form.Label column sm="2">Password</Form.Label>
+                            <Col sm="10">
+                            <Form.Control 
+                            required
+                            type="text" 
+                            placeholder="Password" 
+                            value={this.state.password}
+                            onChange={this.handleChange}
+                            />
+                            </Col>
+                        </Form.Group>
+
+                    </Form>             
+                    <Button style={{margin:"auto"}}variant="primary" type="submit" onClick={this.login}>
+                        Login
+                    </Button>
+                </Card>
+                </Wrapper>
+                <Footer />
             </div>
+          
         )
     }
 }
-
-
-export default Login
+export default Login;

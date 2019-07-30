@@ -7,18 +7,20 @@ import Login from "./Pages/Login"
 import "./App.css"
 
 
-function App() {
-  return (
-    <Router>
-      <div>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/home" component={Home} />
-        <Route exact path="/admin" component={Admin} />
-        <Route exact path="/OCR" component={OCR} />
-        <Route exact path="/login" component={Login} />
+ function App() { 
+
+    return (
+      <div className="App">
+    
+        <Router>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/home" component={Home} />
+            <Route exact path="/admin" component={Admin} />
+            <Route exact path="/OCR" component={OCR} />
+            <Route exact path="/login" component={Login} />
+        </Router>
       </div>
-    </Router>
-  );
+    );
 }
 
 export default App;

@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import Input from "../components/Input";
 import Hero from "../components/Hero"
-import { Form, Container, Row, Card, Table } from "react-bootstrap";
+import { Form, Container, Row, Col, Card, Table, Button } from "react-bootstrap";
 import DropMenu from "../components/DropMenu";
 //import axios from "axios";
 import Tesseract from "tesseract.js";
 import API from "../utils/API"
+import NavBar2 from "../components/NavBar2"
 
 class Admin extends Component {
   state = {
@@ -136,10 +137,12 @@ class Admin extends Component {
       return error.message
     }
   }
+
   //Here I need to have the state displayed in the table. Add a spinner to pattern number line while tesseract is running
   render() {
     return (
       <div>
+        <NavBar2 />
         <Hero />
         <Row style={{marginTop: "20px", marginRight:"20px", marginLeft:"20px"}}>
         <Container style={{ margin: "auto", width: "90%", padding: "20px" }}>
