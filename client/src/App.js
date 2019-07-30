@@ -6,12 +6,9 @@ import OCR from "./Pages/OCR";
 import Login from "./Pages/Login"
 import "./App.css"
 
-
- function App() { 
-
-    return (
-      <div className="App">
-    
+function App () { 
+      return (
+        <div className="App">
         <Router>
             <Route exact path="/" component={Home} />
             <Route exact path="/home" component={Home} />
@@ -21,6 +18,6 @@ import "./App.css"
         </Router>
       </div>
     );
-}
+  }
 
 export default App;

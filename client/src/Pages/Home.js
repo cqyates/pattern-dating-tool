@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import Wrapper from "../components/Wrapper";
 import TitlebarGridList from "../components/GridList/TitlebarGridList"
 import {Col} from "../components/Grid";
-import {Form, Card, Row} from "react-bootstrap";
+import {Form, Row, Image, Card} from "react-bootstrap";
 import FormBtn from "../components/FormBtn";
 import API from "../utils/API";
 import DropMenu from "../components/DropMenu";
@@ -17,6 +17,7 @@ class Home extends Component {
       patterns: [],
       query: "",
       validated: false,
+      src:""
     }; 
   
 
@@ -67,22 +68,15 @@ class Home extends Component {
                    <TitlebarGridList />
                   </Col>
 
-                  <Col size="lg-4">
-                    <Card className="patternImage">
-                      <Card.Body style={{background: "white"}}>
-                      <Card.Text className="cardTitle">
-                          FIND YOUR PATTERN
-                      </Card.Text>
-                      </Card.Body>
-                      <Card.Img variant="bottom" src={cover}>
-
-                      {/* {this.state.patterns.map(pattern => {
-                        return (
-                          <Image src={pattern.page.imgURL} />
-                          );
-                      })} */}
-                      </Card.Img>
-                    </Card>
+                  <Col size="lg-4">           
+                      <Image src={cover} style={{width:"405px", height:"540px", marginLeft:"10%" }}/>
+                        {this.state.patterns.map(pattern => {
+                          return(
+                            <img alt={pattern.patternNumber} 
+                            src={pattern.page.imgURL} 
+                            style={{width:"405px", height:"540px"}}/>
+                          )}
+                        )}
                   </Col>
 
                   <Col size="lg-8">
