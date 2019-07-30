@@ -8,9 +8,6 @@ import fire from "../config/fire";
 import {Redirect} from "react-router-dom"
 
 
-
-
-
 class Login extends Component {
     constructor(props){
         super(props);
