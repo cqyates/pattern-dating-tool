@@ -37,7 +37,7 @@ class DropMenu extends Component {
         </Dropdown.Toggle>
         <Dropdown.Menu >
           {this.state.companies.map(company => (
-            <Dropdown.Item key={company._id} eventKey={company._id}>
+            <Dropdown.Item key={company._id} name="company" eventKey={company._id}>
               <p>{company.name}</p>
             </Dropdown.Item>
           ))}
