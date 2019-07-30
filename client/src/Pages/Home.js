@@ -17,6 +17,7 @@ class Home extends Component {
       patterns: [],
       query: "",
       validated: false,
+      src:""
     }; 
   
 

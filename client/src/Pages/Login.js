@@ -5,6 +5,7 @@ import {Form, Card, Button, Row, Col} from "react-bootstrap";
 import Wrapper from "../components/Wrapper"
 import Footer from"../components/Footer";
 import fire from "../config/fire";
+import {Redirect} from "react-router-dom"
 
 
 
@@ -18,6 +19,8 @@ class Login extends Component {
             email:"",
             password:"",
             user: {},
+            authenticated: false,
+            redirect: false
         }
     }
     componentDidMount(){
@@ -43,14 +46,16 @@ class Login extends Component {
     this.setState({ [e.target.name] : e.target.value });
     }
         render()  {
+            if (this.state.redirect === true) {
+                return <Redirect to="/Admin" />
+            }
         return(
             <div>
-                {/* {this.state.user ? <Admin /> : <Home/>} */}
                 <NavBar />
                 <Hero />
                 <Wrapper>
                 <Card style={{width:"60%", margin:"auto", padding:"20px"}}>
-                    <Form >
+                    <Form authenticated={this.state.authenticated}>
                         <Form.Group as={Row} controlId="formBasicEmail">
                             <Form.Label column sm="2">Email address</Form.Label>
                             <Col sm="10">
