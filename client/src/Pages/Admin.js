@@ -6,9 +6,6 @@ import DropMenu from "../components/DropMenu";
 import Tesseract from "tesseract.js";
 import API from "../utils/API"
 import NavBar2 from "../components/NavBar2"
-import Login from "../Pages/Login"
-import fire from "../config/fire"
-import axios from "axios";
 
 class Admin extends Component {
   
@@ -29,24 +26,8 @@ class Admin extends Component {
       //this is the result of the year selection
       year: "",
     },
-    // this will be for login
-    user: {},
-    isLoading: false,
   }
-  // This is for the admin login
-  componentDidMount(){
-    this.authListener();
-}
-    authListener() {
-    fire.auth().onAuthStateChanged((user) => {
-        if (user) {
-            this.setState({ user });
-          } else {
-            this.setState({ user: null });
-        }
-      });
-    }
-
+ 
   //this assigns a companyID number (from Mongo) when the user selects a company
   //this is passed as a prop with DropMenu.  It is called on line 141. Works
   handleCompanySelection = (companyID) => {
