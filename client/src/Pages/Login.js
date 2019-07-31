@@ -5,45 +5,47 @@ import {Form, Card, Row, Col} from "react-bootstrap";
 import Wrapper from "../components/Wrapper"
 import Footer from"../components/Footer";
 import fire from "../config/fire";
-import {Redirect} from "react-router-dom"
 
 class Login extends Component {
     constructor(props){
         super(props);
-        this.authWithEmailPassword = this.authWithEmailPassword.bind(this)
+        this.login = this.login.bind(this);
+        this.handleChange = this.handleChange.bind(this);
         this.state = {
+            email:"",
+            password:"",
+            user:{},
             redirect: false
         }
     }
-
-     authWithEmailPassword(event) {
+    login(event) {
         event.preventDefault();
-
-        const email = this.emailInput.value
-        const password = this.passwordInput.value
-
-        fire.auth().signInWithEmailAndPassword(email, password)
-        .then((user) => {
-            if (user && user.email) {
-              this.loginForm.reset()
-              this.setState({redirect: true})
-            } else {
-                this.loginForm.reset()
-              }
-        })
-        .catch((error) => {
-        console.log(error.message)
-        return error.message
+        fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u) => {     
+        }).catch((error) => {
+            console.log(error);
         })
     }
+     handleChange(event) {
+         this.setState({ [event.target.name]: event.target.value });
+     }
+     componentDidMount(){
+        this.authListener();
+        }
+        authListener() {
+            fire.auth().onAuthStateChanged((user) => {
+                if (user) {
+                    this.setState({ user });
+                  } else {
+                    this.setState({ user: null });
+                }
+              });
+        }
+    
 
         render() {
-         
-            if (this.state.redirect === true) {
-                 return <Redirect to={"/admin"} />
-             }
         return(
             <div>
+    
                 <NavBar />
                 <Hero />
                 <Wrapper>
@@ -53,11 +55,10 @@ class Login extends Component {
                             <Form.Label column sm="2">Email address</Form.Label>
                             <Col sm="10">
                             <Form.Control 
-                            ref={(input) => { this.emailInput = input }}
                             type="email" 
                             placeholder="Enter email"
-                            // value={this.state.email}
-                            // onChange={this.handleChange}
+                            value={this.state.email}
+                           onChange={this.handleChange}
                             name="email"
                             />
                             </Col>
@@ -70,10 +71,9 @@ class Login extends Component {
                             required
                             type="text" 
                             name="password"                     
-                            placeholder="Password" 
-                            ref={(input) => { this.passwordInput = input }}
-                            // value={this.state.password}
-                            // onChange={this.handleChange}
+                            placeholder="Password"                            
+                            value={this.state.password}
+                            onChange={this.handleChange}
                             />
                             <Form.Control.Feedback type="invalid">
                                 Password incorrect
@@ -84,9 +84,7 @@ class Login extends Component {
                         style={{margin:"auto", backgroundColor:"#c2e5fc"}}
                         // variant="primary" 
                         type="submit" 
-                        value="Log In"
-                        onSubmit={(event) => {this.authWithEmailPassword(event) }} ref={(form) => {this.loginForm = form}}>
-                        {/* onClick={() => {this.authWithEmailPassword()}}> */}
+                        onClick={this.login}>
                         </Form.Control> 
                          
                     </Form>             

@@ -7,8 +7,7 @@ import DropMenu from "../components/DropMenu";
 import Tesseract from "tesseract.js";
 import API from "../utils/API"
 import NavBar2 from "../components/NavBar2"
-import Login from "../Pages/Login"
-import fire from "../config/fire"
+
 
 class Admin extends Component {
   
@@ -29,23 +28,9 @@ class Admin extends Component {
       //this is the result of the year selection
       year: "",
     },
-    // this will be for login
-    user: {},
-  }
-  // This is for the admin login
-  componentDidMount(){
-    this.authListener();
-}
-    authListener() {
-    fire.auth().onAuthStateChanged((user) => {
-        if (user) {
-            this.setState({ user });
-          } else {
-            this.setState({ user: null });
-        }
-      });
-    }
 
+  }
+ 
   //this assigns a companyID number (from Mongo) when the user selects a company
   //this is passed as a prop with DropMenu.  It is called on line 141. Works
   handleCompanySelection = (companyID) => {
@@ -167,7 +152,7 @@ class Admin extends Component {
     return (
       <div>
         {/* This line will only send user to login page if they are signed in */}
-         {this.state.user ? (<Admin />) : (<Login />)} 
+         {/* {this.state.user ? (<Admin />) : (<Login />)}  */}
         <NavBar2 />
         <Hero />
         <Row style={{marginTop: "20px", marginRight:"20px", marginLeft:"20px"}}>
