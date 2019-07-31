@@ -22,14 +22,13 @@ class Login extends Component {
         const email = this.emailInput.value
         const password = this.passwordInput.value
 
-        fire.auth().fetchProvidersForEmail(email)
+        fire.auth().signInWithEmailAndPassword(email, password)
         .then((user) => {
             if (user && user.email) {
               this.loginForm.reset()
               this.setState({redirect: true})
             } else {
-                // sign user in
-                return fire.auth().signInWithEmailAndPassword(email, password)
+                this.loginForm.reset()
               }
         })
         .catch((error) => {
@@ -39,18 +38,17 @@ class Login extends Component {
     }
 
         render() {
-        
+         
             if (this.state.redirect === true) {
-                return <Redirect to={"/admin"} />
-            }
+                 return <Redirect to={"/admin"} />
+             }
         return(
             <div>
                 <NavBar />
                 <Hero />
                 <Wrapper>
                 <Card style={{width:"60%", margin:"auto", padding:"20px", borderColor:"#758696"}}>
-                    <Form onSubmit={(event) => {this.authWithEmailPassword(event)}} 
-                    ref={(form) => { this.loginForm = form}}>
+                    <Form>
                         <Form.Group as={Row}>
                             <Form.Label column sm="2">Email address</Form.Label>
                             <Col sm="10">
@@ -85,7 +83,10 @@ class Login extends Component {
                         <Form.Control 
                         style={{margin:"auto", backgroundColor:"#c2e5fc"}}
                         // variant="primary" 
-                        type="submit" value="Log In">
+                        type="submit" 
+                        value="Log In"
+                        onSubmit={(event) => {this.authWithEmailPassword(event) }} ref={(form) => {this.loginForm = form}}>
+                        {/* onClick={() => {this.authWithEmailPassword()}}> */}
                         </Form.Control> 
                          
                     </Form>             
