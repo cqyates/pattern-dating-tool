@@ -6,6 +6,7 @@ import DropMenu from "../components/DropMenu";
 import Tesseract from "tesseract.js";
 import API from "../utils/API"
 import NavBar2 from "../components/NavBar2"
+import axios from "axios"
 
 class Admin extends Component {
   
