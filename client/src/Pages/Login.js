@@ -10,7 +10,7 @@ import fire from "../config/fire";
 class Login extends Component {
     constructor(props){
         super(props);
-        this.login = this.login.bind(this);
+        this.handleSumbit = this.handleSumbit.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.state = {
             email:"",
@@ -21,17 +21,11 @@ class Login extends Component {
         this.setState({[e.target.name]: e.target.value})
     }
 
-    login(event) {
-        event.preventDefault();
-        fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
-        .then(res => { 
-            const userEmail = res.data;
-            const userPassword = res.data;
-            console.log(userEmail, userPassword)
-            this.setState({email:userEmail, password:userPassword})  
-        }).catch(error => console.log(error))
+    handleSumbit(e) {
+        e.preventDefault();
+        console.log(this.state)
+    
     }
-
         render() {
 
         return(
@@ -41,7 +35,7 @@ class Login extends Component {
                 <Hero />
                 <Wrapper>
                 <Card style={{width:"60%", margin:"auto", padding:"20px", borderColor:"#758696"}}>
-                    <Form>
+                    <Form onSubmit={this.handleSumbit}>
                         <Form.Group as={Row}>
                             <Form.Label column sm="3">Email address</Form.Label>
                             <Col sm="9">
@@ -75,8 +69,7 @@ class Login extends Component {
                         style={{margin:"auto", backgroundColor:"#c2e5fc"}}
                         // variant="primary" 
                         type="submit" 
-                        value="Submit"
-                        onClick={this.login}>
+                        value="Submit">
                         </Form.Control> 
                          
                     </Form>             
