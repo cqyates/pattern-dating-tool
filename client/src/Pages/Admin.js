@@ -163,7 +163,7 @@ class Admin extends Component {
     return (
       <div>
         {/* This line will only send user to login page if they are signed in */}
-         {/* {this.state.user ? (<Admin />) : (<Login />)}  */}
+       {/* {this.state.user ? (<Admin />) : (<Login />)}  */}
         <NavBar2 />
         <Hero />
         <Row style={{ marginTop: "20px", marginRight: "20px", marginLeft: "20px" }}>
