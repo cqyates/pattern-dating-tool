@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+// import {Redirect } from 'react-router-dom';
 import NavBar from "../components/NavBar";
 import Hero from "../components/Hero";
 import {Form, Card, Row, Col} from "react-bootstrap";
@@ -13,19 +14,23 @@ class Login extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.state = {
             email:"",
-            password:""
+            password:"",
         }
     }
+    handleChange(e) {
+        this.setState({[e.target.name]: e.target.value})
+    }
+
     login(event) {
         event.preventDefault();
-        fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u) => {     
-        }).catch((error) => {
-            console.log(error);
-        })
+        fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+        .then(res => { 
+            const userEmail = res.data;
+            const userPassword = res.data;
+            console.log(userEmail, userPassword)
+            this.setState({email:userEmail, password:userPassword})  
+        }).catch(error => console.log(error))
     }
-     handleChange(e) {
-         this.setState({ [e.target.name]: e.target.value });
-     }
 
         render() {
 
@@ -38,8 +43,8 @@ class Login extends Component {
                 <Card style={{width:"60%", margin:"auto", padding:"20px", borderColor:"#758696"}}>
                     <Form>
                         <Form.Group as={Row}>
-                            <Form.Label column sm="2">Email address</Form.Label>
-                            <Col sm="10">
+                            <Form.Label column sm="3">Email address</Form.Label>
+                            <Col sm="9">
                             <Form.Control 
                             type="email" 
                             placeholder="Enter email"
@@ -51,11 +56,11 @@ class Login extends Component {
                         </Form.Group>
 
                         <Form.Group as={Row}>
-                            <Form.Label column sm="2">Password</Form.Label>
-                            <Col sm="10">
+                            <Form.Label column sm="3">Password</Form.Label>
+                            <Col sm="9">
                             <Form.Control 
                             required
-                            type="text" 
+                            type="password" 
                             name="password"                     
                             placeholder="Password"                            
                             value={this.state.password}
@@ -70,6 +75,7 @@ class Login extends Component {
                         style={{margin:"auto", backgroundColor:"#c2e5fc"}}
                         // variant="primary" 
                         type="submit" 
+                        value="Submit"
                         onClick={this.login}>
                         </Form.Control> 
                          
