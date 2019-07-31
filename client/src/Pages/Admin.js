@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import Input from "../components/Input";
 import Hero from "../components/Hero"
-import { Form, Container, Row, Card, Table} from "react-bootstrap";
+import { Form, Container, Row, Card, Table, ProgressBar } from "react-bootstrap";
 import DropMenu from "../components/DropMenu";
 import Tesseract from "tesseract.js";
 import API from "../utils/API"
 import NavBar2 from "../components/NavBar2"
 import Login from "../Pages/Login"
 import fire from "../config/fire"
+import axios from "axios";
 
 class Admin extends Component {
   
@@ -33,18 +34,18 @@ class Admin extends Component {
     isLoading: false,
   }
   // This is for the admin login
-//   componentDidMount(){
-//     this.authListener();
-// }
-//     authListener() {
-//     fire.auth().onAuthStateChanged((user) => {
-//         if (user) {
-//             this.setState({ user });
-//           } else {
-//             this.setState({ user: null });
-//         }
-//       });
-//     }
+  componentDidMount(){
+    this.authListener();
+}
+    authListener() {
+    fire.auth().onAuthStateChanged((user) => {
+        if (user) {
+            this.setState({ user });
+          } else {
+            this.setState({ user: null });
+        }
+      });
+    }
 
   //this assigns a companyID number (from Mongo) when the user selects a company
   //this is passed as a prop with DropMenu.  It is called on line 141. Works
@@ -116,29 +117,40 @@ class Admin extends Component {
   APIuploadPhoto = async () => {
     try {
       const textGeneration = await this.generateText()
+      .progress(progress => {
+        this.setState({
+          now: Math.floor(progress.progress * 100)
+        })
+      })
 
       let pattern = /\b\d{4}\b/g
       let patterns = textGeneration.text.match(pattern);
       console.log(patterns)
 
-      // this.setState({
-      //   patterns: this.state.patterns.concat(patterns),
-      //   documents: this.state.documents.concat({
-      //     pattern: patterns
-      //   })
-      // }, async () => {
-      //
+      const {data:filePath} = await axios({
+        method: "POST",
+        url: "/api/imgupload",
+        data: this.state.imgData
+      })
+      console.log(filePath)
 
       var catalogData = {
         companyId: this.state.catalog.companyID,
         year: this.state.catalog.year,
         season: this.state.catalog.season,
       }
-
       const catResp = await API.postCat(catalogData);
-      //  console.log(imgResp);
-      console.log(catResp);
-      //})
+      
+      var pageData = {
+        imgURL: filePath,
+        patterns: patterns,
+        catalog: catResp._id,
+      }
+      const pageResp = await API.postPage(pageData);
+    
+      this.setState({
+        pattern: patterns
+    })
     }
     catch (error) {
       console.log(error.message)
@@ -204,7 +216,8 @@ class Admin extends Component {
                     <td>{this.state.catalog.companyID}</td>
                     <td>{this.state.catalog.season}</td>
                     <td>{this.state.catalog.year}</td>
-                    <td>add spinner</td>
+                    <td><ProgressBar now={this.state.now} label={`${this.state.now}%`} /></td>
+                    <td>add upload button</td>
                   </tr>
                 </tbody>
               </Table>

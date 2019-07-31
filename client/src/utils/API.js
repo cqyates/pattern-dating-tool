@@ -15,11 +15,6 @@ export default {
             return error;
         };
     },
-
-    // Gets the pattern with the given patternNumber
-    // searchPattern: function(query) {
-    //     return axios.get("/api/pattern/" + query);
-    // },
     searchPattern: async function (query) {
         try {
             const response = await axios({
@@ -32,14 +27,12 @@ export default {
             return error;
         };
     },
-    //this API call works I am getting the req.body object coming through on the routes page.
     postCat: async function (data) {
         const response = await axios({
             method: "POST",
             url: "/api/catupload",
             data
         })
-        console.log(response);
         return response;
     },
     sendImage: async function (data) {
@@ -50,5 +43,13 @@ export default {
         })
         console.log(imgResp);
         return imgResp;
-    }
+    },
+    postPage: async function (data) {
+        const response = await axios({
+            method: "POST",
+            url: "/api/pgupload",
+            data
+        })
+        return response;
+    },
 }
