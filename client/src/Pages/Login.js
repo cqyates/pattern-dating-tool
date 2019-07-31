@@ -13,9 +13,7 @@ class Login extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.state = {
             email:"",
-            password:"",
-            user:{},
-            redirect: false
+            password:""
         }
     }
     login(event) {
@@ -25,22 +23,9 @@ class Login extends Component {
             console.log(error);
         })
     }
-     handleChange(event) {
-         this.setState({ [event.target.name]: event.target.value });
+     handleChange(e) {
+         this.setState({ [e.target.name]: e.target.value });
      }
-     componentDidMount(){
-        this.authListener();
-        }
-        authListener() {
-            fire.auth().onAuthStateChanged((user) => {
-                if (user) {
-                    this.setState({ user });
-                  } else {
-                    this.setState({ user: null });
-                }
-              });
-        }
-    
 
         render() {
 
@@ -59,7 +44,7 @@ class Login extends Component {
                             type="email" 
                             placeholder="Enter email"
                             value={this.state.email}
-                           onChange={this.handleChange}
+                            onChange={this.handleChange}
                             name="email"
                             />
                             </Col>
