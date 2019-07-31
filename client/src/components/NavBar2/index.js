@@ -2,7 +2,7 @@
 import React, {Component} from "react";
 import {Navbar, Nav, Button} from "react-bootstrap";
 import "./style.css";
-import fire from "../../config/fire"
+
  
 class NavBar2 extends Component {
  
@@ -13,7 +13,7 @@ class NavBar2 extends Component {
         <Nav className="mr-auto">
           <div>
           <Button>
-            <a className="logoutBtn" href="/">Logout</a>
+            <a className="logoutBtn" rel="noopener noreferrer" href="/">Logout</a>
           </Button>
           </div>
         </Nav>
