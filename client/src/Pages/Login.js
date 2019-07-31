@@ -8,36 +8,34 @@ import Footer from"../components/Footer";
 import fire from "../config/fire";
 
 class Login extends Component {
-    constructor(props){
-        super(props);
-        this.handleSumbit = this.handleSumbit.bind(this);
-        this.handleChange = this.handleChange.bind(this);
-        this.state = {
-            email:"",
-            password:"",
-        }
-    }
-    handleChange(e) {
-        this.setState({[e.target.name]: e.target.value})
-    }
 
-    handleSumbit(e) {
-        e.preventDefault();
-        console.log(this.state)
+        // this.handleSumbit = this.handleSumbit.bind(this);
+        // this.handleChange = this.handleChange.bind(this);
+        // this.state = {
+        //     email:"",
+        //     password:"",
+   
+    // handleChange(e) {
+    //     this.setState({[e.target.name]: e.target.value})
+    // }
+
+    // handleSumbit(e) {
+    //     e.preventDefault();
+    //     console.log(this.state)
     
-        fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
-        .catch(function(error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            if (errorCode === 'auth/wrong-password') {
-                alert('Wrong password.');
-            } else {
-                alert(errorMessage);
-            }
-            console.log(error);
-        });
-    }
+    //     fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+    //     .catch(function(error) {
+    //         // Handle Errors here.
+    //         var errorCode = error.code;
+    //         var errorMessage = error.message;
+    //         if (errorCode === 'auth/wrong-password') {
+    //             alert('Wrong password.');
+    //         } else {
+    //             alert(errorMessage);
+    //         }
+    //         console.log(error);
+    //     });
+    // }
         render() {
 
         return(
@@ -47,15 +45,15 @@ class Login extends Component {
                 <Hero />
                 <Wrapper>
                 <Card style={{width:"60%", margin:"auto", padding:"20px", borderColor:"#758696"}}>
-                    <Form onSubmit={this.handleSumbit}>
+                    <Form onSubmit={this.props.handleSumbit}>
                         <Form.Group as={Row}>
                             <Form.Label column sm="3">Email address</Form.Label>
                             <Col sm="9">
                             <Form.Control 
                             type="email" 
                             placeholder="Enter email"
-                            value={this.state.email}
-                            onChange={this.handleChange}
+                            value={this.props.email}
+                            onChange={this.props.handleChange}
                             name="email"
                             />
                             </Col>
@@ -69,8 +67,8 @@ class Login extends Component {
                             type="password" 
                             name="password"                     
                             placeholder="Password"                            
-                            value={this.state.password}
-                            onChange={this.handleChange}
+                            value={this.props.password}
+                            onChange={this.props.handleChange}
                             />
                             <Form.Control.Feedback type="invalid">
                                 Password incorrect
