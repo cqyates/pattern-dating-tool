@@ -1,6 +1,12 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Pattern Dating Tool
+<!-- add the Heroku link here -->
 
-## Available Scripts
+![Homepage](./utils/homepage.png) ![Video Demo](https://drive.google.com/file/d/1GGHNVZ8jsysYLIQUcp6hb7su66O6P3PR/view)
+
+## Overview 
+Pattern Dating Tool is a React Application made with Node and Express Web Servers while backed with MongoDB.  The purpose is to allow any user to search the Pattern Catalog database by company and pattern number then view an image of the catalog page.   
+
+![Image of Catalog Page](./utils/readme-pic.jpg)
 
 In the project directory, you can run:
 
