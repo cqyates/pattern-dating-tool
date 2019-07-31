@@ -25,11 +25,9 @@ h1{
     /* box-shadow: 10px 10px 5px grey; */
     background-color: white;
 }
-
-.fas{
-    margin-left: 40px;
-    margin-right: 40px;
+.logout{
     color:  #758696;
-    /* text-shadow: 3px 2px #e4e8eb; */
-    
+    font-family: 'Open Sans', sans-serif;
+    border-color: #758696;
 }
+

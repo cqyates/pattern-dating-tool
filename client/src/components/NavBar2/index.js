@@ -19,7 +19,9 @@ class NavBar2 extends Component {
         <Navbar className="NavBar" bg="white" variant="light">
         <Nav className="mr-auto">
           <div>
-          <Button onclick={this.logout}>Logout</Button>
+          <Button onclick={this.logout}>
+          <a className="logout"href="/">Logout</a>
+          </Button>
           </div>
         </Nav>
         <h1>Vintage4Me2</h1>
