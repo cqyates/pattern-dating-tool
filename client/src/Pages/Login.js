@@ -1,15 +1,11 @@
 import React, {Component} from "react";
 import NavBar from "../components/NavBar";
 import Hero from "../components/Hero";
-import {Form, Card, Button, Row, Col} from "react-bootstrap";
+import {Form, Card, Row, Col} from "react-bootstrap";
 import Wrapper from "../components/Wrapper"
 import Footer from"../components/Footer";
 import fire from "../config/fire";
 import {Redirect} from "react-router-dom"
-
-
-
-
 
 class Login extends Component {
     constructor(props){
@@ -26,17 +22,19 @@ class Login extends Component {
         const email = this.emailInput.value
         const password = this.passwordInput.value
 
-        fire.auth().signInWithEmailAndPassword(email, password) 
+        fire.auth().fetchProvidersForEmail(email)
         .then((user) => {
             if (user && user.email) {
-            this.loginForm.reset()
-            // this.props.setCurrentUser(user)
-            this.setState({redirect: true})
-        }
+              this.loginForm.reset()
+              this.setState({redirect: true})
+            } else {
+                // sign user in
+                return fire.auth().signInWithEmailAndPassword(email, password)
+              }
         })
         .catch((error) => {
-            console.log(error.message)
-            return error.message
+        console.log(error.message)
+        return error.message
         })
     }
 
