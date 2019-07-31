@@ -4,8 +4,13 @@ import Hero from "../components/Hero"
 import { Form, Container, Row, Card, Table, ProgressBar } from "react-bootstrap";
 import DropMenu from "../components/DropMenu";
 import Tesseract from "tesseract.js";
+<<<<<<< HEAD
 import API from "../utils/API";
 import NavBar2 from "../components/NavBar2";
+=======
+import API from "../utils/API"
+import NavBar2 from "../components/NavBar2"
+>>>>>>> 2a447d0f364bf0b4801715150b8e223337ad6ce5
 import axios from "axios"
 
 class Admin extends Component {
@@ -145,7 +150,6 @@ class Admin extends Component {
     return (
       <div>
         {/* This line will only send user to login page if they are signed in */}
-         {/* {this.state.user ? (<Admin />) : (<Login />)}  */}
         <NavBar2 />
         <Hero />
         <Row style={{ marginTop: "20px", marginRight: "20px", marginLeft: "20px" }}>
