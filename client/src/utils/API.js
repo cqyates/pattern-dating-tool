@@ -15,11 +15,6 @@ export default {
             return error;
         };
     },
-
-    // Gets the pattern with the given patternNumber
-    // searchPattern: function(query) {
-    //     return axios.get("/api/pattern/" + query);
-    // },
     searchPattern: async function (query) {
         try {
             const response = await axios({
@@ -32,20 +27,29 @@ export default {
             return error;
         };
     },
-
-    // this function should be passing the state from the Admin.js page to the backend so it can be added to the database
-    //It is not currently working probably because I am passing the data wrong, saving for tutorial tomorrow
+    postCat: async function (data) {
+        const response = await axios({
+            method: "POST",
+            url: "/api/catupload",
+            data
+        })
+        return response;
+    },
+    sendImage: async function (data) {
+        const imgResp = await axios({
+            method: "POST",
+            url: "/api/imgupload",
+            data
+        })
+        console.log(imgResp);
+        return imgResp;
+    },
     postPage: async function (data) {
-        try {
-            const response = await axios({
-                method: "POST",
-                url: "/api/pgupload",
-                data
-            })
-            console.log(response);
-            return response;
-        } catch (error) {
-            console.log(error.message)
-        }
-    }
+        const response = await axios({
+            method: "POST",
+            url: "/api/pgupload",
+            data
+        })
+        return response;
+    },
 }

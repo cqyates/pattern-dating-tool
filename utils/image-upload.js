@@ -3,8 +3,8 @@ require('dotenv').config();
 const multer = require("multer");
 const fs = require("fs");
 const AWS = require("aws-sdk");
-const sharp = require("sharp");
-const db = require("../models")
+// const sharp = require("sharp");
+// const db = require("../models")
 
 
 AWS.config.update({
@@ -39,7 +39,7 @@ const upload = multer({
   }
 })
 //This is the upload to AWS.  This is called on the routes page
-const uploadAWS = async (file, res, cb) => {
+const uploadAWS = async (file, res, cb, errCB) => {
   try {
     fs.readFile(file.path, function (err, data) {
       params = { Bucket: myBucket, Key: `${file.originalname}`, Body: data }
@@ -47,26 +47,26 @@ const uploadAWS = async (file, res, cb) => {
 
         if (err) {
 
-          console.log(err)
+          errCB(err)
 
         } else {
-          const filePath = `https://${myBucket}.s3.us-east-2.amazonaws.com/${file.originalname}`
-          console.log(filePath)
+          const filePath = data.Location
 
-          
+          cb(filePath)
+
         }
 
       })
 
     })
   }
-    catch {
-      console.log("try function failed")
-    }
+  catch {
+   errCB(err)
   }
+}
 
 
 module.exports = {
-    upload,
-    uploadAWS
-  };
+  upload,
+  uploadAWS
+};
