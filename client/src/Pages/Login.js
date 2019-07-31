@@ -40,7 +40,6 @@ class Login extends Component {
                 }
               });
         }
-    
 
         render() {
 
@@ -53,8 +52,8 @@ class Login extends Component {
                 <Card style={{width:"60%", margin:"auto", padding:"20px", borderColor:"#758696"}}>
                     <Form>
                         <Form.Group as={Row}>
-                            <Form.Label column sm="2">Email address</Form.Label>
-                            <Col sm="10">
+                            <Form.Label column sm="3">Email address</Form.Label>
+                            <Col sm="9">
                             <Form.Control 
                             type="email" 
                             placeholder="Enter email"
@@ -66,8 +65,8 @@ class Login extends Component {
                         </Form.Group>
 
                         <Form.Group as={Row}>
-                            <Form.Label column sm="2">Password</Form.Label>
-                            <Col sm="10">
+                            <Form.Label column sm="3">Password</Form.Label>
+                            <Col sm="9">
                             <Form.Control 
                             required
                             type="text" 
