@@ -13,7 +13,7 @@ class NavBar2 extends Component {
         <Nav className="mr-auto">
           <div>
           <Button>
-            <a href="/">Logout</a>
+            <a className="logoutBtn" href="/">Logout</a>
           </Button>
           </div>
         </Nav>
