@@ -11,7 +11,7 @@ import "./style.css";
 
         <Nav className="mr-auto">
           <div>
-            <a target="_blank" href="/">
+            <a rel="noopener noreferrer" href="/">
               <i className="fas fa-home"></i>
             </a>
       
@@ -19,7 +19,7 @@ import "./style.css";
               <i className="fas fa-shopping-cart"></i>
             </a>
             
-            <a target="_blank" href="/login">
+            <a rel="noopener noreferrer" href="/login">
               <i className="fas fa-lock"></i>
             </a>
           </div>
