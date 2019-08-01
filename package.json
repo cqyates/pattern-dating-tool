@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "a MERN Stack Application",
   "main": "server.js",
+  "engines": {
+    "node": "11.14.0",
+    "npm": "6.10.0"
+  },
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
@@ -32,6 +36,6 @@
     "nodemon": "^1.19.1",
     "react-router": "^5.0.1",
     "sharp": "^0.22.1",
-    "tesseract.js": "^2.0.0"
+    "tesseract.js": "^2.0.0-alpha.13"
   }
 }
