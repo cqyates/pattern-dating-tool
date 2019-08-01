@@ -1,14 +1,10 @@
 {
   "name": "pattern-dating-tool",
-<<<<<<< HEAD
-  "version": "1.0.0",
-=======
   "version": "0.1.0",
   "engines": {
-    "node": "11.14.0",
-    "npm": "6.10.0"
+    "node": "11.9.0",
+    "npm": "6.9.2"
   },
->>>>>>> e7ab1e2f907bab038f439df20fead7febe0f244e
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
