@@ -13,16 +13,8 @@
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/cqyates/pattern-dating-tool.git"
-  },
   "author": "Corey Yates",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cqyates/pattern-dating-tool/issues"
-  },
-  "homepage": "https://github.com/cqyates/pattern-dating-tool#readme",
   "dependencies": {
     "aws-sdk": "^2.493.0",
     "axios": "^0.19.0",
@@ -40,6 +32,6 @@
     "nodemon": "^1.19.1",
     "react-router": "^5.0.1",
     "sharp": "^0.22.1",
-    "tesseract.js": "^2.0.0-alpha.11",
+    "tesseract.js": "^2.0.0"
   }
 }
