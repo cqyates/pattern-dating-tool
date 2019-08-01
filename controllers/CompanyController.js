@@ -2,6 +2,6 @@ const db = require("../models");
 
 module.exports = {
   findAll: function() {
-   return db.Company.find({})  
+   return db.Company.find({}).populate('catalog')
   }
 }
