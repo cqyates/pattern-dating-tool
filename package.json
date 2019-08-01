@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "a MERN Stack Application",
   "main": "server.js",
-  "engines": {
-    "node": "11.9.0"
-  },
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
@@ -18,9 +15,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cqyates/pattern-dating-tool.git"
+    "url": "https://github.com/cqyates/pattern-dating-tool.git"
   },
-  "author": "",
+  "author": "Corey Yates",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/cqyates/pattern-dating-tool/issues"
