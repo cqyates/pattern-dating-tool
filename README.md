@@ -4,7 +4,7 @@
 ## Demo
 ![Giphy Demo](./utils/Demo.gif)
 
-https://git.heroku.com/pattern-dating-tool.gi
+https://pattern-dating-tool.herokuapp.com/
 
 ## Development
 Pattern Dating Tool is a React Application made with Node and Express Web Servers while backed with MongoDB.  The purpose is to allow any user to search the Pattern Catalog database by company and pattern number and as a result, an image is rendered to the page.  
