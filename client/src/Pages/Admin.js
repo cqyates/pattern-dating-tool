@@ -217,7 +217,6 @@ class Admin extends Component {
                     <td>{this.state.catalog.season}</td>
                     <td>{this.state.catalog.year}</td>
                     <td><ProgressBar now={this.state.now} label={`${this.state.now}%`} /></td>
-                    <td>add upload button</td>
                   </tr>
                 </tbody>
               </Table>
