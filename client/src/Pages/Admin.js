@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import Input from "../components/Input";
 import Hero from "../components/Hero"
-import { Form, Container, Row, Card, Table } from "react-bootstrap";
+import { Form, Container, Row, Card, Table, ProgressBar } from "react-bootstrap";
 import DropMenu from "../components/DropMenu";
 import Tesseract from "tesseract.js";
 import API from "../utils/API"
 import NavBar2 from "../components/NavBar2"
-import axios from "axios"
+import Login from "../Pages/Login"
+import fire from "../config/fire"
+import axios from "axios";
 
 class Admin extends Component {
   
@@ -16,7 +18,7 @@ class Admin extends Component {
     //this is the image as data
     imgData: [],
     //This is for tesseract
-    // documents: [],
+    documents: [],
     //this is the result of the regex
     patterns: [],
     catalog: {
@@ -27,8 +29,24 @@ class Admin extends Component {
       //this is the result of the year selection
       year: "",
     },
+    // this will be for login
+    user: {},
+    isLoading: false,
   }
- 
+  // This is for the admin login
+  componentDidMount(){
+    this.authListener();
+}
+    authListener() {
+    fire.auth().onAuthStateChanged((user) => {
+        if (user) {
+            this.setState({ user });
+          } else {
+            this.setState({ user: null });
+        }
+      });
+    }
+
   //this assigns a companyID number (from Mongo) when the user selects a company
   //this is passed as a prop with DropMenu.  It is called on line 141. Works
   handleCompanySelection = (companyID) => {
@@ -145,6 +163,7 @@ class Admin extends Component {
     return (
       <div>
         {/* This line will only send user to login page if they are signed in */}
+         {/* {this.state.user ? (<Admin />) : (<Login />)}  */}
         <NavBar2 />
         <Hero />
         <Row style={{ marginTop: "20px", marginRight: "20px", marginLeft: "20px" }}>
@@ -175,10 +194,8 @@ class Admin extends Component {
               </label>
               <button onClick={this.APIuploadPhoto}
                   className="button"
-                  style={{ topMargin: "10px" }}>Start Uploading</button> 
-                  {/* <ProgressBar now={this.state.now} label={`${this.state.now}%`} /> */}
+                  style={{ topMargin: "10px" }}>Start Uploading</button>
             </section>
-           
             </Card>
           </Container>
         </Row>
@@ -199,7 +216,8 @@ class Admin extends Component {
                     <td>{this.state.catalog.companyID}</td>
                     <td>{this.state.catalog.season}</td>
                     <td>{this.state.catalog.year}</td>
-                  {/* <td>add map function here for pattern results</td> */}
+                    <td><ProgressBar now={this.state.now} label={`${this.state.now}%`} /></td>
+                    <td>add upload button</td>
                   </tr>
                 </tbody>
               </Table>
