@@ -1,6 +1,14 @@
 {
   "name": "pattern-dating-tool",
+<<<<<<< HEAD
   "version": "1.0.0",
+=======
+  "version": "0.1.0",
+  "engines": {
+    "node": "11.14.0",
+    "npm": "6.10.0"
+  },
+>>>>>>> e7ab1e2f907bab038f439df20fead7febe0f244e
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
@@ -15,7 +23,7 @@
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
-    "tesseract.js": "^1.0.19"
+    "tesseract.js": "^2.0.0-alpha.13"
   },
   "scripts": {
     "start": "react-scripts start",
