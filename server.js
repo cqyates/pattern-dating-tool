@@ -4,6 +4,7 @@ require('dotenv').config();
 //High Level Dependencies
 const express = require("express");
 const mongoose = require("mongoose");
+const path = require("path")
 
 // add CORS to our API to allow cross-origin requests. 
 const cors = require("cors");
@@ -19,6 +20,11 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+
 // Add routes, both API and view
 const routes = require("./routes/apiRoutes");
 app.use(routes);
