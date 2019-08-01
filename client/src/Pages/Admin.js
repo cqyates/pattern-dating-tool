@@ -1,16 +1,11 @@
 import React, { Component } from "react";
 import Input from "../components/Input";
 import Hero from "../components/Hero"
-import { Form, Container, Row, Card, Table, ProgressBar } from "react-bootstrap";
+import { Form, Container, Row, Card, Table } from "react-bootstrap";
 import DropMenu from "../components/DropMenu";
 import Tesseract from "tesseract.js";
-<<<<<<< HEAD
-import API from "../utils/API";
-import NavBar2 from "../components/NavBar2";
-=======
 import API from "../utils/API"
 import NavBar2 from "../components/NavBar2"
->>>>>>> 2a447d0f364bf0b4801715150b8e223337ad6ce5
 import axios from "axios"
 
 class Admin extends Component {
@@ -21,7 +16,7 @@ class Admin extends Component {
     //this is the image as data
     imgData: [],
     //This is for tesseract
-    documents: [],
+    // documents: [],
     //this is the result of the regex
     patterns: [],
     catalog: {
@@ -180,8 +175,10 @@ class Admin extends Component {
               </label>
               <button onClick={this.APIuploadPhoto}
                   className="button"
-                  style={{ topMargin: "10px" }}>Start Uploading</button>
+                  style={{ topMargin: "10px" }}>Start Uploading</button> 
+                  {/* <ProgressBar now={this.state.now} label={`${this.state.now}%`} /> */}
             </section>
+           
             </Card>
           </Container>
         </Row>
@@ -202,8 +199,7 @@ class Admin extends Component {
                     <td>{this.state.catalog.companyID}</td>
                     <td>{this.state.catalog.season}</td>
                     <td>{this.state.catalog.year}</td>
-                    <td><ProgressBar now={this.state.now} label={`${this.state.now}%`} /></td>
-                    <td>add upload button</td>
+                  {/* <td>add map function here for pattern results</td> */}
                   </tr>
                 </tbody>
               </Table>
