@@ -1,74 +1,55 @@
-# Pattern Dating Tool
+ # **Pattern Dating Tool**  ![V4M2](./utils/v4m2.jpg)
+
+
+## Demo
+![Giphy Demo](./utils/Demo.gif)
 <!-- add the Heroku link here -->
 
-![Homepage](./utils/homepage.png) ![Video Demo](https://drive.google.com/file/d/1GGHNVZ8jsysYLIQUcp6hb7su66O6P3PR/view)
-
-## Overview 
-Pattern Dating Tool is a React Application made with Node and Express Web Servers while backed with MongoDB.  The purpose is to allow any user to search the Pattern Catalog database by company and pattern number then view an image of the catalog page.   
+## Development
+Pattern Dating Tool is a React Application made with Node and Express Web Servers while backed with MongoDB.  The purpose is to allow any user to search the Pattern Catalog database by company and pattern number and as a result, an image is rendered to the page.  
 
 ![Image of Catalog Page](./utils/readme-pic.jpg)
 
-In the project directory, you can run:
+Addionally, there is a file uploader that can only be accesed by logging into the admin page.  The uploader uses a node.js middleware called Multer to upload PDF files of catalog pages to the MongoDB server.  The upload requires admin to input specific fields so that each document added refences all collections in the database.
 
-### `npm start`
+Then Tesseract, an OCR engine, extracts the 4 digit pattern number from the uploaded file which becomes referenced by the user when searching for patterns. 
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Finally, all PDF files are converted into images with an URL through the use of AWS and S3 Bucket.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Credits
 
-### `npm test`
+* Amazon Web Services
+* Axios
+* Express
+* Firebase
+* Material-UI
+* MongoDB
+* Mongoose
+* Tesseract
+* Multer
+* React
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Collaborators
 
-### `npm run build`
+Corey Yates
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Corey](./utils/corey-pic.jpeg)
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+https://github.com/cqyates 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Whitney Crawford
 
-### `npm run eject`
+![Whitney](./utils/whitney-pic.jpeg)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+https://github.com/whitney227
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
