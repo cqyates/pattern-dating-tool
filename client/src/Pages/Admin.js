@@ -3,7 +3,7 @@ import Input from "../components/Input";
 import Hero from "../components/Hero"
 import { Form, Container, Row, Card, Table, ProgressBar } from "react-bootstrap";
 import DropMenu from "../components/DropMenu";
-import Tesseract from "tesseract.js";
+import { Tesseract } from "tesseract.js";
 import API from "../utils/API"
 import NavBar2 from "../components/NavBar2"
 // import Login from "../Pages/Login"
