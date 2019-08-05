@@ -6,7 +6,7 @@ const { Pattern, Company, Page, Catalog } = require("../models");
 
 mongoose.connect(
 	process.env.MONGODB_URI ||
-	"mongodb://localhost/CatalogDB"
+	"mongodb://cqyates@gmail.com:Moonie!4411.mlab.com:59077/heroku_chpp7971"
 );
 
 
