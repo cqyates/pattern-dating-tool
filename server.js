@@ -30,7 +30,7 @@ app.use(routes);
 
 
 // Connect to the Mongo DB 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://cqyates@gmail.com:Moonie!4411@ds359077.mlab.com:59077/heroku_chpp7971';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/CatalogDB'
 
 mongoose.connect(MONGODB_URI, {
   useCreateIndex: true,
