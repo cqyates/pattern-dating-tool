@@ -12,19 +12,19 @@ class DropMenu extends Component {
       companies: [],
     }
   }
-  //loads companies on page load. works
-  // componentDidMount() {
-  //   this.getCompanies();
-  // }
-  //calls the API call that gets all companies. works
-  // getCompanies() {
-  //   API.getCompanies()
-  //     .then(res => {
-  //       const companyList = res.data;
-  //       this.setState({ companies: companyList });
-  //     })
-  //     .catch(error => console.log(error));
-  // }
+  // loads companies on page load. works
+  componentDidMount() {
+    this.getCompanies();
+  }
+  // calls the API call that gets all companies. works
+  getCompanies() {
+    API.getCompanies()
+      .then(res => {
+        const companyList = res.data;
+        this.setState({ companies: companyList });
+      })
+      .catch(error => console.log(error));
+  }
   //FIXME want to add a place to display the company choosen.  
   render() {
     return (
