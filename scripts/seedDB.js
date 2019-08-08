@@ -1,4 +1,4 @@
-//FIXME Have Dustin look over this.  
+require('dotenv').config(); 
 
 const mongoose = require("mongoose");
 const { Types: { ObjectId } } = mongoose;
@@ -6,7 +6,7 @@ const { Pattern, Company, Page, Catalog } = require("../models");
 
 mongoose.connect(
 	process.env.MONGODB_URI ||
-	"mongodb://cqyates@gmail.com:Moonie!4411@ds359077.mlab.com:59077/heroku_chpp7971"
+	'mongodb://localhost/CatalogDB'
 );
 
 
