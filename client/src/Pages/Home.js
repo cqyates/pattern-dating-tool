@@ -97,7 +97,7 @@ class Home extends Component {
                       <Form.Group controlId="query">
                           <Form.Label>Pattern Number</Form.Label>
                           <Form.Control
-                          // type="text"
+                          type="text"
                           name="query" 
                           placeholder="XXXX"
                           required
