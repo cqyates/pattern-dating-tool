@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Input from "../components/Input";
 import Hero from "../components/Hero"
 import { Form, Container, Row, Card, Table, ProgressBar } from "react-bootstrap";
-import DropMenu from "../components/DropMenu";
+// import DropMenu from "../components/DropMenu";
 import { Tesseract } from "tesseract.js";
 import API from "../utils/API"
 import NavBar2 from "../components/NavBar2"
@@ -170,7 +170,7 @@ class Admin extends Component {
           <Container style={{ margin: "auto", width: "90%", padding: "20px" }}>
             <Card>
               <Form style={{ display: "flex", justifyContent: "center", padding: "30px" }}>
-                <DropMenu handleChange={this.handleCompanySelection} />
+                {/* <DropMenu handleChange={this.handleCompanySelection} /> */}
                 <Form.Group controlId="seasonForm.ControlSelect1" style={{ marginLeft: "10px", marginRight: "20px" }}>
                   <Form.Control as="select" style={{ borderColor: "#758696", marginLeft: "10px", marginRight: "10px" }}
                     value={this.state.season} name="season" onChange={this.handleInputChange}>
