@@ -8,7 +8,7 @@ import {Col} from "../components/Grid";
 import {Form, Row, Image, Card} from "react-bootstrap";
 import FormBtn from "../components/FormBtn";
 import API from "../utils/API";
-import DropMenu from "../components/DropMenu";
+// import DropMenu from "../components/DropMenu";
 import cover from "../images/cover.jpg";
 
 class Home extends Component {
@@ -92,7 +92,7 @@ class Home extends Component {
                       <h4>Search for a Pattern</h4>
                       <Form.Group>
                         <Form.Label>Company</Form.Label>
-                      <DropMenu handleChange={this.handleCompanySelection}/>
+                      {/* <DropMenu handleChange={this.handleCompanySelection}/> */}
                       </Form.Group>
                       <Form.Group controlId="query">
                           <Form.Label>Pattern Number</Form.Label>
