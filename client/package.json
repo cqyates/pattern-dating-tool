@@ -1,6 +1,7 @@
 {
   "name": "pattern-dating-tool",
   "version": "0.1.0",
+  "proxy": "http://localhost:3001",
   "engines": {
     "node": "11.9.0",
     "npm": "6.9.2"
